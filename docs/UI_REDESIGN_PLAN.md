@@ -339,3 +339,16 @@ Touched layouts (17 + 6 = 23):
 
 ### Backend status
 `git diff c24b909 -- '*.java'` = 9 files, sab UI-only (motion hooks + view lookups). Gradle/manifest/Firebase/ads/billing = **0 changes**.
+
+---
+
+## Phase 8 — outline rollback (v6.6)
+
+User feedback: comic ink outlines heavy lag rahe the. Is liye:
+
+- `styles.xml`: `Pin.Card` wapas hairline (`@color/pin_line`, `@dimen/pin_stroke`), `Pin.Card.Flat` stroke `0dp`.
+- Layouts: 11 jagah se `app:strokeWidth="2dp"` + `app:strokeColor="@color/pin_ink"` pairs hata diye (6 files) — `activity_selection`, `custom_dialog`, `dialog_language_selection`, `read_story`, `trim_sound_screen`, `stack_itemlayout`, plus home tiles/AI cards.
+- `bg_card_comic.xml` delete (unused).
+- Preview: ink borders hataye, face discs se black ring hataya, cards par sirf hairline.
+
+Baqi funny elements intact: Chewy titles, blush wash, tilt, wobble, confetti, emoji/googly stickers, 3D shadows.

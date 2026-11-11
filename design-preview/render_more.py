@@ -15,8 +15,9 @@ from render_mockups import (P, W, H, f, fun, text, rrect, pill, icon_circle, pas
                            PRIMARY_DARK, ACCENT_SOFT, AMBER_SOFT, LILAC_SOFT, SKY_SOFT, ROSE_SOFT)
 
 
-def comic(d, box, r=20, fill=WHITE, w=2):
-    rrect(d, box, r, fill=fill, outline=INK, width=w)
+def comic(d, box, r=20, fill=WHITE, w=1):
+    """hairline card, no heavy outline"""
+    rrect(d, box, r, fill=fill, outline=LINE, width=w)
 
 
 def backbar(d, title, sub):

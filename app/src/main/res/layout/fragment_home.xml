@@ -225,8 +225,6 @@
                     app:cardCornerRadius="@dimen/pin_radius_lg"
         app:cardElevation="6dp"
         app:rippleColor="@color/pin_primary_soft"
-                    app:strokeWidth="2dp"
-                    app:strokeColor="@color/pin_ink"
                     android:rotation="-1"
                     android:tag="float wobble"
                 >
@@ -291,8 +289,6 @@
                     app:cardCornerRadius="@dimen/pin_radius_lg"
         app:cardElevation="6dp"
         app:rippleColor="@color/pin_primary_soft"
-                    app:strokeWidth="2dp"
-                    app:strokeColor="@color/pin_ink"
                     android:rotation="1"
                     android:tag="float wobble"
                 >
@@ -393,8 +389,6 @@
                         app:cardBackgroundColor="@color/pin_lilac_soft"
         app:cardElevation="6dp"
         app:rippleColor="@color/pin_primary_soft"
-                        app:strokeWidth="2dp"
-                        app:strokeColor="@color/pin_ink"
                         android:rotation="-1.4"
                         android:tag="float_late wobble"
                     >
@@ -436,8 +430,6 @@
                         app:cardBackgroundColor="@color/pin_amber_soft"
         app:cardElevation="6dp"
         app:rippleColor="@color/pin_primary_soft"
-                        app:strokeWidth="2dp"
-                        app:strokeColor="@color/pin_ink"
                         android:rotation="1.2"
                         android:tag="wobble"
                     >
@@ -511,8 +503,6 @@
                         app:cardBackgroundColor="@color/pin_rose_soft"
         app:cardElevation="6dp"
         app:rippleColor="@color/pin_primary_soft"
-                        app:strokeWidth="2dp"
-                        app:strokeColor="@color/pin_ink"
                         android:rotation="1.5"
                         android:tag="wobble"
                     >
@@ -596,8 +586,6 @@
                         app:cardBackgroundColor="@color/pin_accent_soft"
         app:cardElevation="6dp"
         app:rippleColor="@color/pin_primary_soft"
-                        app:strokeWidth="2dp"
-                        app:strokeColor="@color/pin_ink"
                         android:rotation="-1.2"
                         android:tag="float wobble"
                     >

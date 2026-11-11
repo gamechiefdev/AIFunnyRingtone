@@ -70,9 +70,7 @@
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cardCornerRadius="7dp"
         app:layout_constraintBottom_toTopOf="@+id/ll_btm"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout00"
-            app:strokeWidth="2dp"
-            app:strokeColor="@color/pin_ink">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout00">
 
 
 

@@ -235,7 +235,7 @@ def home():
     for color, rot in faces:
         disc = Image.new("RGBA", (P(44), P(44)), (0, 0, 0, 0))
         dd = ImageDraw.Draw(disc)
-        dd.ellipse([0, 0, disc.width - 1, disc.height - 1], fill=color, outline=INK, width=P(2))
+        dd.ellipse([0, 0, disc.width - 1, disc.height - 1], fill=color)
         dd.ellipse([P(13), P(15), P(19), P(23)], fill=INK)
         dd.ellipse([P(25), P(15), P(31), P(23)], fill=INK)
         dd.arc([P(13), P(20), P(31), P(34)], start=15, end=165, fill=INK, width=P(2.4))
@@ -271,7 +271,6 @@ def home():
         img.paste(ic, (P(x + 32) - ic.width // 2, P(334) - ic.height // 2), ic)
         text(d, (x + 14, 400), l1, f("semibold", 14), WHITE)
         text(d, (x + 14, 420), l2, f("semibold", 14), WHITE)
-        d.rounded_rectangle([P(x), P(302), P(x + 172), P(302 + 190)], radius=P(24), outline=INK, width=P(2))
         pill(d, (x + 14, 450, x + 14 + 120, 480), 999, WHITE, cta, f("semibold", 9.5), cta_color)
 
     # explore

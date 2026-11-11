@@ -420,3 +420,18 @@ Outputs:
 | `design-preview/shots/full/*.png` | har screen ki alag PNG (01…30) |
 | `design-preview/shots/screens-images.zip` | saari 30 PNGs ek zip me (7.4 MB) |
 | `design-preview/screens.html` | web gallery (lazy load) |
+
+---
+
+## Phase 13 — signature identity v7.0 (unique, kisi aur app jesa nahi)
+
+| Element | File | Kya karta hai |
+|---|---|---|
+| **Aurora wash** | `drawable/bg_aurora.xml` | cream base + pink (top-right) + lilac (left) + sky (bottom) radial blooms — saare 32 screen roots par |
+| **Doodle underline** | `drawable/ic_doodle_underline.xml` | hero title ke neeche hand-drawn pink squiggle |
+| **Ticker tape** | `bg_ticker.xml` + `activity_main.xml#tickerStrip` | nav pill ke upar floating marquee: "NEW · 120+ funny sounds · prank mode on · …" |
+| **Wave motif** | `drawable/ic_wave_divider.xml` | brand ke 4 rang ka equalizer/sound-wave glyph (sections/dividers ke liye) |
+| **Sticker system** | icons + emoji discs + googly eyes | Pinterest + comic feel |
+
+Bottom nav ab "ticker + floating pill" combo hai — yeh pattern kisi ringtone app me nahi milta, is liye brand turant pehchana jata hai.
+Hero scroll padding `64sdp` taake content ticker ke neeche se clear ho kar scroll ho.

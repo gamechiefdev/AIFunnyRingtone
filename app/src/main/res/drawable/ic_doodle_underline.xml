@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- hand-drawn underline, the app's signature doodle -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="12dp"
+    android:viewportWidth="160"
+    android:viewportHeight="12">
+    <path
+        android:pathData="M3,8 C18,2 30,10 46,6 C62,2 74,9 92,5 C108,1.5 122,9 140,4.5 C148,2.5 154,4 157,6"
+        android:strokeColor="#FFFF4D8D"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+</vector>

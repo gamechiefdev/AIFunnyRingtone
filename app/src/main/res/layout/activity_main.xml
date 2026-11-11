@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_screen_gradient"
+    android:background="@drawable/bg_aurora"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,6 +103,31 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <!-- ============================ BOTTOM NAV ============================ -->
+        <!-- signature ticker tape: app ka apna marquee -->
+        <TextView
+            android:id="@+id/tickerStrip"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_ticker"
+            android:elevation="8dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true"
+            android:text="@string/ticker_text"
+            android:textColor="@color/pin_primary_dark"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <LinearLayout
             android:id="@+id/bottomLayout"
             android:layout_width="match_parent"

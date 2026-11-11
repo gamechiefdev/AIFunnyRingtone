@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:aapt="http://schemas.android.com/aapt"
     android:id="@+id/main"
-    android:background="@drawable/bg_screen_gradient"
+    android:background="@drawable/bg_aurora"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 

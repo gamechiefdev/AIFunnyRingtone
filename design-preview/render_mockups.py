@@ -193,11 +193,25 @@ def tabbar(d, active=0):
             text(d, (cx, cy + 15), labels[i], f("medium", 9), color, anchor="ma")
 
 
+
+def aurora(size):
+    """warm cream base + pink / lilac / sky bloom (app ka signature wash)"""
+    base = gradient(size, hex2rgb("#FFFDF8"), hex2rgb("#FFF3F6"), 90).convert("RGBA")
+    layer = Image.new("RGBA", size, (0, 0, 0, 0))
+    dl = ImageDraw.Draw(layer)
+    w, h = size
+    dl.ellipse([w * 0.55, -h * 0.10, w * 1.25, h * 0.34], fill=(255, 77, 141, 58))
+    dl.ellipse([-w * 0.35, h * 0.22, w * 0.55, h * 0.66], fill=(139, 92, 246, 42))
+    dl.ellipse([w * 0.35, h * 0.72, w * 1.25, h * 1.12], fill=(56, 189, 248, 38))
+    layer = layer.filter(ImageFilter.GaussianBlur(max(24, int(w * 0.16))))
+    base.alpha_composite(layer)
+    return base
+
+
 def screen_shell(title, sub, back=False):
     img = Image.new("RGBA", (P(W), P(H)), WHITE)
     # colour-blast wash shared by every screen
-    wash = gradient((P(W), P(H)), hex2rgb("#FFFDF9"), hex2rgb("#FFF0F4"), 90).convert("RGBA")
-    img.paste(wash, (0, 0))
+    img.paste(aurora((P(W), P(H))), (0, 0))
     d = ImageDraw.Draw(img)
     if back:
         icon_circle(d, 40, 42, 22, WHITE, LINE)
@@ -226,6 +240,13 @@ def home():
     text(d, (18, 84), "GOOD EVENING · TIME TO PRANK", f("semibold", 9.5), PRIMARY)
     text(d, (18, 96), "Find your", fun(30), INK)
     text(d, (18, 132), "funny sound.", fun(30), INK)
+    # signature doodle underline
+    pts = []
+    for i in range(0, 141, 4):
+        pts.append((P(20 + i * 0.92), P(170 + 3.2 * __import__("math").sin(i / 9.5))))
+    for a, b in zip(pts, pts[1:]):
+        d.line([a, b], fill=ACCENT, width=P(3.4), joint="curve")
+
     text(d, (18, 178), "AI voices, prank calls, wallpapers and stickers —", f("regular", 12.5), INK_SOFT)
     text(d, (18, 195), "curated for maximum laughs.", f("regular", 12.5), INK_SOFT)
 
@@ -274,10 +295,10 @@ def home():
         pill(d, (x + 14, 450, x + 14 + 120, 480), 999, WHITE, cta, f("semibold", 9.5), cta_color)
 
     # explore
-    star2 = [(22, 518), (24, 523), (29, 525), (24, 527), (22, 532), (20, 527), (15, 525), (20, 523)]
+    star2 = [(22, 506), (24, 511), (29, 513), (24, 515), (22, 520), (20, 515), (15, 513), (20, 511)]
     d.polygon([(P(x), P(y)) for x, y in star2], fill=ACCENT)
-    text(d, (36, 514), "Explore", fun(19), INK)
-    pill(d, (300, 514, 372, 534), 999, SURFACE_ALT, "8 boards", f("semibold", 8.5), INK_SOFT)
+    text(d, (36, 502), "Explore", fun(19), INK)
+    pill(d, (300, 502, 372, 522), 999, SURFACE_ALT, "8 boards", f("semibold", 8.5), INK_SOFT)
 
     def quick(x, y, w, h, bg, icon=None, label=None, row=False):
         rrect(d, (x, y, x + w, y + h), 22, fill=bg)
@@ -300,13 +321,18 @@ def home():
         d.ellipse([P(cx - 13), P(cy - 13), P(cx + 13), P(cy + 13)], fill=WHITE)
         glyph_heart(d, cx, cy - 1, 0.62, "#E5484D")
 
-    quick(18, 544, 172, 112, LILAC_SOFT, "ic_ring.png", "My Ring Name")
-    save_pin(18, 544, 172)
-    quick(18, 664, 172, 88, AMBER_SOFT, "ic_funny_sticker.png", "Funny Stickers")
+    quick(18, 532, 172, 112, LILAC_SOFT, "ic_ring.png", "My Ring Name")
+    save_pin(18, 532, 172)
+    quick(18, 650, 172, 90, AMBER_SOFT, "ic_funny_sticker.png", "Funny Stickers")
 
-    quick(200, 544, 172, 96, PRIMARY_SOFT, "ic_dare_game.png", "Dare Game")
-    quick(200, 646, 172, 106, ACCENT_SOFT, "ic_stories.png", "Funny Stories")
-    save_pin(200, 646, 172)
+    quick(200, 532, 172, 96, PRIMARY_SOFT, "ic_dare_game.png", "Dare Game")
+    quick(200, 634, 172, 106, ACCENT_SOFT, "ic_stories.png", "Funny Stories")
+    save_pin(200, 634, 172)
+
+    # ticker tape (marquee strip) floating above the nav pill
+    rrect(d, (14, 744, W - 14, 774), 999, (255, 255, 255, 210), outline=LINE, width=1)
+    text(d, (26, 759), "NEW · 120+ funny sounds · prank mode on · AI voices ·", f("medium", 8.5),
+         PRIMARY_DARK, anchor="lm")
 
     tabbar(d, 0)
     return img
@@ -370,6 +396,11 @@ def stickers():
         img.paste(ic, (P(x + 85) - ic.width // 2, P(y + 63) - ic.height // 2), ic)
         text(d, (x + 12, y + 126), n, f("semibold", 12.5), INK)
         text(d, (x + 12, y + 146), s, f("regular", 10), INK_FAINT)
+    # ticker tape (marquee strip) floating above the nav pill
+    rrect(d, (14, 744, W - 14, 774), 999, (255, 255, 255, 210), outline=LINE, width=1)
+    text(d, (26, 759), "NEW · 120+ funny sounds · prank mode on · AI voices ·", f("medium", 8.5),
+         PRIMARY_DARK, anchor="lm")
+
     tabbar(d, 0)
     return img
 

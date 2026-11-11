@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sound-wave divider: brand motif between sections -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="60dp"
+    android:height="14dp"
+    android:viewportWidth="60"
+    android:viewportHeight="14">
+    <path android:strokeColor="#FF188E5A" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M3,7 L3,7" />
+    <path android:strokeColor="#FF188E5A" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M10,4 L10,10" />
+    <path android:strokeColor="#FFFF4D8D" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M17,2 L17,12" />
+    <path android:strokeColor="#FFFF4D8D" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M24,5 L24,9" />
+    <path android:strokeColor="#FF8B5CF6" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M31,3 L31,11" />
+    <path android:strokeColor="#FF8B5CF6" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M38,6 L38,8" />
+    <path android:strokeColor="#FF38BDF8" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M45,4 L45,10" />
+    <path android:strokeColor="#FF38BDF8" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M52,6 L52,8" />
+</vector>

@@ -22,3 +22,6 @@ local.properties
 
 # generated mockup renders (python3 design-preview/render_mockups.py)
 /design-preview/shots/
+
+# downloadable build zip (generated, not committed)
+/design-preview/*.zip

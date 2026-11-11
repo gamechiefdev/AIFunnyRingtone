@@ -9,7 +9,13 @@
 <body>
 <div class="page">
 
-  <header class="intro">
+  <nav class="quicknav">
+    <a href="#compare">Before / After</a>
+    <a href="#gallery">All 16 screens</a>
+    <a href="#changelog">What changed</a>
+  </nav>
+
+  <header class="intro" id="compare">
     <p class="eyebrow">UI CASE STUDY · v6.1</p>
     <h1>A Pinterest-grade<br /><span>refresh for AI Funny Ringtones.</span></h1>
     <p class="lede">
@@ -237,7 +243,376 @@
     </div>
   </main>
 
-  <section class="changelog">
+
+  <section class="gallery-sec" id="gallery">
+    <div class="gallery-head">
+      <div>
+        <p class="eyebrow">FULL WEB PREVIEW</p>
+        <h2 class="changelog-title">Every redesigned screen, in the browser.</h2>
+        <p class="changelog-sub">16 screens rendered with the shipped tokens, Poppins files and bundled artwork from
+          <code>app/src/main/res</code>. Use the filters to jump between flows.</p>
+      </div>
+      <div class="gallery-filters" id="galleryFilters">
+        <button class="chip is-selected" data-filter="all">All</button>
+        <button class="chip" data-filter="discovery">Discovery</button>
+        <button class="chip" data-filter="create">Create</button>
+        <button class="chip" data-filter="library">Library</button>
+        <button class="chip" data-filter="system">System</button>
+      </div>
+    </div>
+
+    <div class="gallery" id="galleryGrid">
+
+      <!-- SPLASH -->
+      <figure class="shot" data-cat="system">
+        <figcaption>1 · Splash <span>activity_splash.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="m-splash">
+              <div class="m-splash-art">✦</div>
+              <p class="eyebrow" style="text-align:center">Ai funny ringtones</p>
+              <h3 class="m-splash-title">Sounds that<br />break the silence.</h3>
+              <div class="m-dots"><i class="on"></i><i></i><i></i></div>
+            </div>
+            <div class="m-splash-foot"><span class="spin"></span>This action can contain ads</div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- HOME -->
+      <figure class="shot" data-cat="discovery">
+        <figcaption>2 · Home <span>fragment_home.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">☰</button>
+              <div class="appbar-titles"><p class="appbar-title">Discover</p><p class="appbar-sub">Funny sounds &amp; wallpapers</p></div>
+              <button class="icon-btn">♥</button>
+            </div>
+            <div class="scroll">
+              <p class="eyebrow">Good evening · time to prank</p>
+              <h2 class="hero" style="font-size:26px">Find your funny sound.</h2>
+              <div class="section-head"><h3>AI Studio</h3><em>NEW</em></div>
+              <div class="ai-duo" style="margin-top:8px">
+                <div class="ai-card lilac" style="height:150px"><span class="ai-icon"><img src="assets/ic_txt_ai.png" alt="" /></span><span class="spacer"></span><b>AI Text<br />Generator</b><span class="pill light">Try it</span></div>
+                <div class="ai-card green" style="height:150px"><span class="ai-icon"><img src="assets/ic_robot.png" alt="" /></span><span class="spacer"></span><b>AI Sound<br />Generator</b><span class="pill light">Record</span></div>
+              </div>
+              <div class="section-head"><h3>Explore</h3></div>
+              <div class="masonry explore">
+                <div class="col">
+                  <div class="quick tall lilac-soft"><img src="assets/ic_ring.png" alt="" /><b>My Ring Name</b></div>
+                  <div class="quick row sky-soft"><b>GIF Memes</b><img src="assets/ic_gif.png" alt="" /></div>
+                  <div class="quick row rose-soft"><b>Puzzle</b><img src="assets/ic_puzzle.png" alt="" /></div>
+                </div>
+                <div class="col">
+                  <div class="quick green-soft"><img src="assets/ic_dare_game.png" alt="" /><b>Dare Game</b></div>
+                  <div class="quick tall coral-soft"><img src="assets/ic_stories.png" alt="" /><b>Funny Stories</b></div>
+                  <div class="quick row"><b>Jokes</b><img src="assets/ic_funny_jokes.png" alt="" /></div>
+                </div>
+              </div>
+              <div class="bottom-pad"></div>
+            </div>
+            <div class="tabbar compact">
+              <span class="tab is-active"><span class="tab-ico">⌂</span><span>Home</span></span>
+              <span class="tab"><span class="tab-ico">☏</span><span>Prank</span></span>
+              <span class="tab"><span class="tab-ico">▣</span><span>Walls</span></span>
+              <span class="tab"><span class="tab-ico">♫</span><span>Playlist</span></span>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- PRANK -->
+      <figure class="shot" data-cat="discovery">
+        <figcaption>3 · Prank call <span>fragment_prank_call.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="scroll pad" style="padding-top:8px">
+              <h2 class="screen-title">Pick a caller</h2>
+              <p class="hero-sub">Fake a call from your favourite character.</p>
+              <div class="grid3" id="g-prankGrid"></div>
+            </div>
+            <div class="tabbar compact">
+              <span class="tab"><span class="tab-ico">⌂</span><span>Home</span></span>
+              <span class="tab is-active"><span class="tab-ico">☏</span><span>Prank</span></span>
+              <span class="tab"><span class="tab-ico">▣</span><span>Walls</span></span>
+              <span class="tab"><span class="tab-ico">♫</span><span>Playlist</span></span>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- WALLPAPERS -->
+      <figure class="shot" data-cat="library">
+        <figcaption>4 · Wallpapers <span>fragment_favourite.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="scroll pad" style="padding-top:8px">
+              <h2 class="screen-title">Wallpaper picks</h2>
+              <p class="hero-sub">Tap any pin to preview and set it.</p>
+              <div class="masonry walls" id="g-wallPins"></div>
+            </div>
+            <div class="tabbar compact">
+              <span class="tab"><span class="tab-ico">⌂</span><span>Home</span></span>
+              <span class="tab"><span class="tab-ico">☏</span><span>Prank</span></span>
+              <span class="tab is-active"><span class="tab-ico">▣</span><span>Walls</span></span>
+              <span class="tab"><span class="tab-ico">♫</span><span>Playlist</span></span>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- WALLPAPER PREVIEW -->
+      <figure class="shot" data-cat="library">
+        <figcaption>5 · Wallpaper preview <span>activity_wallpaper_preview.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar light"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="m-wall-preview">
+              <img src="assets/wall5.webp" alt="" />
+              <div class="m-preview-top">
+                <button class="icon-btn ghost">←</button>
+                <button class="icon-btn ghost">♥</button>
+              </div>
+              <div class="m-preview-actions">
+                <p class="eyebrow" style="color:#fff;opacity:.8">Wallpaper</p>
+                <h3>Set on your phone</h3>
+                <div class="m-preview-btns">
+                  <span class="pill dark">Home screen</span>
+                  <span class="pill dark">Lock screen</span>
+                  <span class="pill solid">Set</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- STICKER PACKS -->
+      <figure class="shot" data-cat="library">
+        <figcaption>6 · Sticker packs <span>activity_stickers_pack_list.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">Funny Stickers</p><p class="appbar-sub">Add a pack to WhatsApp</p></div>
+            </div>
+            <div class="scroll" id="g-stickerPacks"></div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- SOUND LIST -->
+      <figure class="shot" data-cat="library">
+        <figcaption>7 · Category sounds <span>activity_sound_list.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">Funny sounds</p><p class="appbar-sub">Tap to play · heart to save</p></div>
+            </div>
+            <div class="scroll" id="g-soundRows"></div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- AI TEXT -->
+      <figure class="shot" data-cat="create">
+        <figcaption>8 · AI text generator <span>activity_aitext_sound.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">AI Text to Sound</p><p class="appbar-sub">Type it · we voice it</p></div>
+            </div>
+            <div class="scroll pad">
+              <div class="m-card gradient">
+                <p class="eyebrow" style="color:#fff;opacity:.85">Prompt</p>
+                <p class="m-prompt">“A sleepy pirate ordering pizza in space”</p>
+                <div class="m-prompt-foot"><span class="pill dark">Voice · Deep</span><span class="pill dark">12s</span></div>
+              </div>
+              <div class="m-chips">
+                <span class="chip is-selected">Funny</span><span class="chip">Whisper</span><span class="chip">Robot</span>
+              </div>
+              <div class="m-card">
+                <p class="m-label">Recent generations</p>
+                <div class="m-mini-row"><span class="m-dot"></span><p>Pirate pizza · 0:12</p><span class="m-play">▶</span></div>
+                <div class="m-mini-row"><span class="m-dot"></span><p>Robot laugh · 0:08</p><span class="m-play">▶</span></div>
+              </div>
+              <div class="m-cta">Generate sound</div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- AI RECORD -->
+      <figure class="shot" data-cat="create">
+        <figcaption>9 · AI record <span>activity_ai_record_sound.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">Record your voice</p><p class="appbar-sub">Then let AI remix it</p></div>
+            </div>
+            <div class="m-record">
+              <p class="m-timer">00:07</p>
+              <div class="m-wave" id="g-wave"></div>
+              <div class="m-mic">●</div>
+              <p class="hero-sub" style="text-align:center">Tap to stop · 60s max</p>
+              <div class="m-effects">
+                <span class="chip is-selected">Normal</span><span class="chip">Chipmunk</span><span class="chip">Demon</span><span class="chip">Cave</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- JOKES -->
+      <figure class="shot" data-cat="discovery">
+        <figcaption>10 · Funny jokes <span>activity_funny_jokes.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">Funny Jokes</p><p class="appbar-sub">Swipe for the next one</p></div>
+            </div>
+            <div class="scroll" id="g-jokes"></div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- STORIES -->
+      <figure class="shot" data-cat="discovery">
+        <figcaption>11 · Funny stories <span>activity_stroy_list.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">Funny Stories</p><p class="appbar-sub">Short reads, big laughs</p></div>
+            </div>
+            <div class="scroll" id="g-stories"></div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- GIFS -->
+      <figure class="shot" data-cat="discovery">
+        <figcaption>12 · GIF memes <span>activity_gif.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">GIF Memes</p><p class="appbar-sub">Tap to share anywhere</p></div>
+            </div>
+            <div class="scroll" id="g-gifs"></div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- PLAYLIST -->
+      <figure class="shot" data-cat="library">
+        <figcaption>13 · AI playlist <span>fragment_histroy.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="scroll pad" style="padding-top:8px">
+              <div class="hero-card">
+                <div>
+                  <p class="eyebrow">Your library</p>
+                  <h2 class="screen-title">AI Playlist</h2>
+                  <p class="hero-sub">Everything you generated and recorded.</p>
+                </div>
+                <img src="assets/his_card.png" alt="" class="hero-art" />
+              </div>
+              <div class="sound-rows" id="g-history"></div>
+            </div>
+            <div class="tabbar compact">
+              <span class="tab"><span class="tab-ico">⌂</span><span>Home</span></span>
+              <span class="tab"><span class="tab-ico">☏</span><span>Prank</span></span>
+              <span class="tab"><span class="tab-ico">▣</span><span>Walls</span></span>
+              <span class="tab is-active"><span class="tab-ico">♫</span><span>Playlist</span></span>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- FAVOURITES -->
+      <figure class="shot" data-cat="library">
+        <figcaption>14 · Favorites <span>activity_favorites_screen.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini">
+            <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+            <div class="appbar">
+              <button class="icon-btn">←</button>
+              <div class="appbar-titles"><p class="appbar-title">Favorites</p><p class="appbar-sub">Sounds you saved for later</p></div>
+            </div>
+            <div class="scroll">
+              <div class="m-count"><img src="assets/ic_alarm.png" alt="" /><div><b>12 songs</b><span>Saved for later</span></div></div>
+              <div class="sound-rows" id="g-favs"></div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- PREMIUM -->
+      <figure class="shot" data-cat="system">
+        <figcaption>15 · Premium paywall <span>premium_dialog.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini overlay">
+            <div class="m-dim"></div>
+            <div class="m-premium">
+              <span class="m-close">✕</span>
+              <p class="eyebrow">Limited offer</p>
+              <h3>Unlock unlimited access</h3>
+              <p class="hero-sub">Start a 3-day free trial. Cancel anytime.</p>
+              <ul class="m-benefits">
+                <li>✓ No ads, anywhere</li>
+                <li>✓ Unlimited AI generations</li>
+                <li>✓ All sticker packs &amp; wallpapers</li>
+              </ul>
+              <div class="m-price"><b>$2.99</b><span>/ week after trial</span></div>
+              <div class="m-cta">Start free trial</div>
+              <p class="m-fine">Billed weekly · cancel in Play Store</p>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- EXIT SHEET -->
+      <figure class="shot" data-cat="system">
+        <figcaption>16 · Exit sheet <span>exit_dialog_tracker.xml</span></figcaption>
+        <div class="frame">
+          <div class="device mini overlay">
+            <div class="m-dim"></div>
+            <div class="m-sheet">
+              <span class="m-handle"></span>
+              <div class="m-sheet-ad">ad slot · media_View</div>
+              <p class="m-sheet-title">Are you sure you want to close the app?</p>
+              <div class="m-sheet-btns">
+                <span class="pill soft">Stay</span>
+                <span class="pill solid">Confirm Exit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+    </div>
+  </section>
+
+  <section class="changelog" id="changelog">
+
     <h2 class="changelog-title">What actually changed in the code</h2>
     <p class="changelog-sub">
       UI layer only — layouts, styles, colours, dimens, drawables, fonts, plus a handful of

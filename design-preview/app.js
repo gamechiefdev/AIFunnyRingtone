@@ -142,3 +142,105 @@ window.addEventListener('resize', () => {
   moveIndicator(Math.max(index, 0));
 });
 requestAnimationFrame(() => moveIndicator(0));
+
+/* ==================================================================
+   FULL SCREEN GALLERY (static render of every redesigned screen)
+   ================================================================== */
+const galleryData = {
+  callers: ['Boss', 'Ex Crush', 'Mom', 'Ronaldo', 'Alien', 'Ghost', 'Police', 'Robot', 'Donkey'],
+  packs: [
+    { name: 'Funny Faces', size: '412 KB', art: 'assets/three.png' },
+    { name: 'Animals', size: '688 KB', art: 'assets/four.png' },
+    { name: 'Laugh Pack', size: '523 KB', art: 'assets/five.png' },
+    { name: 'Fart Pack', size: '301 KB', art: 'assets/six.png' },
+    { name: 'Dialogues', size: '744 KB', art: 'assets/seven.png' },
+    { name: 'Baby Talk', size: '918 KB', art: 'assets/eight.png' }
+  ],
+  jokes: [
+    { title: 'The Wi-Fi password', text: '“It’s the dog’s birthday, all lowercase, no spaces.” I have never wanted to leave a house faster.', tags: ['Relatable', '0:18'] },
+    { title: 'Monday, again', text: 'My bed and I have a very healthy relationship. It’s the alarm clock I can’t stand.', tags: ['Work', '0:11'] },
+    { title: 'Gym membership', text: 'I signed up in January. It’s now November and the only thing I’ve lifted is my phone.', tags: ['Fitness', '0:22'] },
+    { title: 'Diet starts tomorrow', text: 'Today I ate a salad. It was between two buns, but still — a salad.', tags: ['Food', '0:15'] }
+  ],
+  stories: [
+    { title: 'The ghost in the group chat', meta: '4 min read · Spooky', art: 'assets/wall3.webp' },
+    { title: 'My cat runs a business', meta: '3 min read · Wholesome', art: 'assets/wall7.webp' },
+    { title: 'Interview at 3 AM', meta: '5 min read · Chaos', art: 'assets/wall2.webp' },
+    { title: 'The last slice', meta: '2 min read · Family', art: 'assets/wall9.webp' }
+  ],
+  sounds: ['Funny 1', 'Animal 4', 'Laugh 9', 'Dialogue 7', 'Fart 12'],
+  history: ['Pirate pizza', 'Robot laugh', 'Name ringtone · Sara', 'Cave echo'],
+  favs: ['Funny 3', 'Baby 7', 'Dialogue 2']
+};
+
+const fill = (id, html) => { const node = document.getElementById(id); if (node) node.innerHTML = html; };
+
+/* prank grid */
+fill('g-prankGrid', galleryData.callers.map((name, i) =>
+  `<button class="caller"><img class="face" src="assets/wall${(i % 10) + 1}.webp" alt="" /><b>${name}</b></button>`
+).join(''));
+
+/* wallpapers */
+const galleryWalls = [1, 4, 5, 7, 8, 10];
+fill('g-wallPins',
+  `<div class="col">${galleryWalls.filter((_, i) => i % 2 === 0).map((n) =>
+    `<div class="pin"><img class="thumb" src="assets/wall${n}.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>`).join('')}</div>
+   <div class="col">${galleryWalls.filter((_, i) => i % 2 === 1).map((n) =>
+    `<div class="pin"><img class="thumb" src="assets/wall${n}.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>`).join('')}</div>`
+);
+
+/* sticker packs */
+fill('g-stickerPacks',
+  `<div class="pack-grid">${galleryData.packs.map((pack) =>
+    `<div class="pack"><div class="tile"><img src="${pack.art}" alt="" /></div><b>${pack.name}</b><span>${pack.size}</span></div>`
+  ).join('')}</div>`);
+
+/* sound rows */
+const rowMarkup = (name, i, art) => `
+  <div class="sound-row">
+    <span class="idx">${String(i + 1).padStart(2, '0')}</span>
+    <img class="cover" src="${art}" alt="" />
+    <span class="meta"><b>${name}</b><span>0:0${(i % 8) + 2} · saved</span></span>
+    <button class="heart${i % 3 === 0 ? ' is-liked' : ''}">♥</button>
+  </div>`;
+
+fill('g-soundRows', galleryData.sounds.map((name, i) => rowMarkup(name, i, `assets/wall${(i % 9) + 1}.webp`)).join(''));
+fill('g-history', galleryData.history.map((name, i) => rowMarkup(name, i, `assets/wall${(i % 9) + 2}.webp`)).join(''));
+fill('g-favs', galleryData.favs.map((name, i) => rowMarkup(name, i, `assets/wall${(i % 9) + 3}.webp`)).join(''));
+
+/* jokes */
+fill('g-jokes', galleryData.jokes.map((joke) => `
+  <div class="m-joke">
+    <b>${joke.title}</b>
+    <p>${joke.text}</p>
+    <div class="m-tags">${joke.tags.map((t) => `<span>${t}</span>`).join('')}</div>
+  </div>`).join(''));
+
+/* stories */
+fill('g-stories', galleryData.stories.map((story) => `
+  <div class="m-story">
+    <img src="${story.art}" alt="" />
+    <div><b>${story.title}</b><span>${story.meta}</span></div>
+  </div>`).join(''));
+
+/* gifs */
+fill('g-gifs', `<div class="m-gifs">${[1, 2, 5, 6, 8, 9].map((n) => `
+  <figure><img src="assets/wall${n}.webp" alt="" /><figcaption>GIF</figcaption></figure>`).join('')}</div>`);
+
+/* waveform */
+fill('g-wave', Array.from({ length: 26 }, () =>
+  `<i style="height:${10 + Math.round(Math.random() * 38)}px"></i>`).join(''));
+
+/* gallery filters */
+const filterRow = document.getElementById('galleryFilters');
+if (filterRow) {
+  filterRow.addEventListener('click', (event) => {
+    const button = event.target.closest('.chip');
+    if (!button) return;
+    filterRow.querySelectorAll('.chip').forEach((chip) => chip.classList.toggle('is-selected', chip === button));
+    const filter = button.dataset.filter;
+    document.querySelectorAll('.shot').forEach((shot) => {
+      shot.style.display = filter === 'all' || shot.dataset.cat === filter ? '' : 'none';
+    });
+  });
+}

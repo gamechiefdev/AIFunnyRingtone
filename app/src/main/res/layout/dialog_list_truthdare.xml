@@ -39,7 +39,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:gravity="center"
             android:text="It's Truth"
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:textSize="@dimen/_10ssp"
             android:textStyle="bold" />
 
@@ -98,7 +98,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:text="Forfeit"
-                    android:textColor="@color/black"
+                    android:textColor="@color/pin_ink"
                     android:textSize="@dimen/_10ssp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -136,7 +136,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:text="Done"
-                    android:textColor="@color/black"
+                    android:textColor="@color/pin_ink"
                     android:textSize="@dimen/_10ssp"
                     android:textStyle="bold" />
             </LinearLayout>

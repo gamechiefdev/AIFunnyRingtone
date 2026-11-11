@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/unlock"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="@dimen/_20ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -77,7 +77,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:text="@string/access"
 
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="@dimen/_20ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -115,7 +115,7 @@
             android:gravity="center"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/get_all_exclusive_feature_without_irritating_ads"
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:layout_margin="@dimen/_10sdp"
             android:textSize="@dimen/_18ssp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text="@string/features"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/free"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/tv1_none"
@@ -179,7 +179,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/pro"
-                    android:textColor="@color/black"
+                    android:textColor="@color/pin_ink"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_none_1"
@@ -248,7 +248,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="@dimen/_3sdp"
                 android:text="@string/unlock_premium_features"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="15sp"
                 android:singleLine="true"
                 app:layout_constraintEnd_toStartOf="@+id/imageView6"
@@ -277,7 +277,7 @@
                 android:singleLine="true"
 
                 android:text="@string/increase_user_experience"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toStartOf="@+id/imageView7"
                 app:layout_constraintStart_toStartOf="@+id/tv_none_3_1"
@@ -305,7 +305,7 @@
 
                 android:layout_marginTop="10dp"
                 android:text="@string/increase_usage_speed"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="15sp"
                 android:singleLine="true"
 
@@ -335,7 +335,7 @@
                 android:layout_marginEnd="@dimen/_3sdp"
 
                 android:text="@string/one_time_purchase"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="15sp"
                 android:singleLine="true"
 
@@ -365,7 +365,7 @@
                 android:text="@string/remove_all_ads"
                 android:layout_marginEnd="@dimen/_3sdp"
 
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="15sp"
                 android:singleLine="true"
 
@@ -395,7 +395,7 @@
         android:id="@+id/freeTrial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         android:textSize="@dimen/_9ssp"
         android:gravity="center"
         android:layout_margin="@dimen/_20sdp"
@@ -412,7 +412,7 @@
         android:textSize="11sp"
         android:lines="3"
         android:paddingVertical="2dp"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/freeTrial"
@@ -440,7 +440,7 @@
         <!--            android:layout_weight="1"-->
         <!--            app:cardElevation="@dimen/_4sdp"-->
         <!--            android:layout_gravity="center"-->
-        <!--            app:strokeColor="@color/purple_200"-->
+        <!--            app:strokeColor="@color/pin_line"-->
 
         <!--            android:layout_margin="@dimen/_4sdp"-->
         <!--            app:cardBackgroundColor="@color/white"-->
@@ -451,7 +451,7 @@
         <!--                android:layout_width="wrap_content"-->
         <!--                android:layout_height="wrap_content"-->
         <!--                android:text="Weekly"-->
-        <!--                android:textColor="@color/black"-->
+        <!--                android:textColor="@color/pin_ink"-->
         <!--                android:textSize="@dimen/_12sdp"-->
         <!--                android:textStyle="bold"-->
         <!--                android:layout_gravity="center"/>-->
@@ -474,7 +474,7 @@
         <!--                android:layout_height="wrap_content"-->
         <!--                android:layout_gravity="center"-->
         <!--                android:text="Lifetime"-->
-        <!--                android:textColor="@color/black"-->
+        <!--                android:textColor="@color/pin_ink"-->
         <!--                android:textSize="@dimen/_10sdp"-->
         <!--                android:textStyle="bold" />-->
 
@@ -485,7 +485,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="@color/purple_200"
+            app:strokeColor="@color/pin_line"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_margin="@dimen/_4sdp"
@@ -518,7 +518,7 @@
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="@string/rs_0000"
-                    android:textColor="@color/black"
+                    android:textColor="@color/pin_ink"
                     android:textSize="@dimen/_12sdp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -532,7 +532,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_10ssp"
                     android:gravity="center"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/pin_primary"
                     android:textSize="@dimen/_10ssp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -550,7 +550,7 @@
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
                     android:text="@string/premium_monthly_plan"
-                    android:textColor="@color/black"
+                    android:textColor="@color/pin_ink"
                     android:textSize="@dimen/_11sdp"
 
                     android:textStyle="bold"
@@ -563,7 +563,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:singleLine="true"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/pin_primary"
                     android:textSize="@dimen/_8ssp"
                     app:layout_constraintEnd_toStartOf="@+id/monthlyTxt"
                     app:layout_constraintStart_toStartOf="@+id/monthly"
@@ -598,7 +598,7 @@
             android:text="@string/start_free_trial"
             android:layout_marginStart="@dimen/_50sdp"
             android:layout_marginEnd="@dimen/_50sdp"
-            android:background="@drawable/btn_shape2"
+            android:background="@drawable/bg_btn_primary"
             android:backgroundTint="@color/black"
             android:textColor="@color/white"
             android:textSize="@dimen/_15ssp"
@@ -616,7 +616,7 @@
         android:layout_height="wrap_content"
 
         android:text="@string/we_take_the_privacy_and_security_of_your_data_seriously_this_app_never_collects_and_use_any_data_about_you_and_your_device"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         android:layout_marginStart="@dimen/_30sdp"
         android:layout_marginEnd="@dimen/_30sdp"
         android:textSize="@dimen/_10sdp"

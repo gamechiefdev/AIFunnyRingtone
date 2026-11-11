@@ -1,38 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Pin design system: prank-call tile (3-column grid, ids unchanged) -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/_110sdp"
-    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-   >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_112sdp"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/_5sdp"
+    android:paddingEnd="@dimen/_5sdp"
+    android:paddingTop="@dimen/_5sdp">
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_80sdp"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:strokeWidth="@dimen/_2sdp"
-        android:layout_margin="@dimen/_7sdp"
-        app:strokeColor="@color/purple_200"
-      >
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="@dimen/pin_radius"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/pin_line"
+        app:strokeWidth="1dp"
+        app:cardPreventCornerOverlap="true">
 
-
-    <ImageView
-        android:id="@+id/prankImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/three"
-        android:scaleType="centerCrop"/>
-
-
+        <ImageView
+            android:id="@+id/prankImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/three"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null" />
 
     </com.google.android.material.card.MaterialCardView>
+
     <TextView
         android:id="@+id/prankTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_7sdp"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="@dimen/_10ssp"
-        android:textColor="@color/black"
-        android:text="Ronaldo"/>
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/pin_ink"
+        android:textSize="11sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:includeFontPadding="false"
+        tools:text="Ronaldo" />
 </LinearLayout>

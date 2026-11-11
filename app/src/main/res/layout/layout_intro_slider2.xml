@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.2"
         android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         android:text="Explore Powerful Features"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:gravity="center"
         android:textSize="12sp"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         android:text="Enjoy tools like AI generation, sound effects, wallpapers, and creative utilities all in one app."
         />
 

@@ -223,3 +223,31 @@ These screens still use the previous visual language but already inherit the new
   (`jokes_itemlayout`, `story_itemlayout`, `gif_sample_item`).
 - `activity_selection` / `activity_spin_game` game art.
 - `dialog_*` helper dialogs (add name, language selection, ring prompt, set wall).
+
+---
+
+## Phase 2 — baaki screens (completed)
+
+Pehle 43/95 layouts hone ke baad baaki ko bhi Pin design system par le aaye gaye.
+
+### Kya kiya
+
+| Kaam | Tareeqa | Files |
+|---|---|---|
+| Value-level restyle (structure & ids untouched) | `tools/restyle_remaining.py` — sirf attribute values map kiye: `@color/black → @color/pin_ink`, `purple_* → pin_primary`, `#DDDDDD → pin_surface_alt`, `btn_shape* / btn_bg → bg_btn_primary`, `cardstroke / card_corners → bg_pin_card`, `edit_shape → bg_input`, card radius `10dp → pin_radius`, stroke `purple_200 → pin_line` | 46 layouts |
+| Naye drawables | `bg_dialog.xml` (26dp white sheet), `bg_input.xml` (rounded field), `bg_call_scrim.xml` (green call gradient), `bg_circle_rose.xml` (end-call), `bg_pill_glass.xml` (timer pill) | 5 drawables |
+| Hand-written redesign | prank tile (3-col pin card), story card, jokes card, incoming audio call screen | `prankcall_itemlayout.xml`, `story_itemlayout.xml`, `jokes_itemlayout.xml`, `activity_accept_voice_call.xml` |
+| Contrast fixes | light pill par white text → `pin_ink`; tinted buttons ka tint `black → pin_primary` | 3 layouts |
+
+### Verify
+
+- `python3 tools/ui_audit.py .` → **7 problems**, sab ignore-listed (ad SDK templates), **0 naye**
+- 287 XML files parse clean (`ElementTree`), koi malformed nahi
+- Koi `android:id` change nahi → saare bindings / `findViewById` intact
+- Java, gradle, AndroidManifest: **0 changes** is phase mein
+- Jaan-boojh kar chhode: `ad_native_layout_*`, `layout_intro_native_ad` (ad SDK templates), `item_youtube_video` (video surface)
+
+### Naye mockups
+
+`design-preview/shots/ui-preview-2.png` — Prank grid, Player, Incoming prank call, Premium paywall
+(`python3 design-preview/render_extra.py`)

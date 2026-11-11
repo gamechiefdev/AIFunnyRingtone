@@ -120,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="Pack 1"
-                        android:textColor="@color/black"
+                        android:textColor="@color/pin_ink"
                         android:textSize="@dimen/_14ssp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/materialCardView" />
@@ -131,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_3sdp"
                         android:text="Cave Man stickers \npack"
-                        android:textColor="@color/black"
+                        android:textColor="@color/pin_ink"
                         android:textSize="@dimen/_11ssp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/materialCardView" />
@@ -144,7 +144,7 @@
                         android:layout_marginTop="@dimen/_3sdp"
                         android:text="10"
 
-                        android:textColor="@color/black"
+                        android:textColor="@color/pin_ink"
                         android:textSize="@dimen/_11ssp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/materialCardView" />

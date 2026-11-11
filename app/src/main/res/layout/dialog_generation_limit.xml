@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Limit Reached"
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="You have reached your limit. Watch an ad to continue or go premium for unlimited access."
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/btn_shape2"
+            android:background="@drawable/bg_btn_primary"
             android:backgroundTint="@color/purple_200"
             android:text="Watch Ad"
             android:textAllCaps="false"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn_shape2"
+            android:background="@drawable/bg_btn_primary"
             android:backgroundTint="@color/black"
             android:text="Go Premium"
             android:textAllCaps="false"

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select Language / Region"
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -33,28 +33,28 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView android:id="@+id/english" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="English (United States)" android:textColor="@color/black" android:textSize="16sp" />
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+                <TextView android:id="@+id/english" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="English (United States)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/hindi" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Hindi / हिंदी (India)" android:textColor="@color/black" android:textSize="16sp" />
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+                <TextView android:id="@+id/hindi" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Hindi / हिंदी (India)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/urdu" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Urdu / اردو (Pakistan)" android:textColor="@color/black" android:textSize="16sp" />
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+                <TextView android:id="@+id/urdu" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Urdu / اردو (Pakistan)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/portuguese" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Portuguese / Português (Brazil)" android:textColor="@color/black" android:textSize="16sp" />
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+                <TextView android:id="@+id/portuguese" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Portuguese / Português (Brazil)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/spanish" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Spanish / Español (Mexico)" android:textColor="@color/black" android:textSize="16sp" />
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+                <TextView android:id="@+id/spanish" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Spanish / Español (Mexico)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/arabic" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Arabic / العربية (Egypt / Algeria / Iraq)" android:textColor="@color/black" android:textSize="16sp" />
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+                <TextView android:id="@+id/arabic" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Arabic / العربية (Egypt / Algeria / Iraq)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/indonesian" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Indonesian / Bahasa (Indonesia)" android:textColor="@color/black" android:textSize="16sp" />
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+                <TextView android:id="@+id/indonesian" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Indonesian / Bahasa (Indonesia)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/bengali" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Bengali / বাংলা (Bangladesh)" android:textColor="@color/black" android:textSize="16sp" />
+                <TextView android:id="@+id/bengali" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Bengali / বাংলা (Bangladesh)" android:textColor="@color/pin_ink" android:textSize="16sp" />
 
             </LinearLayout>
         </ScrollView>

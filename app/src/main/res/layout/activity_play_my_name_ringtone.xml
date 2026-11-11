@@ -97,7 +97,7 @@
                 android:layout_marginEnd="@dimen/_30sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="@dimen/_11ssp"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/img" />

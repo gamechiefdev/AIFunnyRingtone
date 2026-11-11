@@ -18,7 +18,7 @@
             android:layout_width="60dp"
             android:layout_height="24dp"
             android:layout_margin="12dp"
-            android:background="@drawable/btn_shape"
+            android:background="@drawable/bg_pill_surface"
             android:backgroundTint="@color/white"
             android:gravity="center"
             android:text="1/6"

@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Someone is Calling."
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:textSize="@dimen/_11ssp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"

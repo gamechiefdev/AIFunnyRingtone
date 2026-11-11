@@ -23,7 +23,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:gravity="center"
         android:text="Create Your Ringtone"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         android:textSize="@dimen/_13ssp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/closeDialog"

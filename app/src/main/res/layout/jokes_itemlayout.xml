@@ -4,9 +4,11 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:theme="@style/Theme.MaterialComponents.Light"
-    app:cardElevation="3dp"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="7dp">
+    app:cardElevation="0dp"
+    app:strokeColor="@color/pin_line"
+    app:strokeWidth="1dp"
+    android:layout_margin="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/pin_radius_lg">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,7 +38,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="The quick brown fox jumps over the lazy dog"
-                android:textColor="@color/black"
+                android:textColor="@color/pin_ink"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:minTextSize="12sp" />

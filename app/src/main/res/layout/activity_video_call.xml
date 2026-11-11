@@ -65,7 +65,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_30sdp"
             android:layout_weight="1"
-            android:background="@drawable/icon_bg1"
+            android:background="@drawable/bg_icon_circle_soft"
 
             app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
             app:layout_constraintEnd_toStartOf="@+id/relativeLayout3"

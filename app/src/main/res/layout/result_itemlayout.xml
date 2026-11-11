@@ -6,7 +6,7 @@
     app:cardBackgroundColor="@color/light"
     android:layout_margin="@dimen/_7sdp"
     app:strokeWidth="0dp"
-    app:cardCornerRadius="@dimen/_10sdp">
+    app:cardCornerRadius="@dimen/pin_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:gravity="center"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:layout_marginStart="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:gravity="center"
             android:text="1"
-            android:textColor="@color/black"
+            android:textColor="@color/pin_ink"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

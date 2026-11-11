@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.2"
         android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         android:text="Smart Experience"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -48,7 +48,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:gravity="center"
         android:textSize="12sp"
-        android:textColor="@color/black"
+        android:textColor="@color/pin_ink"
         android:text="Discover amazing features designed to make your daily life more fun, easy, and interactive."
         />
 

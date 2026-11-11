@@ -41,7 +41,7 @@
         android:textSize="@dimen/_10ssp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/pin_ink"/>
 
     <ImageView
         android:id="@+id/truthList"

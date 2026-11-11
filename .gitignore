@@ -17,3 +17,5 @@ local.properties
 # Project exclude paths
 /nativetemplates/build/
 /nativetemplates/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/
+# generated single-file preview build (re-create with the inline build script)
+/design-preview/standalone.html

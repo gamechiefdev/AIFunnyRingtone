@@ -408,3 +408,15 @@ Outputs:
 - `shots/all-screens-1.png` — main flow (15)
 - `shots/all-screens-2.png` — secondary screens (15)
 - `screens.html` — web gallery (scrollable, lazy loaded)
+
+---
+
+## Phase 12 — screen deliverables (v6.9)
+
+| File | Kya hai |
+|---|---|
+| `design-preview/shots/every-screen.png` | **ek hi image me 30 screens** (3514×6483) |
+| `design-preview/shots/all-screens.pdf` | 30-page PDF, ek page = ek screen (phone par scroll) |
+| `design-preview/shots/full/*.png` | har screen ki alag PNG (01…30) |
+| `design-preview/shots/screens-images.zip` | saari 30 PNGs ek zip me (7.4 MB) |
+| `design-preview/screens.html` | web gallery (lazy load) |

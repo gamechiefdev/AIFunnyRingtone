@@ -435,3 +435,16 @@ Outputs:
 
 Bottom nav ab "ticker + floating pill" combo hai — yeh pattern kisi ringtone app me nahi milta, is liye brand turant pehchana jata hai.
 Hero scroll padding `64sdp` taake content ticker ke neeche se clear ho kar scroll ho.
+
+---
+
+## Phase 14 — signature details v7.1
+
+| Element | Drawable | Kahan |
+|---|---|---|
+| **Concentric ring watermark** | `bg_ring_watermark.xml` (4 ovals: pink/lilac/green/sky, alpha 0.1–0.15) | Home hero ke peeche, `View` alpha 0.55, 220dp, top-end |
+| **Washi-tape corners** | `ic_tape.xml` (slanted strip, alpha ~0.65) | AI Studio ke 2 cards + Explore ke 4 tiles, `rotation ±22°`, negative margins se corner par |
+| **Animated equalizer** | `eq_bar.xml` + `anim/eq_pulse_1..4.xml` | Dono AI cards ke icon ke agal bagal, `tag="eq1..eq4"` — `UiMotion.startLoops()` pulse karta hai (scaleY 0.35↔1, har bar ka apna offset) |
+| **Marquee loop** | — | `tickerStrip` `tag="marquee"`, `startLoops()` selected + marquee set karta hai |
+
+`UiMotion` sirf presentation hai: koi data, listener ya business logic nahi chhua.

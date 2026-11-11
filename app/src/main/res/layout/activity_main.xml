@@ -121,6 +121,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:singleLine="true"
+            android:tag="marquee"
             android:text="@string/ticker_text"
             android:textColor="@color/pin_primary_dark"
             android:textSize="10sp"

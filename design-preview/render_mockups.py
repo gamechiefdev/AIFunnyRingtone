@@ -228,6 +228,12 @@ def home():
     img, d = screen_shell("", "")
     appbar(d, "Discover", "Funny sounds & wallpapers")
 
+
+    # signature concentric ring watermark (behind the hero copy)
+    for r, col in ((84, (255, 77, 141, 30)), (62, (139, 92, 246, 26)),
+                   (42, (24, 142, 90, 22)), (22, (56, 189, 248, 20))):
+        d.ellipse([P(316 - r), P(168 - r), P(316 + r), P(168 + r)], outline=col, width=P(1.8))
+
     # rotated sticker badge (playful Pinterest accent)
     badge = Image.new("RGBA", (P(104), P(28)), (0, 0, 0, 0))
     bd = ImageDraw.Draw(badge)
@@ -276,6 +282,15 @@ def home():
     text(d, (36, 272), "AI Studio", fun(19), INK)
     pill(d, (322, 272, 374, 294), 999, PRIMARY_SOFT, "NEW", f("semibold", 8.5), PRIMARY_DARK)
 
+
+    def tape(x, y, w=48, h=15, rot=-27, color=(255, 216, 77, 165)):
+        strip = Image.new("RGBA", (P(w), P(h)), (0, 0, 0, 0))
+        sd = ImageDraw.Draw(strip)
+        sd.polygon([(0, P(h * 0.55)), (strip.width, 0), (strip.width, P(h * 0.45)), (0, P(h))],
+                   fill=color)
+        strip = strip.rotate(rot, expand=True, resample=Image.BICUBIC)
+        img.alpha_composite(strip, (P(x), P(y)))
+
     cards = [
         (18, LILAC_SOFT, "#7C6CF6", "#FF8A6B", "ic_txt_ai.png", "AI Text", "Generator", "Try text to sound", LILAC),
         (200, PRIMARY_SOFT, "#188E5A", "#41C9A0", "ic_robot.png", "AI Sound", "Generator", "Record your voice", PRIMARY_DARK),
@@ -287,12 +302,18 @@ def home():
         ImageDraw.Draw(mask).rounded_rectangle([0, 0, grad.width, grad.height], radius=P(26), fill=255)
         img.paste(grad, (P(x), P(302)), mask)
         icon_circle(d, x + 32, 334, 18, WHITE)
+        # equalizer bars (in-app they pulse via anim/eq_pulse_*)
+        for bi, bh in enumerate((9, 18, 13, 20)):
+            bx = x + 62 + bi * 6
+            d.rounded_rectangle([P(bx), P(334 - bh / 2), P(bx + 3.4), P(334 + bh / 2)],
+                                radius=P(1.6), fill=(255, 255, 255, 235))
         ic = Image.open(f"{BASE}/assets/{icon}").convert("RGBA")
         ic.thumbnail((P(22), P(22)), Image.LANCZOS)
         img.paste(ic, (P(x + 32) - ic.width // 2, P(334) - ic.height // 2), ic)
         text(d, (x + 14, 400), l1, f("semibold", 14), WHITE)
         text(d, (x + 14, 420), l2, f("semibold", 14), WHITE)
         pill(d, (x + 14, 450, x + 14 + 120, 480), 999, WHITE, cta, f("semibold", 9.5), cta_color)
+        tape(x + 2, 296, 50, 15, -22 if x < 100 else 20)
 
     # explore
     star2 = [(22, 506), (24, 511), (29, 513), (24, 515), (22, 520), (20, 515), (15, 513), (20, 511)]
@@ -323,11 +344,15 @@ def home():
 
     quick(18, 532, 172, 112, LILAC_SOFT, "ic_ring.png", "My Ring Name")
     save_pin(18, 532, 172)
+    tape(22, 528, 46, 14, -22)
     quick(18, 650, 172, 90, AMBER_SOFT, "ic_funny_sticker.png", "Funny Stickers")
+    tape(22, 646, 46, 14, -22)
 
     quick(200, 532, 172, 96, PRIMARY_SOFT, "ic_dare_game.png", "Dare Game")
+    tape(206, 528, 46, 14, 20)
     quick(200, 634, 172, 106, ACCENT_SOFT, "ic_stories.png", "Funny Stories")
     save_pin(200, 634, 172)
+    tape(206, 626, 46, 14, 20)
 
     # ticker tape (marquee strip) floating above the nav pill
     rrect(d, (14, 744, W - 14, 774), 999, (255, 255, 255, 210), outline=LINE, width=1)

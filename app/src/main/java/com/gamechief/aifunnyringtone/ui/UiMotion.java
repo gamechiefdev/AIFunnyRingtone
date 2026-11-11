@@ -5,7 +5,12 @@ import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.TextView;
+
+import com.gamechief.aifunnyringtone.R;
 
 /**
  * UI-only motion helper for the v6.2 "3D material" look.
@@ -22,6 +27,40 @@ public final class UiMotion {
 
     /** views that should wobble when touched get this tag in XML: android:tag="wobble" */
     public static final String TAG_WOBBLE = "wobble";
+
+    /** loop views (marquee text, equalizer bars) start their animation from here. */
+    public static void startLoops(View root) {
+        if (root == null) {
+            return;
+        }
+        if (root instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) root;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                startLoops(group.getChildAt(i));
+            }
+        }
+        String tag = String.valueOf(root.getTag());
+        int anim = 0;
+        if (tag.contains("eq1")) {
+            anim = R.anim.eq_pulse_1;
+        } else if (tag.contains("eq2")) {
+            anim = R.anim.eq_pulse_2;
+        } else if (tag.contains("eq3")) {
+            anim = R.anim.eq_pulse_3;
+        } else if (tag.contains("eq4")) {
+            anim = R.anim.eq_pulse_4;
+        }
+        if (anim != 0) {
+            Animation pulse = AnimationUtils.loadAnimation(root.getContext(), anim);
+            root.startAnimation(pulse);
+        }
+        if (root instanceof TextView && "marquee".equals(tag)) {
+            TextView marquee = (TextView) root;
+            marquee.setSelected(true);
+            marquee.setEllipsize(android.text.TextUtils.TruncateAt.MARQUEE);
+            marquee.setMarqueeRepeatLimit(-1);
+        }
+    }
 
     private UiMotion() {
     }

@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         this.binding.getRoot().post(() -> {
             com.gamechief.aifunnyringtone.ui.UiMotion.floatTagged(this.binding.getRoot());
             com.gamechief.aifunnyringtone.ui.UiMotion.wobbleTagged(this.binding.getRoot());
+            com.gamechief.aifunnyringtone.ui.UiMotion.startLoops(this.binding.getRoot());
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_main_content), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

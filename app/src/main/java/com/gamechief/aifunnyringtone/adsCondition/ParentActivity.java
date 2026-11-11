@@ -78,6 +78,7 @@ public class ParentActivity extends AppCompatActivity implements AdsController.I
         getWindow().getDecorView().post(() -> {
             com.gamechief.aifunnyringtone.ui.UiMotion.floatTagged(getWindow().getDecorView());
             com.gamechief.aifunnyringtone.ui.UiMotion.wobbleTagged(getWindow().getDecorView());
+            com.gamechief.aifunnyringtone.ui.UiMotion.startLoops(getWindow().getDecorView());
         });
     }
 

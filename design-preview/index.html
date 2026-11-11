@@ -128,8 +128,7 @@
   /* floating hero elements on every screen */
   .ai-card:nth-child(1) { animation: floaty 5.4s ease-in-out infinite; }
   .ai-card:nth-child(2) { animation: floaty-late 6.2s ease-in-out infinite; }
-  .tile:nth-child(odd)  { animation: floaty-soft 7s ease-in-out infinite; }
-  .tile:nth-child(even) { animation: floaty-soft 8.2s ease-in-out .6s infinite; }
+  /* tiles keep their comic tilt; floating is handled by the tilt-neutral wrapper below */
   .pin:nth-child(2n)    { animation: floaty-soft 9s ease-in-out infinite; }
   .tab.on svg { animation: floaty-soft 3.2s ease-in-out infinite; }
   .statusbar { animation: rise .5s ease both; }
@@ -142,6 +141,37 @@
   .pane.active > *:nth-child(4) { animation-delay: .12s; }
   .sheet-body { animation: pop .26s cubic-bezier(.22,.9,.3,1) both; }
   .call-screen img { animation: glow 2.6s ease-in-out infinite; }
+
+
+  /* ============================================================
+     v6.4 — comic pass: ink outlines, wobble, colour blast
+     ============================================================ */
+  .app { background: linear-gradient(180deg, #FFFDF9 0%, #FFF4F7 55%, #FFEAF1 100%); }
+  .topbar { background: transparent; }
+
+  @keyframes wobble {
+    0% { transform: rotate(0) } 25% { transform: rotate(-2.5deg) } 55% { transform: rotate(2deg) } 100% { transform: rotate(0) }
+  }
+  @keyframes confetti-pop {
+    0% { opacity: 0; transform: scale(.3) translateY(10px) } 70% { opacity: 1; transform: scale(1.08) } 100% { opacity: 1; transform: scale(1) }
+  }
+
+  .ai-card, .tile, .srow, .call-card { border: 2px solid var(--ink); }
+  .tile:nth-child(1) { transform: rotate(-1.4deg); }
+  .tile:nth-child(2) { transform: rotate(1.2deg); }
+  .tile:nth-child(3) { transform: rotate(1.5deg); }
+  .tile:nth-child(4) { transform: rotate(-1.2deg); }
+  .tile:active, .ai-card:active { animation: wobble .42s cubic-bezier(.3,.9,.4,1); }
+
+  .stickers span:nth-child(1) { animation: confetti-pop .5s ease both, floaty-soft 5.5s ease-in-out infinite .5s; }
+  .stickers span:nth-child(2) { animation: confetti-pop .5s ease .1s both, floaty-soft 6s ease-in-out infinite .6s; }
+  .stickers span:nth-child(3) { animation: confetti-pop .5s ease .2s both, floaty-soft 5s ease-in-out infinite .7s; }
+  .stickers span:nth-child(4) { animation: confetti-pop .5s ease .3s both, floaty-soft 6.4s ease-in-out infinite .8s; }
+
+  .googly { width: 46px; height: 26px; display: grid; place-items: center;
+    background: #fff; border: 2px solid var(--ink); border-radius: 999px;
+    transform: rotate(8deg); font-size: 15px; letter-spacing: 2px;
+    animation: floaty 5s ease-in-out infinite; }
 
   /* ---------------- phone status bar ---------------- */
   .statusbar {
@@ -535,6 +565,7 @@
         <span style="--rot:-5deg">🎉</span>
         <span style="--rot:9deg">👻</span>
         <em>🔥</em>
+        <i class="googly">👀</i>
       </div>
       <p class="hero-sub">AI voices, prank calls, wallpapers and stickers — curated for maximum laughs.</p>
 

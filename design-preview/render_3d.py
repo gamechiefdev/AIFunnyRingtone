@@ -50,6 +50,12 @@ def rrect_3d(d, box, r, fill=None, outline=None, width=1):
                              radius=P(r), fill=(255, 255, 255, 46))
         im.alpha_composite(gloss)
 
+    # comic ink outline (2dp)
+    if im is not None and im.mode == "RGBA" and (isinstance(fill, str) or fill is None) and w > 60 and h > 24 and r >= 10:
+        od = ImageDraw.Draw(im)
+        od.rounded_rectangle([P(box[0]), P(box[1]), P(box[2]), P(box[3])],
+                             radius=P(r), outline="#141414", width=P(2))
+
 
 R.rrect = rrect_3d
 X.rrect = rrect_3d

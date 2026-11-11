@@ -20,7 +20,50 @@ public final class UiMotion {
     /** views that should pop in a little later get android:tag="float_late" */
     public static final String TAG_FLOAT_LATE = "float_late";
 
+    /** views that should wobble when touched get this tag in XML: android:tag="wobble" */
+    public static final String TAG_WOBBLE = "wobble";
+
     private UiMotion() {
+    }
+
+    /** Comic wobble on touch-down. Returns false so taps still reach the normal click listener. */
+    public static void wobbleTagged(View root) {
+        if (root == null) {
+            return;
+        }
+        if (root instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) root;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                wobbleTagged(group.getChildAt(i));
+            }
+        }
+        if (String.valueOf(root.getTag()).contains(TAG_WOBBLE)) {
+            root.setOnTouchListener((v, event) -> {
+                if (event.getActionMasked() == android.view.MotionEvent.ACTION_DOWN) {
+                    wobble(v);
+                }
+                return false;
+            });
+        }
+    }
+
+    /** Quick rotate wobble, purely visual. */
+    public static void wobble(View view) {
+        if (view == null) {
+            return;
+        }
+        view.animate()
+                .rotation(-2.5f)
+                .setDuration(70)
+                .withEndAction(() -> view.animate()
+                        .rotation(2f)
+                        .setDuration(90)
+                        .withEndAction(() -> view.animate()
+                                .rotation(0f)
+                                .setDuration(110)
+                                .start())
+                        .start())
+                .start();
     }
 
     /** Walk the tree and animate every tagged view. Safe to call more than once. */
@@ -34,11 +77,14 @@ public final class UiMotion {
                 floatTagged(group.getChildAt(i));
             }
         }
-        Object tag = root.getTag();
-        if (TAG_FLOAT.equals(tag)) {
-            floatView(root, 6f, 2600L, 0L);
-        } else if (TAG_FLOAT_LATE.equals(tag)) {
+        String tag = String.valueOf(root.getTag());
+        if (tag.contains(TAG_FLOAT_LATE)) {
             floatView(root, 7.5f, 3100L, 480L);
+        } else if (tag.contains(TAG_FLOAT)) {
+            floatView(root, 6f, 2600L, 0L);
+        }
+        if (tag.contains("pop")) {
+            popIn(root, 120L);
         }
     }
 

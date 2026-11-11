@@ -209,6 +209,8 @@ def screen_shell(title, sub, back=False):
 # ---------------------------------------------------------------- screens
 def home():
     img, d = screen_shell("", "")
+    wash = gradient((P(W), P(H)), hex2rgb("#FFFDF9"), hex2rgb("#FFF0F4"), 90).convert("RGBA")
+    img.paste(wash, (0, 0))
     appbar(d, "Discover", "Funny sounds & wallpapers")
 
     # rotated sticker badge (playful Pinterest accent)
@@ -240,6 +242,12 @@ def home():
         img.alpha_composite(disc, (P(fx), P(220)))
         fx += 46
 
+    # googly eyes sticker
+    eyes = Image.open(f"{BASE}/assets/../font".replace("/font", "/assets") + "/ic_gif.png")
+    d.ellipse([P(fx + 4), P(226), P(fx + 44), P(250)], fill=WHITE, outline=INK, width=P(2))
+    d.ellipse([P(fx + 14), P(232), P(fx + 22), P(242)], fill=INK)
+    d.ellipse([P(fx + 28), P(232), P(fx + 36), P(242)], fill=INK)
+
     # AI studio header
     star = [(22, 276), (24.5, 282), (30, 284), (24.5, 286), (22, 292), (19.5, 286), (14, 284), (19.5, 282)]
     d.polygon([(P(x), P(y)) for x, y in star], fill=PRIMARY)
@@ -262,6 +270,7 @@ def home():
         img.paste(ic, (P(x + 32) - ic.width // 2, P(334) - ic.height // 2), ic)
         text(d, (x + 14, 400), l1, f("semibold", 14), WHITE)
         text(d, (x + 14, 420), l2, f("semibold", 14), WHITE)
+        d.rounded_rectangle([P(x), P(302), P(x + 172), P(302 + 190)], radius=P(24), outline=INK, width=P(2))
         pill(d, (x + 14, 450, x + 14 + 120, 480), 999, WHITE, cta, f("semibold", 9.5), cta_color)
 
     # explore
@@ -404,7 +413,7 @@ def build_sheet(screens):
 
     title_font = f("semibold", 24)
     sub_font = f("regular", 12.5)
-    d.text((pad, pad), "AI Funny Ringtones — v6.2 “Pin + 3D” UI", font=title_font, fill=INK)
+    d.text((pad, pad), "AI Funny Ringtones — v6.4 “Comic Pin” UI", font=title_font, fill=INK)
     d.text((pad, pad + 58), "Real layouts · Poppins · app artwork · same view ids & logic", font=sub_font, fill=INK_SOFT)
 
     y = pad + 118

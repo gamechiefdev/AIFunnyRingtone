@@ -41,7 +41,7 @@ def main():
     sheet = Image.new("RGBA", (sheet_w, sheet_h), BG)
 
     d = ImageDraw.Draw(sheet)
-    d.text((PAD, PAD), "AI Funny Ringtones — v6.2 “Pin + 3D” UI", font=f("semibold", 26), fill=INK)
+    d.text((PAD, PAD), "AI Funny Ringtones — v6.4 “Comic Pin” UI", font=f("semibold", 26), fill=INK)
     d.text((PAD, PAD + 62), "Saari redesigned screens · Poppins + app artwork · real layouts, same view ids",
            font=f("regular", 13), fill=INK_SOFT)
     d.rounded_rectangle([PAD, PAD + 96, PAD + 132, PAD + 102], radius=3, fill=PRIMARY)

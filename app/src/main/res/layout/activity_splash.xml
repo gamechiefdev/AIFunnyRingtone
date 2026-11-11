@@ -109,4 +109,52 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/sticker_party"
+        android:textSize="30sp"
+        android:rotation="-12"
+        android:tag="pop float"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="180dp"
+        android:text="@string/sticker_laugh"
+        android:textSize="34sp"
+        android:rotation="10"
+        android:tag="pop float_late"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="170dp"
+        android:text="@string/sticker_ghost"
+        android:textSize="30sp"
+        android:rotation="8"
+        android:tag="float_late"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="120dp"
+        android:text="@string/sticker_silly"
+        android:textSize="32sp"
+        android:rotation="-9"
+        android:tag="float"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

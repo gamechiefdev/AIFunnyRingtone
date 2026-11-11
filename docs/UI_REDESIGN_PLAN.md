@@ -297,3 +297,16 @@ Motion sirf presentation hai: koi listener, data ya business logic nahi chhua.
 | Web preview | Chewy + Luckiest @font-face, emoji sticker row, candy variables, wahi float motion |
 
 Energy badhane ke liye hi ye pass hai — koi functional change nahi.
+
+---
+
+## Phase 6 — all four "more funny" upgrades (v6.4)
+
+| # | Feature | Detail |
+|---|---|---|
+| 1 | **Comic outlines + tilt** | `bg_card_comic.xml` (white + 2dp ink), home tiles/AI cards par `app:strokeWidth="2dp"` + `android:rotation` (-1.4° … +1.5°) |
+| 2 | **Wobble + confetti** | `anim/wobble.xml` + `UiMotion.wobble()` (tag `"wobble"`, OnTouchListener returns false so clicks stay intact); `anim/confetti_pop.xml` + splash par 4 emoji confetti (😂 🤪 🎉 👻) tags `pop`/`float` |
+| 3 | **Colour blast** | `bg_screen_gradient.xml` (cream → pink wash) home background; candy palette from v6.3 |
+| 4 | **Cartoon accents** | `ic_googly_eyes.xml` vector sticker + emoji sticker row, web `👀` pill |
+
+Motion keys are additive: `float`, `float_late`, `wobble`, `pop` — `UiMotion` tag check `contains()` karta hai, is liye "float wobble" jaise combined tags kaam karte hain.

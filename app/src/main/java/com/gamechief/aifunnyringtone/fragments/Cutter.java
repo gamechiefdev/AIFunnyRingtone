@@ -1,0 +1,69 @@
+package com.gamechief.aifunnyringtone.fragments;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.gamechief.aifunnyringtone.activities.PlaySounds;
+import com.gamechief.aifunnyringtone.adapters.HistoryAdapter;
+import com.gamechief.aifunnyringtone.databinding.FragmentCutterBinding;
+import com.gamechief.aifunnyringtone.models.HistoryStorage;
+import com.gamechief.aifunnyringtone.models.SoundModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cutter extends Fragment {
+    private HistoryAdapter adapter;
+    FragmentCutterBinding binding;
+    private List<SoundModel> historyList;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.historyList = new ArrayList();
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.binding = FragmentCutterBinding.inflate(inflater, container, false);
+        this.adapter = new HistoryAdapter(getContext(), this.historyList, v -> {
+            Intent intent = new Intent(getContext(), PlaySounds.class);
+            intent.putExtra("soundUrl", v.getFilePath());
+            intent.putExtra("soundName", v.getName());
+            startActivity(intent);
+        });
+        this.binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.binding.recyclerView.setAdapter(this.adapter);
+        return this.binding.getRoot();
+    }
+
+
+
+    private void loadHistory() {
+        List<SoundModel> list = HistoryStorage.loadTrimmedHistory(getContext());
+        if (this.historyList == null) {
+            this.historyList = new ArrayList();
+        }
+        this.historyList.clear();
+        if (list != null) {
+            this.historyList.addAll(list);
+        }
+        this.adapter.notifyDataSetChanged();
+    }
+
+    public void setHistoryList(List<SoundModel> list) {
+        this.historyList.clear();
+        if (list != null) {
+            this.historyList.addAll(list);
+        }
+        this.adapter.notifyDataSetChanged();
+    }
+
+    public void onResume() {
+        super.onResume();
+        loadHistory();
+    }
+}

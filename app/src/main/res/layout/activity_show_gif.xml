@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.ShowGif">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout00"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:elevation="@dimen/_3sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Preview"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+        <ImageView
+            android:id="@+id/share"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/share_app"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/whatsappshare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout00">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/back_image"-->
+    <!--        android:layout_width="50dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:src="@drawable/icon_back"-->
+    <!--        android:padding="10dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/imageView9"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/imageView9"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/imageView9" />-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/next_image"-->
+    <!--        android:layout_width="50dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:padding="10dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        android:src="@drawable/icon_next"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/imageView9"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/imageView9"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/imageView9" />-->
+
+    <ImageView
+        android:id="@+id/whatsappshare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/add_whatsapp"
+        android:gravity="center"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@+id/gif_pre_rv"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView" />
+
+    <!--        <ImageView-->
+    <!--            android:layout_width="25dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:layout_marginRight="5dp"-->
+    <!--            android:layout_marginBottom="10dp"-->
+    <!--            android:src="@drawable/whatsapp_share" />-->
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gif_pre_rv"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/horizontal_rv_sample" />
+
+
+
+
+
+
+    <FrameLayout
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

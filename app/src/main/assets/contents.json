@@ -1,0 +1,360 @@
+{
+  "android_play_store_link": "https://play.google.com/store/apps/details?id=com.gcl.funnyringtone.aiwallpapers.airingtones.superfunny",
+  "ios_app_store_link": "",
+  "sticker_packs": [
+
+
+
+    {
+      "identifier": "stickers2",
+      "name": "Funny Sticker Pack 2",
+      "publisher": "gamechief",
+      "tray_image_file": "2_tray.png",
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "1.webp",
+          "emojis": [
+            "☕",
+            "🙂"
+          ]
+        },
+        {
+          "image_file": "2.webp",
+          "emojis": [
+            "😄",
+            "😀"
+          ]
+        },
+        {
+          "image_file": "3.webp",
+          "emojis": [
+            "😆",
+            "😂"
+          ]
+        },
+        {
+          "image_file": "4.webp",
+          "emojis": [
+            "😩",
+            "😰"
+          ]
+        },
+        {
+          "image_file": "5.webp",
+          "emojis": [
+            "😭",
+            "💧"
+          ]
+        },
+        {
+          "image_file": "6.webp",
+          "emojis": [
+            "😍",
+            "♥"
+          ]
+        }
+      ]
+    },
+    {
+      "identifier": "stickers3",
+      "name": "Funny Sticker Pack 3",
+      "publisher": "gamechief",
+      "tray_image_file": "3_tray.png",
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "1.webp",
+          "emojis": [
+            "☕",
+            "🙂"
+          ]
+        },
+        {
+          "image_file": "2.webp",
+          "emojis": [
+            "😄",
+            "😀"
+          ]
+        },
+        {
+          "image_file": "3.webp",
+          "emojis": [
+            "😆",
+            "😂"
+          ]
+        },
+        {
+          "image_file": "4.webp",
+          "emojis": [
+            "😩",
+            "😰"
+          ]
+        },
+        {
+          "image_file": "5.webp",
+          "emojis": [
+            "😭",
+            "💧"
+          ]
+        },
+        {
+          "image_file": "6.webp",
+          "emojis": [
+            "😍",
+            "♥"
+          ]
+        },
+        {
+          "image_file": "7.webp",
+          "emojis": [
+            "💔",
+            "👎"
+          ]
+        },
+        {
+          "image_file": "8.webp",
+          "emojis": [
+            "😍",
+            "💑"
+          ]
+        },
+        {
+          "image_file": "9.webp",
+          "emojis": [
+            "😘",
+            "🍪"
+          ]
+        }
+      ]
+    },
+    {
+      "identifier": "stickers4",
+      "name": "Funny Sticker Pack 4",
+      "publisher": "gamechief",
+      "tray_image_file": "4_tray.png",
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "1.webp",
+          "emojis": [
+            "☕",
+            "🙂"
+          ]
+        },
+        {
+          "image_file": "2.webp",
+          "emojis": [
+            "😄",
+            "😀"
+          ]
+        },
+        {
+          "image_file": "3.webp",
+          "emojis": [
+            "😆",
+            "😂"
+          ]
+        },
+        {
+          "image_file": "4.webp",
+          "emojis": [
+            "😩",
+            "😰"
+          ]
+        },
+        {
+          "image_file": "5.webp",
+          "emojis": [
+            "😭",
+            "💧"
+          ]
+        },
+        {
+          "image_file": "6.webp",
+          "emojis": [
+            "😍",
+            "♥"
+          ]
+        },
+
+        {
+          "image_file": "8.webp",
+          "emojis": [
+            "😍",
+            "💑"
+          ]
+        },
+        {
+          "image_file": "9.webp",
+          "emojis": [
+            "😘",
+            "🍪"
+          ]
+        }
+
+
+      ]
+    },
+    {
+      "identifier": "stickers7",
+      "name": "Funny Sticker Pack 7",
+      "publisher": "gamechief",
+      "tray_image_file": "7_tray.png",
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "1.webp",
+          "emojis": [
+            "☕",
+            "🙂"
+          ]
+        },
+        {
+          "image_file": "2.webp",
+          "emojis": [
+            "😄",
+            "😀"
+          ]
+        },
+        {
+          "image_file": "3.webp",
+          "emojis": [
+            "😆",
+            "😂"
+          ]
+        },
+        {
+          "image_file": "4.webp",
+          "emojis": [
+            "😩",
+            "😰"
+          ]
+        },
+        {
+          "image_file": "5.webp",
+          "emojis": [
+            "😭",
+            "💧"
+          ]
+        },
+        {
+          "image_file": "6.webp",
+          "emojis": [
+            "😍",
+            "♥"
+          ]
+        },
+        {
+          "image_file": "7.webp",
+          "emojis": [
+            "💔",
+            "👎"
+          ]
+        },
+        {
+          "image_file": "8.webp",
+          "emojis": [
+            "😍",
+            "💑"
+          ]
+        },
+        {
+          "image_file": "9.webp",
+          "emojis": [
+            "😘",
+            "🍪"
+          ]
+        }
+      ]
+    },
+    {
+      "identifier": "stickers8",
+      "name": "Funny Sticker Pack 8",
+      "publisher": "gamechief",
+      "tray_image_file": "8_tray.png",
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "1.webp",
+          "emojis": [
+            "☕",
+            "🙂"
+          ]
+        },
+        {
+          "image_file": "2.webp",
+          "emojis": [
+            "😄",
+            "😀"
+          ]
+        },
+        {
+          "image_file": "3.webp",
+          "emojis": [
+            "😆",
+            "😂"
+          ]
+        },
+
+        {
+          "image_file": "5.webp",
+          "emojis": [
+            "😭",
+            "💧"
+          ]
+        },
+        {
+          "image_file": "6.webp",
+          "emojis": [
+            "😍",
+            "♥"
+          ]
+        },
+        {
+          "image_file": "7.webp",
+          "emojis": [
+            "💔",
+            "👎"
+          ]
+        },
+        {
+          "image_file": "8.webp",
+          "emojis": [
+            "😍",
+            "💑"
+          ]
+        },
+        {
+          "image_file": "9.webp",
+          "emojis": [
+            "😘",
+            "🍪"
+          ]
+        }
+      ]
+    }
+
+
+
+
+
+  ]
+}
+
+

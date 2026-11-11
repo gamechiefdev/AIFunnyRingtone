@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "901452801070",
+    "project_id": "ai-funny-ringtones",
+    "storage_bucket": "ai-funny-ringtones.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901452801070:android:1e9537cecc1ef4d62b2bbf",
+        "android_client_info": {
+          "package_name": "com.gcl.funnyringtone.aiwallpapers.airingtones.superfunny"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGZ7np8ywhC62ISQO-gHWNsPTRE4HgZkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

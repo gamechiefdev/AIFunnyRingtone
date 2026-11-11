@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".activities.VoiceCallActivity">
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/four" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC050505"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageCalling"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:elevation="2dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:civ_border_width="4dp"
+        app:civ_border_color="@color/purple_200"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textnameCalling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileImageCalling" />
+
+
+    <TextView
+        android:id="@+id/textnameMessenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incomming Call"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textnameCalling" />
+
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="95dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FFF"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textnameMessenger" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="300dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_swipe_call"
+
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Reject -->
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:text="Reject"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="4dp" />
+
+        <!-- Accept -->
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:text="Accept"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Swipe Button -->
+        <ImageView
+            android:id="@+id/swipeButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:padding="2dp"
+            android:src="@drawable/voice_call"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Container for arrows -->
+    <LinearLayout
+        android:id="@+id/arrowsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_100sdp"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_10ssp"
+        app:layout_constraintBottom_toTopOf="@+id/swipeContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/arrow1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/upload"
+            app:tint="#909090" />
+
+        <ImageView
+            android:id="@+id/arrow2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            android:translationY="10dp"
+            app:tint="#909090" />
+
+        <ImageView
+            android:id="@+id/arrow3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            android:translationY="20dp"
+            app:tint="#909090" />
+
+        <ImageView
+            android:id="@+id/arrow4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            android:translationY="30dp"
+            app:tint="#909090" />
+
+        <ImageView
+            android:id="@+id/arrow5"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            android:translationY="40dp"
+            app:tint="#909090" />
+
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

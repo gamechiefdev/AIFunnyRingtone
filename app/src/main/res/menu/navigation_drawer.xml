@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <item android:icon="@drawable/share_app" android:id="@+id/ShareAppFunny" android:title="@string/share_app_with_your_friends"/>
+    <item android:icon="@drawable/baseline_privacy_tip_24" android:id="@+id/privacyPolicyFunny" android:title="@string/privacy_policy"/>
+    <item android:icon="@drawable/baseline_read_more_24" android:id="@+id/MoreAppFunny" android:title="@string/more_apps"/>
+    <item android:icon="@drawable/remove_ad" android:id="@+id/RemoveAdsFunny" android:title="@string/remove_ads"/>
+    <item android:icon="@drawable/rating" android:id="@+id/RateUsFunny" android:title="@string/rate_app"/>
+</menu>

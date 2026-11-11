@@ -361,3 +361,30 @@ Baqi funny elements intact: Chewy titles, blush wash, tilt, wobble, confetti, em
 - `Pin.Text.Section` 19sp (preview ke section heads jesa).
 - Home tiles / sticker art pre-view wali heights par wapas (126sdp / 104sdp) taake proportions match karein.
 - `docs/PREVIEW_PARITY.md` — screen ↔ layout map + 4 unavoidable differences + rebuild steps.
+
+---
+
+## Phase 10 — whole-app structure v2 (v6.8)
+
+Sirf colors/fonts nahi — **structure** badla: har secondary screen ka app bar naye architecture par shift ho gaya.
+
+### Naya screen skeleton
+
+```
+ConstraintLayout  (android:id="@+id/main", bg_screen_gradient)
+└─ appbar  (linearLayout00, transparent)
+   ├─ ImageView  @+id/imageView7   → 44dp white circle + back icon
+   └─ LinearLayout (0dp, vertical)
+      ├─ TextView @+id/text        → @style/Pin.Text.Title  (Chewy 21sp, 1 line, ellipsize)
+      └─ TextView (caption)        → @style/Pin.Text.Caption  (Poppins 11sp ink-faint)
+└─ content  (RecyclerView / ScrollView, pad 18dp, gap 10dp, card radius 20dp)
+```
+
+Purana structure: akela bold `@+id/text` `@color/grey` `_13ssp` flat bar.
+Naya: title + subtitle stack, transparent app bar taake gradient wash poore screen par chale.
+
+### Kaunse screens (24)
+
+`add_name_list` · `ai_record_sound` · `aitext_sound` · `auto_turn` · `create_name_ringtone` · `donkey_screen` · `funny_alarm` · `funny_jokes` · `generate_now` · `gif` · `play_donkey_video` · `play_my_name_ringtone` · `play_save_ringtone` · `puzzle_list` · `puzzlegame` · `read_story` · `record_generate` · `save_name_ringtone` · `selection` · `show_gif` · `show_pack` · `spin_game` · `stroy_list` · `trim_sound_screen`
+
+Script: `tools/appbar_restructure.py` (re-runnable). Har file me **same id** (`@+id/text`, `@+id/imageView7`) rakhi gayi hai — koi Java change nahi, koi listener nahi toota.

@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FunnyRingtone" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+    <!-- res/values/styles.xml -->
+    <style name="BottomSheetDialogThemeCompat" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+<!--        <item name="android:windowAnimationStyle">@style/BottomSheetAnimationCompat</item>-->
+    </style>
+
+<!--    <style name="BottomSheetAnimationCompat">-->
+<!--        <item name="android:windowEnterAnimation">@anim/bottom_sheet_slide_in</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/bottom_sheet_slide_out</item>-->
+<!--    </style>-->
+
+    <style name="DialogAnimation_2">
+        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_down</item>
+    </style>
+</resources>

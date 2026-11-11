@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Dark overlay -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#cc050505"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Profile Image -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageCalling"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:civ_border_width="4dp"
+        app:civ_border_color="@color/purple_200"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/textnameCalling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/profileImageCalling"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Incoming Call Text -->
+    <TextView
+        android:id="@+id/textnameMessenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incoming Call"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/textnameCalling"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Timer -->
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        app:layout_constraintTop_toBottomOf="@id/textnameMessenger"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- ARROWS (KEPT + FIXED) -->
+    <LinearLayout
+        android:id="@+id/arrowsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/swipeContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/arrow1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            app:tint="#909090"/>
+
+        <ImageView
+            android:id="@+id/arrow2"
+
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            app:tint="#909090"/>
+
+        <ImageView
+            android:id="@+id/arrow3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            app:tint="#909090"/>
+
+        <ImageView
+            android:id="@+id/arrow4"
+
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            app:tint="#909090"/>
+
+        <ImageView
+            android:id="@+id/arrow5"
+
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/upload"
+            app:tint="#909090"/>
+
+    </LinearLayout>
+
+    <!-- Swipe container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_swipe_call"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Reject"
+            android:textColor="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Accept"
+            android:textColor="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/swipeButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/video_call"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- AD -->
+    <FrameLayout
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

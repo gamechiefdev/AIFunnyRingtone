@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:cardElevation="3dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="7dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RelativeLayout
+            android:id="@+id/rl_row_vi"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_340sdp"
+            >
+            <ImageView
+                android:id="@+id/iv_row_vi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@color/light"
+                />
+
+
+            <me.grantland.widget.AutofitTextView
+                android:id="@+id/tv_row_vi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="The quick brown fox jumps over the lazy dog"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:minTextSize="12sp" />
+
+            <RelativeLayout
+                android:id="@+id/rel_water_mark"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/_30sdp"
+                    />
+                <ImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_cat_name_row_vi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category Name"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:visibility="gone"
+            android:background="@android:color/transparent"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/ll_btm"
+            >
+
+            <com.gamechief.aifunnyringtone.CustomUiViews.CustomPopupButton
+                android:id="@+id/btn5_next_row_vi"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_58sdp"
+                app:thub_ringStrokeWidth="2dp"
+                app:thub_ringColor="@color/white"
+                app:thub_circleColor="@color/white"
+                app:thub_circleGap="4dp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:thub_circleColorOhHold="@color/light"
+                android:alpha="0.85"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/rl_row_vi"
+            android:paddingVertical="3dp"
+            android:weightSum="3">
+
+<!--            <ImageView-->
+<!--                android:id="@+id/btn1_msg_row_vi"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center"-->
+<!--                android:padding="10dp"-->
+<!--                android:src="@drawable/share_app" />-->
+
+            <ImageView
+                android:id="@+id/btn2_save_row_vi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/ic_save" />
+
+            <ImageView
+                android:id="@+id/btn3_copy_row_vi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/ic_copy" />
+
+            <ImageView
+                android:id="@+id/btn4_share_row_vi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/ic_share" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

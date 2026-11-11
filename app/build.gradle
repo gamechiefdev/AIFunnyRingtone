@@ -1,0 +1,176 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.google.firebase.crashlytics)
+}
+
+android {
+    namespace 'com.gamechief.aifunnyringtone'
+    compileSdk {
+        version = release(36)
+    }
+
+    defaultConfig {
+        applicationId "com.gcl.funnyringtone.aiwallpapers.airingtones.superfunny"
+        minSdk 23
+        targetSdk 36
+        versionCode 6
+        versionName "6.0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        def contentProviderAuthority = applicationId + ".StickerPack.StickerContentProvider"
+        // Creates la placeholder property to use in the manifest.
+        manifestPlaceholders = [contentProviderAuthority: contentProviderAuthority]
+        // Adds la new field for the authority to the BuildConfig class.
+        buildConfigField("String", "CONTENT_PROVIDER_AUTHORITY", "\"${contentProviderAuthority}\"")
+    }
+
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            resValue "string", "app_id", "ca-app-pub-9047608998883245~8482058694"
+
+            resValue "string", "admob_banner", "ca-app-pub-9047608998883245/7945904475"
+            resValue "string", "admob_banner_hf", "ca-app-pub-9047608998883245/1288996781"
+            resValue "string", "admob_banner_mf", "ca-app-pub-9047608998883245/6632822803"
+            resValue "string", "admob_banner_splash", "ca-app-pub-9047608998883245/4096901568"
+//
+            resValue "string", "interstitial", "ca-app-pub-9047608998883245/4123310586"
+            resValue "string", "interstitial_hf", "ca-app-pub-9047608998883245/8975915110"
+            resValue "string", "interstitial_mf", "ca-app-pub-9047608998883245/4006659460"
+            resValue "string", "interstitial_double", "ca-app-pub-9047608998883245/4736255300"
+
+            resValue "string", "admob_startup", "ca-app-pub-9047608998883245/1034813518"
+            resValue "string", "admob_startup_hf", "ca-app-pub-9047608998883245/8721731841"
+            resValue "string", "admob_startup_mf", "ca-app-pub-9047608998883245/4698726353"
+            resValue "string", "admob_startup_double", "ca-app-pub-9047608998883245/5409983235"
+            resValue "string", "admob_startup_onResume", "ca-app-pub-9047608998883245/4992438079"
+
+            resValue "string", "rewardAd_low", "ca-app-pub-9047608998883245/2693577797"
+            resValue "string", "rewardAd_medium", "ca-app-pub-9047608998883245/2064123458"
+            resValue "string", "rewardAd_high", "ca-app-pub-9047608998883245/7618601413"
+
+            resValue "string", "navtive_ad_id", "ca-app-pub-9047608998883245/5036670105"
+            resValue "string", "navtive_ad_intro_big", "ca-app-pub-9047608998883245/1530447979"
+            resValue "string", "navtive_ad_intro_nf", "ca-app-pub-9047608998883245/5657395240"
+            resValue "string", "navtive_ad_intro_mf", "ca-app-pub-9047608998883245/7170846950"
+            resValue "string", "navtive_ad_intro_hf", "ca-app-pub-9047608998883245/7035115580"
+
+            resValue "string", "in_app_purchase" ,   "android.test.purchased"
+            signingConfig signingConfigs.debug
+            resValue "string", "isDebugging", "false"
+        }
+        debug {
+            resValue "string", "isDebugging", "true"
+            resValue "string", "app_id", "ca-app-pub-3940256099942544~3347511713"
+
+            resValue "string", "admob_banner", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "admob_banner_hf", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "admob_banner_mf", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "admob_banner_splash", "ca-app-pub-3940256099942544/6300978111"
+//
+            resValue "string", "interstitial", "ca-app-pub-3940256099942544/1033173712"
+            resValue "string", "interstitial_hf", "ca-app-pub-3940256099942544/1033173712"
+            resValue "string", "interstitial_mf", "ca-app-pub-3940256099942544/1033173712"
+            resValue "string", "interstitial_double", "ca-app-pub-3940256099942544/1033173712"
+
+            resValue "string", "admob_startup", "ca-app-pub-3940256099942544/9257395921"
+            resValue "string", "admob_startup_hf", "ca-app-pub-3940256099942544/9257395921"
+            resValue "string", "admob_startup_mf", "ca-app-pub-3940256099942544/9257395921"
+            resValue "string", "admob_startup_double", "ca-app-pub-3940256099942544/9257395921"
+            resValue "string", "admob_startup_onResume", "ca-app-pub-3940256099942544/9257395921"
+
+            resValue "string", "rewardAd_low", "ca-app-pub-3940256099942544/5224354917"
+            resValue "string", "rewardAd_medium", "ca-app-pub-3940256099942544/5224354917"
+            resValue "string", "rewardAd_high", "ca-app-pub-3940256099942544/5224354917"
+
+            resValue "string", "navtive_ad_id", "ca-app-pub-3940256099942544/2247696110"
+            resValue "string", "navtive_ad_intro_big", "ca-app-pub-3940256099942544/2247696110"
+            resValue "string", "navtive_ad_intro_nf", "ca-app-pub-3940256099942544/2247696110"
+            resValue "string", "navtive_ad_intro_mf", "ca-app-pub-3940256099942544/2247696110"
+            resValue "string", "navtive_ad_intro_hf", "ca-app-pub-3940256099942544/2247696110"
+
+            resValue "string", "in_app_purchase" ,   "android.test.purchased"
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation(project(":nativetemplates"))
+    implementation libs.activity.ktx
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.play.services.measurement.api
+    implementation libs.lifecycle.process
+    implementation libs.volley
+    implementation libs.firebase.analytics
+    implementation libs.firebase.crashlytics
+    implementation libs.firebase.config
+    implementation libs.constraintlayout.core
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    implementation libs.facebook
+    implementation libs.infer.annotation
+    implementation libs.applovin
+    implementation libs.play.services.ads//
+
+
+
+    implementation libs.sdp.android
+
+    //    dimens library for sp
+    implementation libs.ssp.android
+
+    implementation libs.billing
+    implementation libs.lottie
+    implementation libs.glide
+
+    implementation libs.roundedimageview
+
+
+    implementation libs.ultimatebarx
+    implementation libs.youtube.player
+    implementation libs.youtube.player.ui
+    implementation 'com.google.code.gson:gson:2.14.0'
+    implementation 'me.grantland:autofittextview:0.2.1'
+    implementation 'com.karumi:dexter:6.2.3'
+    implementation 'com.github.yalantis:ucrop:2.2.11'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.facebook.fresco:webpsupport:3.6.0'
+    implementation 'com.facebook.fresco:animated-webp:3.6.0'
+    implementation 'com.facebook.fresco:animated-base:3.6.0'
+
+    implementation 'net.lingala.zip4j:zip4j:2.11.6'
+
+    implementation('com.facebook.fresco:fresco:3.6.0') {
+        exclude group: 'com.facebook.soloader', module: 'soloader'
+        exclude group: 'com.facebook.fresco', module: 'soloader'
+    }
+    implementation 'com.facebook.soloader:soloader:0.12.1' // use latest version
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.31'
+    implementation libs.cardstackview
+}

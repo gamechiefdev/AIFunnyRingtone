@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+    </queries>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".adsCondition.AdsController"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/app_icon"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FunnyRingtone">
+        <activity
+            android:name=".MyIntroScreensActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.TrimSoundScreen"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".PuzzleGame.Puzzlegame"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".PuzzleGame.PuzzleList"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.ReadStory"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.StroyList"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.ShowGif"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.GifActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.FunnyAlarm"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".myRingtone.PlaySaveRingtone"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".myRingtone.SaveNameRingtone"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".myRingtone.PlayMyNameRingtone"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".myRingtone.CreateNameRingtone"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".DareGame.AutoTurn"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".DareGame.AddNameList"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".DareGame.SelectionActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.AcceptVoiceCall"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.AcceptVideoCall"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.VoiceCallActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.VideoCallActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.ImagePreviewActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.ImagePickerActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.FunnyJokes"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.ShowPack"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.StickersPackList"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".DareGame.SpinGame"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.FavoritesScreen"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.RecordGenerate"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.PlayAiSound"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.GenerateNow"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.WallpaperList"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.AiRecordSound"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.AITextSound"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.PlaySounds"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.SoundList"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".activities.WallpaperPreview"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:screenOrientation="locked">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- <service -->
+        <!-- android:name=".models.VoiceEffectService" -->
+        <!-- android:exported="false" -->
+        <!-- android:foregroundServiceType="microphone"/> -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/Theme.FunnyRingtone" />
+
+        <provider
+            android:name=".StickerPack.StickerContentProvider"
+            android:authorities="${contentProviderAuthority}"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.whatsapp.sticker.READ" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.gcl.funnyringtone.aiwallpapers.airingtones.superfunny.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".activities.DonkeyScreen"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.PlayDonkeyVideo"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

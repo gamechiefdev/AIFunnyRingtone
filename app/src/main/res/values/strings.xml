@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Ai Funny Ringtones</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="start_free_trial">Start Free Trial</string>
+    <string name="premium_monthly_plan">Premium Weekly Plan</string>
+    <string name="monthly">Weekly</string>
+    <string name="originalprice">originalPrice</string>
+    <string name="justprice">justPrice</string>
+    <string name="rs_0000">0 for now</string>
+    <string name="loading">0 for now</string>
+    <string name="please_wait_loading">Please Wait\n</string>
+    <string name="just">Just</string>
+    <string name="per_month">per week </string>">
+    <string name="flat">Flat</string>">
+    <string name="off">off</string>">
+
+    <string name="start_3_days_free_trial_flat">Start 3-days free trial.</string>
+    <string name="discount_on_1st_order_and_after_that">After the trial ends</string>
+    <string name="per_week_will_be_charged">per week \nwill be charged</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="more_apps">More Apps</string>
+    <string name="remove_ads">Remove Ads</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_app">Rate App</string>
+    <string name="share_app_with_your_friends">Share app with your friends</string>
+
+
+    <string name="are_you_sure_you_want_to_close_the_app">Are you sure you want to close the App?</string>
+    <string name="confirm_exit">Confirm Exit</string>
+
+
+    <string name="_3d_floor_plan">3D Floor Plan</string>
+    <string name="find_out_all_the_details_an_a_clear_idea_about_nthe_home_by_using_this_app">Find out all the details an a clear idea about \nthe home by using this app</string>
+    <string name="unlock">Unlock</string>
+    <string name="unlimited">Unlimited</string>
+    <string name="access">Access</string>
+    <string name="get_all_exclusive_feature_without_irritating_ads">Get All Exclusive Feature Without Irritating Ads</string>
+    <string name="features">Features</string>
+    <string name="free">Free</string>
+    <string name="pro">Pro</string>
+    <string name="unlock_premium_features">Unlock Premium Features</string>
+    <string name="increase_user_experience">Increase User Experience</string>
+    <string name="increase_usage_speed">Increase Usage Speed</string>
+    <string name="one_time_purchase">One Time Purchase</string>
+    <string name="remove_all_ads">Remove all Ads</string>
+    <string name="we_take_the_privacy_and_security_of_your_data_seriously_this_app_never_collects_and_use_any_data_about_you_and_your_device">We take the privacy and security of your data seriously. This app never collects and use any data about you and your device.</string>
+    <string name="error_message">Error: %s \nSee logcat for stack trace.</string>
+    <string name="title_activity_sticker_pack_details_single_pack">Sticker Pack</string>
+    <string name="title_activity_sticker_pack_details_multiple_pack">Sticker details</string>
+    <string name="add_to_whatsapp">Add to WhatsApp</string>
+    <string name="add_button_content_description">Add sticker pack to WhatsApp</string>
+    <string name="error_adding_sticker_pack">Could not add this sticker pack. Please install the latest version of WhatsApp before adding sticker pack</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="hi">hi</string>
+    <string name="todo">TODO</string>
+    <string name="donkey_dancing">Donkey Dancing</string>
+
+</resources>

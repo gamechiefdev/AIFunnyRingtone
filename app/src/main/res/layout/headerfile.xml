@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="205dp"
+    android:orientation="vertical"
+    android:gravity="center|bottom"
+    android:background="@android:color/white"
+    android:padding="20dp">
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:src="@drawable/app_icon"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/purple_200"/>
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text=" Live Wallpaper"-->
+<!--        android:textSize="10sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@android:color/black"/>-->
+
+
+
+</LinearLayout>

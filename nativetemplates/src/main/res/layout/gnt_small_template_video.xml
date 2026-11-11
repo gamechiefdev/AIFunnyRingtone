@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <com.google.android.gms.ads.nativead.NativeAdView
+      android:id="@+id/native_ad_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@drawable/gnt_main_ad_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+      <TextView
+          android:id="@+id/ad_notification_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/gnt_bg_ad_small_rounded"
+          android:gravity="center"
+          android:paddingStart="@dimen/_2sdp"
+          android:paddingEnd="@dimen/_5sdp"
+          android:text="Ad"
+          android:textColor="@color/gnt_white"
+          android:textSize="@dimen/gnt_ad_indicator_text_size_small"
+          android:textStyle="bold"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <!--<ImageView
+          android:id="@+id/icon"
+          android:layout_width="0dp"
+          android:layout_weight="0"
+          android:layout_height="56dp"
+          android:visibility="gone"
+          android:layout_marginTop="@dimen/gnt_no_margin"
+          android:layout_marginStart="@dimen/gnt_no_margin"
+          android:layout_marginBottom="@dimen/gnt_no_margin"
+          android:layout_marginEnd="@dimen/gnt_no_margin"
+          app:layout_constraintDimensionRatio="H,1:1"
+          app:layout_constraintVertical_bias="0.25"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+
+          />-->
+
+      <com.google.android.gms.ads.nativead.MediaView
+          android:id="@+id/media_view"
+          android:layout_width="130dp"
+          android:layout_height="120dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          />
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/content"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          app:layout_constraintBottom_toBottomOf="@id/media_view"
+          app:layout_constraintStart_toEndOf="@+id/ad_notification_view"
+          app:layout_constraintEnd_toStartOf="@id/media_view"
+          app:layout_constraintTop_toTopOf="parent"
+          >
+
+        <TextView
+            android:id="@+id/primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="2"
+            android:textColor="@color/gnt_black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:progressTint="@color/gnt_yellow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/primary" />
+
+        <TextView
+            android:id="@+id/secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@color/gnt_black"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_bar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cta"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:backgroundTint="@color/gnt_primary"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Install Now"
+            android:textAllCaps="false"
+            android:textColor="@color/gnt_white"
+            android:textSize="11sp"
+            app:layout_constraintTop_toBottomOf="@+id/secondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </com.google.android.gms.ads.nativead.NativeAdView>
+</merge>

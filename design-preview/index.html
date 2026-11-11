@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AI Funny Ringtones — Pinterest-style UI refresh</title>
+<title>AI Funny Ringtones — Before / After UI refresh</title>
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,9 +13,9 @@
     <p class="eyebrow">UI CASE STUDY · v6.1</p>
     <h1>A Pinterest-grade<br /><span>refresh for AI Funny Ringtones.</span></h1>
     <p class="lede">
-      Same backend, same flows, new skin. This is a live, clickable preview of the Android layout
-      system that now ships in <code>app/src/main/res</code> — masonry discovery, soft elevation,
-      one geometric type family and a single brand palette.
+      Same backend, same flows, new skin. Left is the shipped <b>v6.0</b> layout, right is the
+      <b>v6.1</b> "Pin" design system now in <code>app/src/main/res</code>. The right phone is fully
+      clickable — switch tabs, filter moods, save a pin.
     </p>
     <div class="meta">
       <span class="meta-chip">Masonry pins</span>
@@ -27,7 +27,6 @@
   </header>
 
   <main class="stage">
-
     <aside class="panel">
       <section class="panel-block">
         <h2>Five designer skills applied</h2>
@@ -64,118 +63,275 @@
       </section>
     </aside>
 
-    <div class="device-wrap">
-      <div class="device">
-        <div class="statusbar">
-          <span>9:41</span>
-          <span class="status-icons">▮▮▮ ⌁ ▭</span>
+    <div class="devices">
+      <figure class="device-wrap">
+        <figcaption class="device-label"><span class="dot old"></span> Before · v6.0</figcaption>
+        <div class="device before">
+          <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
+
+          <div class="old-appbar">
+            <span class="old-menu">☰</span>
+            <span class="old-title">Funny Ringtones</span>
+            <span class="old-fav">♥</span>
+            <span class="old-pro">PRO</span>
+          </div>
+
+          <div class="old-scroll">
+            <p class="old-section">AI Generator</p>
+            <div class="old-duo">
+              <div class="old-ai green">
+                <img src="assets/ic_txt_ai.png" alt="" />
+                <b>AI Text<br />Generator</b>
+                <span class="old-btn">Try Text to Sound</span>
+              </div>
+              <div class="old-ai forest">
+                <img src="assets/ic_robot.png" alt="" />
+                <b>AI Sound<br />Generator</b>
+                <span class="old-btn">Record Your Voice</span>
+              </div>
+            </div>
+
+            <div class="old-quick">
+              <div><img src="assets/ic_ring.png" alt="" /><span>My Ring Name</span></div>
+              <div><img src="assets/ic_dare_game.png" alt="" /><span>Dare Game</span></div>
+              <div><img src="assets/ic_funny_sticker.png" alt="" /><span>Funny Stickers</span></div>
+              <div><img src="assets/ic_stories.png" alt="" /><span>Funny Stories</span></div>
+            </div>
+            <div class="old-quick">
+              <div><img src="assets/ic_gif.png" alt="" /><span>Gif Memes</span></div>
+              <div><img src="assets/ic_puzzle.png" alt="" /><span>Puzzle Game</span></div>
+              <div><img src="assets/ic_donkey.png" alt="" /><span>Donkey</span></div>
+              <div><img src="assets/ic_funny_jokes.png" alt="" /><span>Funny Jokes</span></div>
+            </div>
+
+            <p class="old-section">Categories</p>
+            <div class="old-grid">
+              <div class="old-tile"><img src="assets/three.png" alt="" /><span>Funny</span></div>
+              <div class="old-tile"><img src="assets/four.png" alt="" /><span>Animal</span></div>
+              <div class="old-tile"><img src="assets/five.png" alt="" /><span>Laugh</span></div>
+              <div class="old-tile"><img src="assets/six.png" alt="" /><span>Fart</span></div>
+              <div class="old-tile"><img src="assets/seven.png" alt="" /><span>Dialogue</span></div>
+              <div class="old-tile"><img src="assets/eight.png" alt="" /><span>Baby</span></div>
+            </div>
+            <div class="old-more">Funny Alarms</div>
+          </div>
+
+          <nav class="old-tabbar">
+            <span class="is-on"><b>⌂</b>Home</span>
+            <span><b>☏</b>Prank Call</span>
+            <span><b>▣</b>Wallpapers</span>
+            <span><b>♫</b>AI Playlist</span>
+          </nav>
         </div>
-        <div class="screens" id="screens">
-          <!-- HOME -->
-          <section class="screen is-active" data-screen="home">
-            <div class="appbar">
-              <button class="icon-btn" aria-label="Menu">☰</button>
-              <div class="appbar-titles">
-                <p class="appbar-title">Discover</p>
-                <p class="appbar-sub">Funny sounds &amp; wallpapers</p>
-              </div>
-              <button class="icon-btn" aria-label="Favorites">♥</button>
-              <button class="pro" aria-label="Premium">PRO</button>
-            </div>
+      </figure>
 
-            <div class="scroll">
-              <p class="eyebrow">Good evening · time to prank</p>
-              <h2 class="hero">Find your<br />funny sound.</h2>
-              <p class="hero-sub">AI voices, prank calls, wallpapers and stickers — curated for maximum laughs.</p>
+      <figure class="device-wrap">
+        <figcaption class="device-label"><span class="dot new"></span> After · v6.1</figcaption>
+        <div class="device after">
+          <div class="statusbar"><span>9:41</span><span class="status-icons">▮▮▮ ⌁ ▭</span></div>
 
-              <div class="section-head"><span>✦</span><h3>AI Studio</h3><em>NEW</em></div>
-              <p class="section-sub">Generate something nobody expects</p>
-              <div class="ai-duo">
-                <button class="ai-card lilac">
-                  <span class="ai-icon"><img src="assets/ic_txt_ai.png" alt="" /></span>
-                  <span class="spacer"></span>
-                  <b>AI Text<br />Generator</b>
-                  <span class="pill light">Try text to sound</span>
-                </button>
-                <button class="ai-card green">
-                  <span class="ai-icon"><img src="assets/ic_robot.png" alt="" /></span>
-                  <span class="spacer"></span>
-                  <b>AI Sound<br />Generator</b>
-                  <span class="pill light">Record your voice</span>
-                </button>
-              </div>
-
-              <div class="section-head"><h3>Explore</h3><em class="muted">8 collections</em></div>
-              <div class="masonry explore">
-                <div class="col">
-                  <button class="quick tall lilac-soft"><img src="assets/ic_ring.png" alt="" /><b>My Ring Name</b></button>
-                  <button class="quick amber-soft"><img src="assets/ic_funny_sticker.png" alt="" /><b>Funny Stickers</b></button>
-                  <button class="quick row sky-soft"><b>GIF Memes</b><img src="assets/ic_gif.png" alt="" /></button>
-                  <button class="quick row rose-soft"><b>Puzzle Game</b><img src="assets/ic_puzzle.png" alt="" /></button>
+          <div class="screens" id="screens">
+            <!-- HOME -->
+            <section class="screen is-active" data-screen="home">
+              <div class="appbar">
+                <button class="icon-btn" aria-label="Menu">☰</button>
+                <div class="appbar-titles">
+                  <p class="appbar-title">Discover</p>
+                  <p class="appbar-sub">Funny sounds &amp; wallpapers</p>
                 </div>
-                <div class="col">
-                  <button class="quick green-soft"><img src="assets/ic_dare_game.png" alt="" /><b>Dare Game</b></button>
-                  <button class="quick tall coral-soft"><img src="assets/ic_stories.png" alt="" /><b>Funny Stories</b></button>
-                  <button class="quick row"><b>Funny Jokes</b><img src="assets/ic_funny_jokes.png" alt="" /></button>
-                  <button class="quick row green-softer"><b>Donkey Talk</b><img src="assets/ic_donkey.png" alt="" /></button>
-                </div>
+                <button class="icon-btn" aria-label="Favorites">♥</button>
+                <button class="pro" aria-label="Premium">PRO</button>
               </div>
 
-              <div class="section-head"><h3>Browse by mood</h3></div>
-              <div class="chips" id="moodChips"></div>
-              <div class="masonry cats" id="categoryPins"></div>
-              <div class="bottom-pad"></div>
-            </div>
-          </section>
+              <div class="scroll">
+                <p class="eyebrow">Good evening · time to prank</p>
+                <h2 class="hero">Find your<br />funny sound.</h2>
+                <p class="hero-sub">AI voices, prank calls, wallpapers and stickers — curated for maximum laughs.</p>
 
-          <!-- PRANK -->
-          <section class="screen" data-screen="prank">
-            <div class="scroll pad">
-              <h2 class="screen-title">Pick a caller</h2>
-              <p class="hero-sub">Fake a call from your favourite character.</p>
-              <div class="grid3" id="prankGrid"></div>
-              <div class="bottom-pad"></div>
-            </div>
-          </section>
-
-          <!-- WALLPAPERS -->
-          <section class="screen" data-screen="walls">
-            <div class="scroll pad">
-              <h2 class="screen-title">Wallpapers</h2>
-              <p class="hero-sub">Tap any pin to preview and set it.</p>
-              <div class="masonry walls" id="wallPins"></div>
-              <div class="bottom-pad"></div>
-            </div>
-          </section>
-
-          <!-- PLAYLIST -->
-          <section class="screen" data-screen="list">
-            <div class="scroll pad">
-              <div class="hero-card">
-                <div>
-                  <p class="eyebrow">Your library</p>
-                  <h2 class="screen-title">AI Playlist</h2>
-                  <p class="hero-sub">Everything you generated and recorded, in one place.</p>
+                <div class="section-head"><span>✦</span><h3>AI Studio</h3><em>NEW</em></div>
+                <p class="section-sub">Generate something nobody expects</p>
+                <div class="ai-duo">
+                  <button class="ai-card lilac">
+                    <span class="ai-icon"><img src="assets/ic_txt_ai.png" alt="" /></span>
+                    <span class="spacer"></span>
+                    <b>AI Text<br />Generator</b>
+                    <span class="pill light">Try text to sound</span>
+                  </button>
+                  <button class="ai-card green">
+                    <span class="ai-icon"><img src="assets/ic_robot.png" alt="" /></span>
+                    <span class="spacer"></span>
+                    <b>AI Sound<br />Generator</b>
+                    <span class="pill light">Record your voice</span>
+                  </button>
                 </div>
-                <img src="assets/his_card.png" alt="" class="hero-art" />
+
+                <div class="section-head"><h3>Explore</h3><em class="muted">8 collections</em></div>
+                <div class="masonry explore">
+                  <div class="col">
+                    <button class="quick tall lilac-soft"><img src="assets/ic_ring.png" alt="" /><b>My Ring Name</b></button>
+                    <button class="quick amber-soft"><img src="assets/ic_funny_sticker.png" alt="" /><b>Funny Stickers</b></button>
+                    <button class="quick row sky-soft"><b>GIF Memes</b><img src="assets/ic_gif.png" alt="" /></button>
+                    <button class="quick row rose-soft"><b>Puzzle Game</b><img src="assets/ic_puzzle.png" alt="" /></button>
+                  </div>
+                  <div class="col">
+                    <button class="quick green-soft"><img src="assets/ic_dare_game.png" alt="" /><b>Dare Game</b></button>
+                    <button class="quick tall coral-soft"><img src="assets/ic_stories.png" alt="" /><b>Funny Stories</b></button>
+                    <button class="quick row"><b>Funny Jokes</b><img src="assets/ic_funny_jokes.png" alt="" /></button>
+                    <button class="quick row green-softer"><b>Donkey Talk</b><img src="assets/ic_donkey.png" alt="" /></button>
+                  </div>
+                </div>
+
+                <div class="section-head"><h3>Browse by mood</h3></div>
+                <div class="chips" id="moodChips"></div>
+                <div class="masonry cats" id="categoryPins"></div>
+                <div class="bottom-pad"></div>
               </div>
-              <div class="sound-rows" id="soundRows"></div>
-              <div class="bottom-pad"></div>
-            </div>
-          </section>
+            </section>
+
+            <!-- PRANK -->
+            <section class="screen" data-screen="prank">
+              <div class="scroll pad">
+                <h2 class="screen-title">Pick a caller</h2>
+                <p class="hero-sub">Fake a call from your favourite character.</p>
+                <div class="grid3" id="prankGrid"></div>
+                <div class="bottom-pad"></div>
+              </div>
+            </section>
+
+            <!-- WALLPAPERS -->
+            <section class="screen" data-screen="walls">
+              <div class="scroll pad">
+                <h2 class="screen-title">Wallpapers</h2>
+                <p class="hero-sub">Tap any pin to preview and set it.</p>
+                <div class="masonry walls" id="wallPins"></div>
+                <div class="bottom-pad"></div>
+              </div>
+            </section>
+
+            <!-- PLAYLIST -->
+            <section class="screen" data-screen="list">
+              <div class="scroll pad">
+                <div class="hero-card">
+                  <div>
+                    <p class="eyebrow">Your library</p>
+                    <h2 class="screen-title">AI Playlist</h2>
+                    <p class="hero-sub">Everything you generated and recorded, in one place.</p>
+                  </div>
+                  <img src="assets/his_card.png" alt="" class="hero-art" />
+                </div>
+                <div class="sound-rows" id="soundRows"></div>
+                <div class="bottom-pad"></div>
+              </div>
+            </section>
+          </div>
+
+          <nav class="tabbar">
+            <span class="indicator" id="navIndicator"></span>
+            <button class="tab is-active" data-target="home"><span class="tab-ico">⌂</span><span>Home</span></button>
+            <button class="tab" data-target="prank"><span class="tab-ico">☏</span><span>Prank Call</span></button>
+            <button class="tab" data-target="walls"><span class="tab-ico">▣</span><span>Wallpapers</span></button>
+            <button class="tab" data-target="list"><span class="tab-ico">♫</span><span>AI Playlist</span></button>
+          </nav>
         </div>
-
-        <nav class="tabbar">
-          <span class="indicator" id="navIndicator"></span>
-          <button class="tab is-active" data-target="home"><span class="tab-ico">⌂</span><span>Home</span></button>
-          <button class="tab" data-target="prank"><span class="tab-ico">☏</span><span>Prank Call</span></button>
-          <button class="tab" data-target="walls"><span class="tab-ico">▣</span><span>Wallpapers</span></button>
-          <button class="tab" data-target="list"><span class="tab-ico">♫</span><span>AI Playlist</span></button>
-        </nav>
-      </div>
-      <p class="device-hint">Tap the tabs, filter moods, and save a pin — everything here is interactive.</p>
+      </figure>
     </div>
   </main>
+
+  <section class="changelog">
+    <h2 class="changelog-title">What actually changed in the code</h2>
+    <p class="changelog-sub">
+      UI layer only — layouts, styles, colours, dimens, drawables, fonts, plus a handful of
+      layout-manager / label lines in Java. No API, Firebase, ads, billing or data logic touched.
+    </p>
+
+    <div class="log-grid">
+      <article class="log-card">
+        <h3>Shell &amp; navigation</h3>
+        <p class="files">activity_main.xml · MainActivity.java · headerfile.xml</p>
+        <ul>
+          <li><s>42dp flat top bar with centred title</s> → floating app bar, two-line title, round action buttons</li>
+          <li><s>solid green tab bar, white icons only</s> → rounded white bar + sliding 4dp indicator</li>
+          <li>resetIconColors(): white → <code>nav_unselected</code> so idle tabs read on white</li>
+        </ul>
+      </article>
+
+      <article class="log-card">
+        <h3>Home discovery</h3>
+        <p class="files">fragment_home.xml · Home.java</p>
+        <ul>
+          <li><s>“AI Generator” label + 2 flat ratio images</s> → hero headline + gradient AI Studio pins</li>
+          <li><s>two fixed 4-icon rows</s> → masonry columns of eight coloured pins</li>
+          <li><s>3-column rigid category grid</s> → 2-column pin grid</li>
+          <li>new: mood chips that filter the existing <code>categoryList</code> (same intent extras)</li>
+        </ul>
+      </article>
+
+      <article class="log-card">
+        <h3>Wallpapers</h3>
+        <p class="files">activity_wallpaper_list.xml · bg_layout.xml · wall_itemlayout.xml · Wall_Adapter.java</p>
+        <ul>
+          <li><s>200dp uniform cards, 10dp radius, green 1dp stroke</s> → 26dp pins, scrim + badge, 2dp shadow</li>
+          <li><s>GridLayoutManager(2)</s> → <code>StaggeredGridLayoutManager</code> + per-position heights</li>
+          <li>header gains a subtitle; grid padding tightened</li>
+        </ul>
+      </article>
+
+      <article class="log-card">
+        <h3>Stickers</h3>
+        <p class="files">activity_stickers_pack_list.xml · sticker_itemlayout.xml · StickersPackList.java</p>
+        <ul>
+          <li><s>vertical list with dividers</s> → 2-column board grid</li>
+          <li><s>yellow flat card, thumbnail left</s> → white pin, artwork tile, title + size caption</li>
+          <li>WhatsApp add-to-pack flow untouched</li>
+        </ul>
+      </article>
+
+      <article class="log-card">
+        <h3>Sounds &amp; library</h3>
+        <p class="files">activity_sound_list.xml · sound_itemlayout.xml · sound_listitem.xml · fragment_histroy.xml · fragment_prank_call.xml · activity_favorites_screen.xml</p>
+        <ul>
+          <li><s>flat rows + 1dp dividers</s> → 68dp rounded cards, thumb, heart chip</li>
+          <li><s>hard-coded header text</s> → title derived from existing <code>sound_names</code></li>
+          <li>new history hero card and caller grid headers</li>
+        </ul>
+      </article>
+
+      <article class="log-card">
+        <h3>Type, colour, components</h3>
+        <p class="files">colors.xml · dimens.xml · styles.xml · themes.xml · res/font · res/drawable · res/color</p>
+        <ul>
+          <li>Poppins (400/500/600/700) applied theme-wide; 7-step type scale</li>
+          <li>12 new brand tokens + warm neutrals; legacy names kept for untouched screens</li>
+          <li>~30 new shapes, ripples, gradients; <code>Pin.*</code> card / chip / button styles</li>
+          <li>night resources mirror the light tokens (no more dark-on-white mix)</li>
+        </ul>
+      </article>
+
+      <article class="log-card wide">
+        <h3>Batch pass — 25 legacy headers</h3>
+        <p class="files">activity_funny_jokes · activity_gif · activity_stroy_list · activity_aitext_sound · activity_ai_record_sound · activity_create_name_ringtone · activity_puzzle* · activity_spin_game · activity_donkey_screen · activity_show_* · activity_play_* …</p>
+        <ul>
+          <li><s>40dp white bar, 3dp elevation, 13ssp grey title</s> → 44dp circular back button, 18sp Poppins ink title, <code>pin_bg</code> window</li>
+          <li>untouched: every view ID, click listener, padding maths and ad slot</li>
+        </ul>
+      </article>
+
+      <article class="log-card wide">
+        <h3>Verification</h3>
+        <p class="files">tools/ui_audit.py</p>
+        <ul>
+          <li>every layout parsed · every <code>@drawable/@color/@dimen/@string/@style/@font</code> resolved · no duplicate IDs</li>
+          <li>every <code>binding.x</code> field used in Java proven to exist in its bound layout</li>
+          <li>result: <b>0 new problems</b> (7 pre-existing, library-provided references)</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="changelog-foot">
+      Full write-up: <code>docs/UI_REDESIGN_PLAN.md</code> · APK build not run in the sandbox (no JDK/Android SDK) —
+      run <code>./gradlew :app:assembleDebug</code> locally.
+    </p>
+  </section>
 </div>
 <script src="app.js"></script>
 </body>

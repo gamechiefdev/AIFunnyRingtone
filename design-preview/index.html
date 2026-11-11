@@ -72,6 +72,67 @@
     }
   }
 
+
+  /* ============================================================
+     v6.2 — 3D material + floating motion
+     ============================================================ */
+  :root {
+    --lift-1: 0 1px 0 rgba(255,255,255,.9) inset, 0 6px 14px -6px rgba(20,20,20,.22), 0 2px 4px rgba(20,20,20,.05);
+    --lift-2: 0 1px 0 rgba(255,255,255,.9) inset, 0 14px 28px -12px rgba(20,20,20,.30), 0 3px 8px rgba(20,20,20,.06);
+    --lift-3: 0 1px 0 rgba(255,255,255,.55) inset, 0 22px 40px -16px rgba(20,20,20,.38);
+  }
+
+  @keyframes floaty      { 0%,100% { transform: translate3d(0,0,0) }  50% { transform: translate3d(0,-6px,0) } }
+  @keyframes floaty-soft { 0%,100% { transform: translate3d(0,0,0) }  50% { transform: translate3d(0,-4px,0) } }
+  @keyframes floaty-late { 0%,100% { transform: translate3d(0,0,0) }  50% { transform: translate3d(0,-8px,0) } }
+  @keyframes rise        { from { opacity: 0; transform: translate3d(0,14px,0) } to { opacity: 1; transform: none } }
+  @keyframes pop         { from { opacity: 0; transform: scale(.94) } to { opacity: 1; transform: scale(1) } }
+  @keyframes glow        { 0%,100% { box-shadow: var(--lift-2) } 50% { box-shadow: var(--lift-3) } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  /* raised, layered material */
+  .ai-card, .tile, .pin, .srow, .call-card, .voice img, .sheet-body, .mini {
+    box-shadow: var(--lift-1);
+    will-change: transform;
+    transition: transform .22s cubic-bezier(.22,.9,.3,1), box-shadow .22s ease;
+  }
+  .ai-card { box-shadow: var(--lift-2); }
+  .ai-card::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(170deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,.06) 34%, rgba(255,255,255,0) 62%);
+  }
+  .srow, .call-card {
+    background-image: linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+    border: 1px solid rgba(20,20,20,.055);
+  }
+  .tile { border: 1px solid rgba(20,20,20,.05); }
+  .srow:hover, .tile:hover, .call-card:hover, .pin:hover { transform: translateY(-2px); box-shadow: var(--lift-2); }
+  .srow:active, .tile:active, .call-card:active { transform: translateY(0) scale(.985); box-shadow: var(--lift-1); }
+  .pin { box-shadow: var(--lift-2); }
+  .pin img { transform: scale(1.02); transition: transform .35s ease; }
+  .pin:hover img { transform: scale(1.06); }
+
+  /* floating hero elements on every screen */
+  .ai-card:nth-child(1) { animation: floaty 5.4s ease-in-out infinite; }
+  .ai-card:nth-child(2) { animation: floaty-late 6.2s ease-in-out infinite; }
+  .tile:nth-child(odd)  { animation: floaty-soft 7s ease-in-out infinite; }
+  .tile:nth-child(even) { animation: floaty-soft 8.2s ease-in-out .6s infinite; }
+  .pin:nth-child(2n)    { animation: floaty-soft 9s ease-in-out infinite; }
+  .tab.on svg { animation: floaty-soft 3.2s ease-in-out infinite; }
+  .statusbar { animation: rise .5s ease both; }
+
+  /* screen transitions */
+  .pane.active { animation: rise .34s cubic-bezier(.22,.9,.3,1) both; }
+  .pane.active > * { animation: rise .4s cubic-bezier(.22,.9,.3,1) both; }
+  .pane.active > *:nth-child(2) { animation-delay: .04s; }
+  .pane.active > *:nth-child(3) { animation-delay: .08s; }
+  .pane.active > *:nth-child(4) { animation-delay: .12s; }
+  .sheet-body { animation: pop .26s cubic-bezier(.22,.9,.3,1) both; }
+  .call-screen img { animation: glow 2.6s ease-in-out infinite; }
+
   /* ---------------- phone status bar ---------------- */
   .statusbar {
     flex: none;
@@ -175,7 +236,9 @@
   .chip {
     flex: none; cursor: pointer;
     border: 0; border-radius: 999px;
-    background: var(--surface-alt); color: var(--ink-soft);
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--surface-alt) 100%);
+    color: var(--ink-soft);
+    box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 4px 10px -6px rgba(20,20,20,.3);
     font: 500 11.5px/1 Poppins, sans-serif;
     padding: 10px 14px;
     transition: background .14s ease, color .14s ease;

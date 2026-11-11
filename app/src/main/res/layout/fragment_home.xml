@@ -115,7 +115,11 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="@dimen/pin_radius_lg">
+                    app:cardCornerRadius="@dimen/pin_radius_lg"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+        android:tag="float"
+    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -174,7 +178,11 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="@dimen/pin_radius_lg">
+                    app:cardCornerRadius="@dimen/pin_radius_lg"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+        android:tag="float_late"
+    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -269,7 +277,11 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_lilac_soft">
+                        app:cardBackgroundColor="@color/pin_lilac_soft"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+        android:tag="float_late"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -305,7 +317,10 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_amber_soft">
+                        app:cardBackgroundColor="@color/pin_amber_soft"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -338,7 +353,10 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_sky_soft">
+                        app:cardBackgroundColor="@color/pin_sky_soft"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -370,7 +388,10 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_rose_soft">
+                        app:cardBackgroundColor="@color/pin_rose_soft"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -412,7 +433,10 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_primary_soft">
+                        app:cardBackgroundColor="@color/pin_primary_soft"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -445,7 +469,11 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_accent_soft">
+                        app:cardBackgroundColor="@color/pin_accent_soft"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+        android:tag="float"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -481,7 +509,10 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_surface_alt">
+                        app:cardBackgroundColor="@color/pin_surface_alt"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -513,7 +544,10 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/pin_primary_softer">
+                        app:cardBackgroundColor="@color/pin_primary_softer"
+        app:cardElevation="6dp"
+        app:rippleColor="@color/pin_primary_soft"
+    >
 
                         <LinearLayout
                             android:layout_width="match_parent"

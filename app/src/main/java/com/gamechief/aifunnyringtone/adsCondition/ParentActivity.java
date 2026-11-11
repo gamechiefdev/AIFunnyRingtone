@@ -74,6 +74,8 @@ public class ParentActivity extends AppCompatActivity implements AdsController.I
         extras = getIntent ().getExtras ();
         AdsController.initialLayoutComplete = false;
         resourcesnailart = getResources ();
+        /* UI only: floating motion for views tagged "float" / "float_late" (all activities) */
+        getWindow().getDecorView().post(() -> com.gamechief.aifunnyringtone.ui.UiMotion.floatTagged(getWindow().getDecorView()));
     }
 
     public void showToast(String msg) {

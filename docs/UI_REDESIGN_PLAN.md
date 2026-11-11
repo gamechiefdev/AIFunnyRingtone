@@ -251,3 +251,26 @@ Pehle 43/95 layouts hone ke baad baaki ko bhi Pin design system par le aaye gaye
 
 `design-preview/shots/ui-preview-2.png` — Prank grid, Player, Incoming prank call, Premium paywall
 (`python3 design-preview/render_extra.py`)
+
+---
+
+## Phase 3 — 3D material + floating motion (v6.2)
+
+Goal: professional, playful depth on every screen, and something that gently floats.
+
+### Android
+
+| File(s) | Kya karta hai |
+|---|---|
+| `res/drawable/bg_card_3d.xml`, `bg_card_3d_sm.xml`, `bg_chip_3d.xml`, `bg_gloss_white.xml` | Layered material: warm white gradient body + top gloss + hairline edge |
+| `res/anim/float_soft.xml`, `float_soft_late.xml`, `rise_in.xml`, `pop_in.xml`, `layout_rise.xml` | Floating loop, entrance rise, pop-in, staggered list entrance |
+| `java/.../ui/UiMotion.java` | UI-only helper: `floatView()` (translationY loop + translationZ lift), `popIn()`, `riseIn()`, `riseChildren()`, scans for `android:tag="float"` / `"float_late"` |
+| `MainActivity.java`, `adsCondition/ParentActivity.java` | Ek hi hook: layout ke baad tagged views float karne lagte hain — 36+ activities aur saare fragments apne aap cover |
+| `fragment_home.xml`, `activity_accept_voice_call.xml`, `premium_dialog.xml` + 13 layouts | Hero cards par `android:tag="float"`, cards par `app:cardElevation` + ripple |
+
+Motion sirf presentation hai: koi listener, data ya business logic nahi chhua.
+
+### Web preview
+
+- `design-preview/index.html`: layered `box-shadow` tokens (`--lift-1..3`), gloss overlay on gradient cards, `floaty` / `floaty-late` keyframes on AI cards, tiles, pins, active tab icon; `rise` per screen, `pop` for sheets; `prefers-reduced-motion` respected.
+- `design-preview/render_3d.py`: mockups ko contact shadow + gloss ke saath dobara render karta hai.

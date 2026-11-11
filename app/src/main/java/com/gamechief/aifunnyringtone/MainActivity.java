@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView((View) this.binding.getRoot());
+        /* UI only: floating motion for views tagged "float" / "float_late" */
+        this.binding.getRoot().post(() -> com.gamechief.aifunnyringtone.ui.UiMotion.floatTagged(this.binding.getRoot()));
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_main_content), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

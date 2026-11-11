@@ -490,7 +490,10 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/_4sdp"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/_10ssp">
+            app:cardCornerRadius="@dimen/_10ssp"
+        app:cardElevation="8dp"
+        app:rippleColor="@color/pin_primary_soft"
+    >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

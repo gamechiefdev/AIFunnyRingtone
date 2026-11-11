@@ -12,13 +12,15 @@
   @font-face { font-family: Poppins; src: url("fonts/poppins_medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
   @font-face { font-family: Poppins; src: url("fonts/poppins_semibold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
   @font-face { font-family: Poppins; src: url("fonts/poppins_bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+  @font-face { font-family: Chewy; src: url("fonts/chewy.ttf") format("truetype"); font-display: swap; }
+  @font-face { font-family: Luckiest; src: url("fonts/luckiest_guy.ttf") format("truetype"); font-display: swap; }
 
   :root {
     --primary: #188E5A; --primary-dark: #0E6640; --primary-soft: #E4F3EB; --primary-softer: #F1F9F4;
-    --accent: #FF6B4A; --accent-soft: #FFE9E3;
-    --amber: #F6C53A; --amber-soft: #FFF4D6;
-    --lilac: #7C6CF6; --lilac-soft: #EEEBFF;
-    --sky: #2AA7C7; --sky-soft: #E3F4F9;
+    --accent: #FF4D8D; --accent-soft: #FFE3EE;
+    --amber: #FFC93C; --amber-soft: #FFF4D6;
+    --lilac: #8B5CF6; --lilac-soft: #EEEBFF;
+    --sky: #38BDF8; --sky-soft: #E3F4F9;
     --rose: #E5484D; --rose-soft: #FDE9EA;
     --bg: #FFFFFF; --surface: #FBF9F6; --surface-alt: #F3F0EB; --line: #EBE6DF;
     --ink: #141414; --ink-soft: #6E6A64; --ink-faint: #A39D95;
@@ -205,7 +207,7 @@
     position: absolute; top: 12px; right: 16px;
     transform: rotate(6deg);
     background: var(--accent-soft); color: #E2452A;
-    font: 600 9px/1 Poppins, sans-serif; letter-spacing: .06em;
+    font: 400 10px/1 Luckiest, Poppins, sans-serif; letter-spacing: .06em;
     padding: 7px 11px; border-radius: 999px;
     box-shadow: 0 6px 14px -8px rgba(226, 69, 42, .8);
   }
@@ -213,10 +215,27 @@
     margin: 4px 0 8px; font-size: 10.5px; font-weight: 600;
     letter-spacing: .12em; text-transform: uppercase; color: var(--primary);
   }
-  .hero { margin: 0 0 8px; font-size: 30px; line-height: 1.05; letter-spacing: -.035em; font-weight: 700; }
+  .hero { margin: 0 0 8px; font-size: 34px; line-height: 1.02; letter-spacing: 0; font-weight: 400; font-family: Chewy, Poppins, sans-serif; }
+  .stickers { display: flex; align-items: center; gap: 8px; margin: 10px 0 2px; }
+  .stickers span {
+    width: 40px; height: 40px; display: grid; place-items: center;
+    background: #fff; border: 2px solid var(--ink); border-radius: 50%;
+    font-size: 19px; transform: rotate(var(--rot, 0deg));
+    box-shadow: 0 6px 12px -8px rgba(20,20,20,.9);
+    animation: floaty-soft 5.5s ease-in-out infinite;
+  }
+  .stickers span:nth-child(2) { animation-delay: .4s; }
+  .stickers span:nth-child(3) { animation-delay: .8s; }
+  .stickers span:nth-child(4) { animation-delay: 1.2s; }
+  .stickers em {
+    font-style: normal; background: var(--accent-soft); color: #C42A63;
+    padding: 9px 13px; border-radius: 999px; transform: rotate(-4deg);
+    font-size: 15px; box-shadow: 0 6px 14px -10px rgba(196,42,99,.9);
+  }
+
   .hero-sub { margin: 0 0 20px; font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
   .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 22px 0 10px; }
-  .sec-head h2 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.01em; display: flex; align-items: center; gap: 6px; }
+  .sec-head h2 { margin: 0; font-size: 19px; font-weight: 400; letter-spacing: 0; display: flex; align-items: center; gap: 6px; font-family: Chewy, Poppins, sans-serif; }
   .spark { color: var(--primary); font-size: 14px; }
   .muted { font-size: 11px; color: var(--ink-faint); }
 
@@ -510,6 +529,13 @@
       <span class="sticker">PRANK MODE</span>
       <p class="eyebrow">Good evening · time to prank</p>
       <h2 class="hero">Find your<br>funny sound.</h2>
+      <div class="stickers" aria-hidden="true">
+        <span style="--rot:-8deg">😂</span>
+        <span style="--rot:6deg">🤪</span>
+        <span style="--rot:-5deg">🎉</span>
+        <span style="--rot:9deg">👻</span>
+        <em>🔥</em>
+      </div>
       <p class="hero-sub">AI voices, prank calls, wallpapers and stickers — curated for maximum laughs.</p>
 
       <div class="sec-head">

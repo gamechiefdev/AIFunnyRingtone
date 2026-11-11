@@ -26,8 +26,8 @@ PRIMARY = "#188E5A"
 PRIMARY_DARK = "#0E6640"
 PRIMARY_SOFT = "#E4F3EB"
 PRIMARY_SOFTER = "#F1F9F4"
-ACCENT = "#FF6B4A"
-ACCENT_SOFT = "#FFE9E3"
+ACCENT = "#FF4D8D"
+ACCENT_SOFT = "#FFE3EE"
 AMBER_SOFT = "#FFF4D6"
 LILAC = "#7C6CF6"
 LILAC_SOFT = "#EEEBFF"
@@ -38,6 +38,11 @@ WHITE = "#FFFFFF"
 
 def f(weight, size):
     return ImageFont.truetype(f"{BASE}/fonts/poppins_{weight}.ttf", int(round(size * S)))
+
+
+def fun(size):
+    """Cartoon display face (Chewy) for headings and hero copy."""
+    return ImageFont.truetype(f"{BASE}/fonts/chewy.ttf", int(round(size * S)))
 
 
 def P(v):
@@ -216,40 +221,54 @@ def home():
     img.alpha_composite(badge, (P(246), P(96)))
 
     text(d, (18, 84), "GOOD EVENING · TIME TO PRANK", f("semibold", 9.5), PRIMARY)
-    text(d, (18, 100), "Find your", f("semibold", 26), INK)
-    text(d, (18, 130), "funny sound.", f("semibold", 26), INK)
-    text(d, (18, 168), "AI voices, prank calls, wallpapers and stickers —", f("regular", 12.5), INK_SOFT)
-    text(d, (18, 185), "curated for maximum laughs.", f("regular", 12.5), INK_SOFT)
+    text(d, (18, 96), "Find your", fun(30), INK)
+    text(d, (18, 132), "funny sound.", fun(30), INK)
+    text(d, (18, 178), "AI voices, prank calls, wallpapers and stickers —", f("regular", 12.5), INK_SOFT)
+    text(d, (18, 195), "curated for maximum laughs.", f("regular", 12.5), INK_SOFT)
+
+    # playful sticker row: cartoon faces
+    faces = [("#FFD93D", -8), ("#FFB4C8", 6), ("#A7E8D0", -5), ("#D9CBFF", 9)]
+    fx = 18
+    for color, rot in faces:
+        disc = Image.new("RGBA", (P(44), P(44)), (0, 0, 0, 0))
+        dd = ImageDraw.Draw(disc)
+        dd.ellipse([0, 0, disc.width - 1, disc.height - 1], fill=color, outline=INK, width=P(2))
+        dd.ellipse([P(13), P(15), P(19), P(23)], fill=INK)
+        dd.ellipse([P(25), P(15), P(31), P(23)], fill=INK)
+        dd.arc([P(13), P(20), P(31), P(34)], start=15, end=165, fill=INK, width=P(2.4))
+        disc = disc.rotate(-rot, expand=True, resample=Image.BICUBIC)
+        img.alpha_composite(disc, (P(fx), P(220)))
+        fx += 46
 
     # AI studio header
-    star = [(22, 214), (24.5, 220), (30, 222), (24.5, 224), (22, 230), (19.5, 224), (14, 222), (19.5, 220)]
+    star = [(22, 276), (24.5, 282), (30, 284), (24.5, 286), (22, 292), (19.5, 286), (14, 284), (19.5, 282)]
     d.polygon([(P(x), P(y)) for x, y in star], fill=PRIMARY)
-    text(d, (36, 212), "AI Studio", f("semibold", 17), INK)
-    pill(d, (322, 210, 374, 232), 999, PRIMARY_SOFT, "NEW", f("semibold", 8.5), PRIMARY_DARK)
+    text(d, (36, 272), "AI Studio", fun(19), INK)
+    pill(d, (322, 272, 374, 294), 999, PRIMARY_SOFT, "NEW", f("semibold", 8.5), PRIMARY_DARK)
 
     cards = [
         (18, LILAC_SOFT, "#7C6CF6", "#FF8A6B", "ic_txt_ai.png", "AI Text", "Generator", "Try text to sound", LILAC),
         (200, PRIMARY_SOFT, "#188E5A", "#41C9A0", "ic_robot.png", "AI Sound", "Generator", "Record your voice", PRIMARY_DARK),
     ]
     for x, soft, c1, c2, icon, l1, l2, cta, cta_color in cards:
-        box = (x, 236, x + 172, 236 + 190)
+        box = (x, 302, x + 172, 302 + 190)
         grad = gradient((P(172), P(190)), hex2rgb(c1), hex2rgb(c2), 45).convert("RGBA")
         mask = Image.new("L", grad.size, 0)
         ImageDraw.Draw(mask).rounded_rectangle([0, 0, grad.width, grad.height], radius=P(26), fill=255)
-        img.paste(grad, (P(x), P(236)), mask)
-        icon_circle(d, x + 32, 268, 18, WHITE)
+        img.paste(grad, (P(x), P(302)), mask)
+        icon_circle(d, x + 32, 334, 18, WHITE)
         ic = Image.open(f"{BASE}/assets/{icon}").convert("RGBA")
         ic.thumbnail((P(22), P(22)), Image.LANCZOS)
-        img.paste(ic, (P(x + 32) - ic.width // 2, P(268) - ic.height // 2), ic)
-        text(d, (x + 14, 340), l1, f("semibold", 14), WHITE)
-        text(d, (x + 14, 360), l2, f("semibold", 14), WHITE)
-        pill(d, (x + 14, 390, x + 14 + 120, 420), 999, WHITE, cta, f("semibold", 9.5), cta_color)
+        img.paste(ic, (P(x + 32) - ic.width // 2, P(334) - ic.height // 2), ic)
+        text(d, (x + 14, 400), l1, f("semibold", 14), WHITE)
+        text(d, (x + 14, 420), l2, f("semibold", 14), WHITE)
+        pill(d, (x + 14, 450, x + 14 + 120, 480), 999, WHITE, cta, f("semibold", 9.5), cta_color)
 
     # explore
-    star2 = [(22, 452), (24, 457), (29, 459), (24, 461), (22, 466), (20, 461), (15, 459), (20, 457)]
+    star2 = [(22, 518), (24, 523), (29, 525), (24, 527), (22, 532), (20, 527), (15, 525), (20, 523)]
     d.polygon([(P(x), P(y)) for x, y in star2], fill=ACCENT)
-    text(d, (36, 450), "Explore", f("semibold", 17), INK)
-    pill(d, (300, 448, 372, 468), 999, SURFACE_ALT, "8 boards", f("semibold", 8.5), INK_SOFT)
+    text(d, (36, 514), "Explore", fun(19), INK)
+    pill(d, (300, 514, 372, 534), 999, SURFACE_ALT, "8 boards", f("semibold", 8.5), INK_SOFT)
 
     def quick(x, y, w, h, bg, icon=None, label=None, row=False):
         rrect(d, (x, y, x + w, y + h), 22, fill=bg)
@@ -272,21 +291,13 @@ def home():
         d.ellipse([P(cx - 13), P(cy - 13), P(cx + 13), P(cy + 13)], fill=WHITE)
         glyph_heart(d, cx, cy - 1, 0.62, "#E5484D")
 
-    quick(18, 474, 172, 126, LILAC_SOFT, "ic_ring.png", "My Ring Name")
-    save_pin(18, 474, 172)
-    quick(18, 610, 172, 104, AMBER_SOFT, "ic_funny_sticker.png", "Funny Stickers")
+    quick(18, 544, 172, 112, LILAC_SOFT, "ic_ring.png", "My Ring Name")
+    save_pin(18, 544, 172)
+    quick(18, 664, 172, 88, AMBER_SOFT, "ic_funny_sticker.png", "Funny Stickers")
 
-    quick(200, 474, 172, 104, PRIMARY_SOFT, "ic_dare_game.png", "Dare Game")
-    quick(200, 588, 172, 126, ACCENT_SOFT, "ic_stories.png", "Funny Stories")
-    save_pin(200, 588, 172)
-
-    # mood chips peeking above the tab bar (as on a scrolled device)
-    cx = 18
-    for label, active in [("All", True), ("Funny", False), ("Animal", False)]:
-        w = 34 if label == "All" else 52 + len(label) * 2
-        pill(d, (cx, 730, cx + w, 766), 999, PRIMARY if active else SURFACE_ALT,
-             label, f("medium" if not active else "semibold", 11), WHITE if active else INK_SOFT)
-        cx += w + 8
+    quick(200, 544, 172, 96, PRIMARY_SOFT, "ic_dare_game.png", "Dare Game")
+    quick(200, 646, 172, 106, ACCENT_SOFT, "ic_stories.png", "Funny Stories")
+    save_pin(200, 646, 172)
 
     tabbar(d, 0)
     return img

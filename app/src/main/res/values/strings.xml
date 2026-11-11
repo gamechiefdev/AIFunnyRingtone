@@ -101,4 +101,11 @@
     <string name="save_pin">Save</string>
     <string name="sticker_new">NEW</string>
     <string name="fun_badge_hot">🔥 HOT</string>
+    <string name="sticker_laugh">😂</string>
+    <string name="sticker_silly">🤪</string>
+    <string name="sticker_party">🎉</string>
+    <string name="sticker_ghost">👻</string>
+    <string name="sticker_poop">💩</string>
+    <string name="sticker_fire">🔥</string>
+    <string name="funny_hero">Find your funny sound.</string>
 </resources>

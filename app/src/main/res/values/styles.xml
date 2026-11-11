@@ -30,10 +30,28 @@
     </style>
 
     <style name="Pin.Text.Section">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/pin_ink</item>
-        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:fontFamily">@font/chewy</item>
         <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- Playful display type (cartoon rounded) -->
+    <style name="Pin.Text.Fun">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/pin_ink</item>
+        <item name="android:fontFamily">@font/chewy</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingMultiplier">0.98</item>
+    </style>
+
+    <!-- Comic sticker lettering -->
+    <style name="Pin.Text.Sticker">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/pin_ink</item>
+        <item name="android:fontFamily">@font/luckiest_guy</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">0.04</item>
     </style>
 
     <style name="Pin.Text.CardTitle">

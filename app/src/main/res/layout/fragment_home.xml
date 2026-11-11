@@ -52,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_sticker_badge"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/luckiest_guy"
                         android:includeFontPadding="false"
                         android:paddingStart="11dp"
                         android:paddingTop="6dp"
@@ -68,11 +68,11 @@
 
                 <TextView
                     android:id="@+id/heroTitle"
-                    style="@style/Pin.Text.Display"
+                    style="@style/Pin.Text.Fun"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_6sdp"
-                    android:text="Find your\nfunny sound."
+                    android:text="@string/funny_hero"
                     android:lineSpacingMultiplier="0.95" />
 
                 <TextView
@@ -82,6 +82,69 @@
                     android:layout_marginTop="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_30sdp"
                     android:text="AI voices, prank calls, wallpapers and stickers — curated for maximum laughs." />
+
+                <!-- playful emoji stickers -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_sticker_emoji"
+                        android:gravity="center"
+                        android:text="@string/sticker_laugh"
+                        android:textSize="19sp"
+                        android:rotation="-8"
+                        android:tag="float" />
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_sticker_emoji"
+                        android:gravity="center"
+                        android:text="@string/sticker_silly"
+                        android:textSize="19sp"
+                        android:rotation="6"
+                        android:tag="float_late" />
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_sticker_emoji"
+                        android:gravity="center"
+                        android:text="@string/sticker_party"
+                        android:textSize="19sp"
+                        android:rotation="-5"
+                        android:tag="float" />
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_sticker_emoji"
+                        android:gravity="center"
+                        android:text="@string/sticker_ghost"
+                        android:textSize="19sp"
+                        android:rotation="9"
+                        android:tag="float_late" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_sticker_badge"
+                        android:gravity="center"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:text="@string/sticker_fire"
+                        android:textSize="15sp"
+                        android:rotation="-4" />
+                </LinearLayout>
             </LinearLayout>
 
             <!-- ======================= AI STUDIO ======================= -->

@@ -283,3 +283,17 @@ Motion sirf presentation hai: koi listener, data ya business logic nahi chhua.
 - **Sticker energy** — rotated `PRANK MODE` badge (`bg_sticker_badge.xml`, `android:rotation="6"`, `tag="float_late"`), `NEW` as a raised 3D pill, emoji section titles (`AI Studio ✨`, `Explore 🧩`) via strings.
 - **Save badges on boards** — web tiles get a white heart "save" button (`::after`), mockups draw the same pin-save button; `8 boards` counter pill.
 - **Warmth** — tile radius 20 → 22dp, `bg_chip_3d` raised chips, gloss retained from Phase 3.
+
+---
+
+## Phase 5 — "more funny" pass (v6.3)
+
+| Change | Detail |
+|---|---|
+| Cartoon display type | `res/font/chewy.ttf` (rounded cartoon) — hero + all section headings (`Pin.Text.Section`, new `Pin.Text.Fun`); `res/font/luckiest_guy.ttf` — sticker lettering (`Pin.Text.Sticker`, PRANK MODE badge) |
+| Candy palette | accent `#FF6B4A → #FF4D8D` (bubblegum), amber `#FFC93C`, lilac `#8B5CF6`, sky `#38BDF8` |
+| Emoji stickers | Home hero par rotated comic discs (😂 🤪 🎉 👻) + 🔥 pill — `bg_sticker_emoji.xml` (white disc, 2dp ink ring), `tag="float"` / `"float_late"` |
+| Mockups | Pillow renderer mein cartoon faces (colour emoji font nahi hota) + Chewy headings, taake preview bilkul app jaisa lage |
+| Web preview | Chewy + Luckiest @font-face, emoji sticker row, candy variables, wahi float motion |
+
+Energy badhane ke liye hi ye pass hai — koi functional change nahi.

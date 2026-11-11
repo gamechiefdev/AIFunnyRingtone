@@ -32,13 +32,13 @@
     <color name="pin_primary_softer">#F1F9F4</color>
 
     <!-- Accent -->
-    <color name="pin_accent">#FF6B4A</color>
-    <color name="pin_accent_soft">#FFE9E3</color>
-    <color name="pin_amber">#F6C53A</color>
+    <color name="pin_accent">#FF4D8D</color>
+    <color name="pin_accent_soft">#FFE3EE</color>
+    <color name="pin_amber">#FFC93C</color>
     <color name="pin_amber_soft">#FFF4D6</color>
-    <color name="pin_lilac">#7C6CF6</color>
+    <color name="pin_lilac">#8B5CF6</color>
     <color name="pin_lilac_soft">#EEEBFF</color>
-    <color name="pin_sky">#2AA7C7</color>
+    <color name="pin_sky">#38BDF8</color>
     <color name="pin_sky_soft">#E3F4F9</color>
     <color name="pin_rose">#E5484D</color>
     <color name="pin_rose_soft">#FDE9EA</color>

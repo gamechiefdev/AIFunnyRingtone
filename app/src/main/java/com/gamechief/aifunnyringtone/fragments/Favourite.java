@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.gamechief.aifunnyringtone.R;
 import com.gamechief.aifunnyringtone.activities.WallpaperPreview;
@@ -51,7 +51,7 @@ public class Favourite extends Fragment {
                 Log.d("getWallpaper", "onCardClick: " + this.imageListBg.get(v));
                 startActivity(intent);
             });
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+            StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             this.binding.wallList.setAdapter(this.adapter);
             this.binding.wallList.setLayoutManager(gridLayoutManager);
         }

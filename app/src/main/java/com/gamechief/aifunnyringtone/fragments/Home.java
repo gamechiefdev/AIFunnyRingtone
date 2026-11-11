@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -33,6 +34,10 @@ public class Home extends Fragment {
     SoundCategoryAdapter adapter;
     FragmentHomeBinding binding;
     ArrayList<SoundCategoryModel> categoryList = new ArrayList<>();
+    /* UI-only: the list actually rendered by the RecyclerView (supports the mood chips) */
+    ArrayList<SoundCategoryModel> visibleList = new ArrayList<>();
+    private int[] chipIds = {R.id.chipAll, R.id.chipFunny, R.id.chipAnimal, R.id.chipLaugh,
+            R.id.chipFart, R.id.chipDialogue, R.id.chipBaby, R.id.chipAlarms};
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +73,7 @@ public class Home extends Fragment {
             setupCategories();
         }
         setupRecycler();
+        setupChips();
         this.binding.goAItextSound.setOnClickListener(v -> {
             startActivity(new Intent(getContext(), AITextSound.class));
         });
@@ -87,7 +93,9 @@ public class Home extends Fragment {
 
 
     private void setupRecycler() {
-        this.adapter = new SoundCategoryAdapter(getContext(), this.categoryList, v -> {
+        this.visibleList.clear();
+        this.visibleList.addAll(this.categoryList);
+        this.adapter = new SoundCategoryAdapter(getContext(), this.visibleList, v -> {
             Intent intent;
             if ("Funny Alarms".equals(v.title)) {
                 intent = new Intent(getContext(), FunnyAlarm.class);
@@ -99,8 +107,58 @@ public class Home extends Fragment {
             intent.putStringArrayListExtra("sound_names", v.soundNames);
             startActivity(intent);
         });
-        this.binding.listiem.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        this.binding.listiem.setLayoutManager(new GridLayoutManager(getContext(), 2));
         this.binding.listiem.setAdapter(this.adapter);
+    }
+
+    /** Pinterest-style mood chips: filter the existing category list, no data changes. */
+    private void setupChips() {
+        for (int id : chipIds) {
+            TextView chip = this.binding.getRoot().findViewById(id);
+            if (chip != null) {
+                chip.setOnClickListener(v -> selectChip(chip, id));
+            }
+        }
+    }
+
+    private void selectChip(TextView selected, int id) {
+        for (int chipId : chipIds) {
+            TextView chip = this.binding.getRoot().findViewById(chipId);
+            if (chip != null) {
+                chip.setSelected(chip == selected);
+            }
+        }
+        String filter;
+        if (id == R.id.chipFunny) {
+            filter = "Funny";
+        } else if (id == R.id.chipAnimal) {
+            filter = "Animal";
+        } else if (id == R.id.chipLaugh) {
+            filter = "Laugh";
+        } else if (id == R.id.chipFart) {
+            filter = "Fart";
+        } else if (id == R.id.chipDialogue) {
+            filter = "Dialogue";
+        } else if (id == R.id.chipBaby) {
+            filter = "Baby";
+        } else if (id == R.id.chipAlarms) {
+            filter = "Funny Alarms";
+        } else {
+            filter = "All";
+        }
+        applyFilter(filter);
+    }
+
+    private void applyFilter(String filter) {
+        this.visibleList.clear();
+        for (SoundCategoryModel model : this.categoryList) {
+            if ("All".equals(filter) || model.title.equals(filter)) {
+                this.visibleList.add(model);
+            }
+        }
+        if (this.adapter != null) {
+            this.adapter.notifyDataSetChanged();
+        }
     }
 
 
@@ -181,14 +239,19 @@ public class Home extends Fragment {
     }
 
     private void setGreetingAndAnimate() {
-        int hour = Calendar.getInstance().get(11);
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        String greeting;
         if (hour >= 5 && hour < 12) {
-            return;
+            greeting = "Good morning \u00B7 start with a laugh";
+        } else if (hour >= 12 && hour < 17) {
+            greeting = "Good afternoon \u00B7 break the silence";
+        } else if (hour >= 17 && hour < 21) {
+            greeting = "Good evening \u00B7 time to prank";
+        } else {
+            greeting = "Late night \u00B7 chaos sounds best now";
         }
-        if (hour >= 12 && hour < 17) {
-            return;
-        }
-        if (hour >= 17 && hour < 21) {
+        if (this.binding != null) {
+            this.binding.heroGreeting.setText(greeting);
         }
     }
 }

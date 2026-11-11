@@ -4,80 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/pin_bg"
     tools:context=".activities.StickersPackList">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout00"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="wrap_content"
+        android:background="@color/pin_bg"
         android:orientation="horizontal"
-        android:background="@color/white"
-        android:elevation="@dimen/_3sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:padding="@dimen/_5sdp"
+            android:layout_width="@dimen/pin_icon_button"
+            android:layout_height="@dimen/pin_icon_button"
+            android:layout_marginStart="@dimen/pin_screen_pad"
+            android:background="@drawable/bg_circle_white"
+            android:contentDescription="@string/navigation_drawer_close"
+            android:padding="@dimen/_11sdp"
             android:src="@drawable/back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Funny Stickers"
-            android:textStyle="bold"
-            android:textColor="@color/grey"
-            android:textSize="@dimen/_13ssp"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7">
 
+            <TextView
+                android:id="@+id/text"
+                style="@style/Pin.Text.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Funny Stickers" />
 
-
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/howTouse"-->
-        <!--            android:layout_width="@dimen/_20sdp"-->
-        <!--            android:layout_height="@dimen/_20sdp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:padding="@dimen/_2sdp"-->
-        <!--            android:src="@drawable/howtouse"-->
-        <!--            android:layout_marginEnd="@dimen/_12sdp"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:tint="@color/white" />-->
+            <TextView
+                style="@style/Pin.Text.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Add a pack to WhatsApp in one tap" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/packList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_16sdp"
         app:layout_constraintBottom_toTopOf="@+id/adView"
-        tools:listitem="@layout/sticker_itemlayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout00" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout00"
+        tools:listitem="@layout/sticker_itemlayout" />
+
     <FrameLayout
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

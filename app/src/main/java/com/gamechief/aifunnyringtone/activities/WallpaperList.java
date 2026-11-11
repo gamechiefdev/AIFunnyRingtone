@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.gamechief.aifunnyringtone.R;
 
@@ -67,7 +67,7 @@ public class WallpaperList extends ParentActivity {
                     startActivity(intent);
                 }
             });
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+            StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             this.binding.wallList.setAdapter(this.adapter);
             this.binding.wallList.setLayoutManager(gridLayoutManager);
             this.binding.wallList.setHasFixedSize(true);

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ================================================================
+         PIN DESIGN SYSTEM — typography
+         Usage: style="@style/Pin.Text.Title" etc.
+         ================================================================ -->
+
+    <style name="Pin.Text" parent="">
+        <item name="android:textColor">@color/pin_ink</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="Pin.Text.Display">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/pin_ink</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingMultiplier">1.05</item>
+    </style>
+
+    <style name="Pin.Text.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/pin_ink</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Pin.Text.Section">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/pin_ink</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Pin.Text.CardTitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/pin_ink</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Pin.Text.Body">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/pin_ink_soft</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="Pin.Text.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/pin_ink_faint</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Pin.Text.Eyebrow">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/pin_primary</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Pin.Text.OnImage">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- ================================================================
+         PIN DESIGN SYSTEM — components
+         ================================================================ -->
+
+    <style name="Pin.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/pin_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeColor">@color/pin_line</item>
+        <item name="strokeWidth">@dimen/pin_stroke</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <style name="Pin.Card.Surface">
+        <item name="cardCornerRadius">@dimen/pin_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/pin_surface</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="Pin.Card.Flat">
+        <item name="cardCornerRadius">@dimen/pin_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="Pin.Card.Pin">
+        <item name="cardCornerRadius">@dimen/pin_radius_lg</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeColor">@color/pin_line</item>
+        <item name="strokeWidth">@dimen/pin_stroke</item>
+    </style>
+
+    <!-- Pill / chip -->
+    <style name="Pin.Chip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/_36sdp</item>
+        <item name="android:background">@drawable/bg_chip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/_16sdp</item>
+        <item name="android:paddingEnd">@dimen/_16sdp</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="Pin.Button.Primary">
+        <item name="android:layout_height">@dimen/pin_button_height</item>
+        <item name="android:background">@drawable/bg_btn_primary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Pin.IconButton">
+        <item name="android:layout_width">@dimen/pin_icon_button</item>
+        <item name="android:layout_height">@dimen/pin_icon_button</item>
+        <item name="android:background">@drawable/bg_icon_circle</item>
+        <item name="android:padding">@dimen/_11sdp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <!-- Generic list row container -->
+    <style name="Pin.Row">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/pin_list_item</item>
+        <item name="android:background">@drawable/bg_pin_card</item>
+        <item name="android:layout_marginBottom">@dimen/pin_gap</item>
+    </style>
+
+</resources>

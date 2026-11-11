@@ -4,86 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/pin_bg"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_main_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/pin_bg">
 
-        <!-- Existing ConstraintLayout for top bar -->
+        <!-- ============================ APP BAR ============================ -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_55sdp"
-            android:background="@color/white"
-            android:fitsSystemWindows="true"
+            android:layout_height="wrap_content"
+            android:background="@color/pin_bg"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_6sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Funny Ringtones"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/fav"
-                app:layout_constraintStart_toEndOf="@+id/menuOpen"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/menuOpen"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                app:navigationIcon="@drawable/menu_bar"
+                android:layout_width="@dimen/pin_icon_button"
+                android:layout_height="@dimen/pin_icon_button"
+                android:layout_marginStart="@dimen/pin_screen_pad"
+                android:background="@drawable/bg_circle_white"
+                android:elevation="0dp"
+                android:padding="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:navigationIcon="@drawable/menu_bar" />
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/menuOpen"
+                app:layout_constraintEnd_toStartOf="@+id/fav"
+                app:layout_constraintStart_toEndOf="@+id/menuOpen"
+                app:layout_constraintTop_toTopOf="@+id/menuOpen">
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/premiumOpen"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                app:lottie_rawRes="@raw/pro"
-                app:lottie_loop="true"
-                app:lottie_autoPlay="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/Pin.Text.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Discover" />
+
+                <TextView
+                    style="@style/Pin.Text.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Funny sounds &amp; wallpapers" />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/fav"
-                android:layout_width="@dimen/_30ssp"
-                android:layout_height="@dimen/_30ssp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:scaleType="centerCrop"
-                android:padding="@dimen/_4sdp"
-                android:src="@drawable/fav_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="@dimen/pin_icon_button"
+                android:layout_height="@dimen/pin_icon_button"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@drawable/bg_circle_white"
+                android:contentDescription="@string/favorites"
+                android:padding="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/menuOpen"
                 app:layout_constraintEnd_toStartOf="@+id/premiumOpen"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/menuOpen" />
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/premiumOpen"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/pin_screen_pad"
+                app:layout_constraintBottom_toBottomOf="@+id/menuOpen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/menuOpen"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/pro" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
-
+        <!-- ============================ CONTENT ============================ -->
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerNailArt"
             android:layout_width="0dp"
@@ -92,11 +100,9 @@
             app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-        </androidx.viewpager.widget.ViewPager>
-
-
+        <!-- ============================ BOTTOM NAV ============================ -->
         <LinearLayout
             android:id="@+id/bottomLayout"
             android:layout_width="match_parent"
@@ -106,161 +112,146 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-
-
-
             <FrameLayout
                 android:id="@+id/bottom"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
-                android:background="@color/purple_200"
+                android:layout_height="@dimen/pin_navbar_height"
+                android:background="@drawable/bg_nav_bar"
+                android:elevation="@dimen/_10sdp"
                 app:layout_constraintBottom_toTopOf="@+id/adView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
+
+                <!-- Sliding selection pill (positioned from MainActivity) -->
+                <View
+                    android:id="@+id/navIndicator"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_4sdp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:background="@drawable/bg_nav_indicator_dark" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="horizontal"
-                        android:weightSum="4">
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/homeTxt"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:src="@drawable/home"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_10ssp" />
-                        <ImageView
-                            android:id="@+id/prank"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:src="@drawable/prank_call"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_10ssp" />
+                            android:layout_width="@dimen/pin_icon"
+                            android:layout_height="@dimen/pin_icon"
+                            android:contentDescription="@string/home"
+                            android:src="@drawable/home" />
 
-                        <ImageView
-                            android:id="@+id/dualTxt"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
+                        <TextView
+                            android:id="@+id/homTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_semibold"
                             android:gravity="center"
-                            android:src="@drawable/wallpaper"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_10ssp" />
-<!--                        <ImageView-->
-<!--                            android:id="@+id/cutter"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="@dimen/_18sdp"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:layout_weight="1"-->
-<!--                            android:gravity="center"-->
-<!--                            android:src="@drawable/ic_cut"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            android:textSize="@dimen/_10ssp" />-->
-
-                        <ImageView
-                            android:id="@+id/darkTxt"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:src="@drawable/playlist"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_10ssp" />
-
-
+                            android:includeFontPadding="false"
+                            android:text="Home"
+                            android:textColor="@color/nav_selected"
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="@dimen/_2sdp"
-                        android:weightSum="4">
-                        <TextView
-                            android:id="@+id/homTxt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Home"
-                            android:textColor="#5B2F08"
-                            android:textSize="@dimen/_9ssp" />
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/prank"
+                            android:layout_width="@dimen/pin_icon"
+                            android:layout_height="@dimen/pin_icon"
+                            android:contentDescription="@string/prank_calls"
+                            android:src="@drawable/prank_call" />
 
                         <TextView
                             android:id="@+id/prankTxt"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
+                            android:includeFontPadding="false"
                             android:text="Prank Call"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_9ssp" />
+                            android:textColor="@color/nav_unselected"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/dualTxt"
+                            android:layout_width="@dimen/pin_icon"
+                            android:layout_height="@dimen/pin_icon"
+                            android:contentDescription="@string/wallpapers"
+                            android:src="@drawable/wallpaper" />
+
                         <TextView
                             android:id="@+id/listTxt"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
+                            android:includeFontPadding="false"
                             android:text="Wallpapers"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_9ssp" />
+                            android:textColor="@color/nav_unselected"
+                            android:textSize="10sp" />
+                    </LinearLayout>
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/cutterTxt"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:layout_weight="1"-->
-<!--                            android:gravity="center"-->
-<!--                            android:text="Mp3 Cut"-->
-<!--                            android:textColor="@color/white"-->
-<!--                            android:textSize="@dimen/_9ssp" />-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/darkTxt"
+                            android:layout_width="@dimen/pin_icon"
+                            android:layout_height="@dimen/pin_icon"
+                            android:contentDescription="@string/ai_playlist"
+                            android:src="@drawable/playlist" />
+
                         <TextView
                             android:id="@+id/favTxt"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
+                            android:includeFontPadding="false"
                             android:text="AI Playlist"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_9ssp" />
+                            android:textColor="@color/nav_unselected"
+                            android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
-
-
-
-
-
             </FrameLayout>
-
         </LinearLayout>
 
         <FrameLayout
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -270,12 +261,11 @@
         android:id="@+id/NavigationViewDpMaker"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:layout_marginBottom="@dimen/_110sdp"
+        android:layout_gravity="start"
+        android:background="@color/white"
         app:headerLayout="@layout/headerfile"
-        app:menu="@menu/navigation_drawer"
-        app:itemIconTint="@color/purple_200"
-        app:itemTextColor="@color/purple_200"
-        android:layout_gravity="start"/>
+        app:itemIconTint="@color/pin_primary"
+        app:itemTextColor="@color/pin_ink_soft"
+        app:menu="@menu/navigation_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

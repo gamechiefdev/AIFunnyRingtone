@@ -4,17 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/pin_bg"
     tools:context=".fragments.Favourite">
+
+    <TextView
+        android:id="@+id/wallHeader"
+        style="@style/Pin.Text.Section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pin_screen_pad"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Wallpaper picks"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/wallSubHeader"
+        style="@style/Pin.Text.Body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pin_screen_pad"
+        android:layout_marginEnd="@dimen/pin_screen_pad"
+        android:text="Tap any pin to preview and set it."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wallHeader" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/wallList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/_10sdp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_16sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wallSubHeader"
         tools:listitem="@layout/bg_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

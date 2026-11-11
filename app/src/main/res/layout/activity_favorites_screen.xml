@@ -1,84 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/pin_bg">
 
     <!-- Top Bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout00"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@color/white"
-        android:elevation="@dimen/_3sdp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pin_bg"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="@dimen/_5sdp"
+            android:layout_width="@dimen/pin_icon_button"
+            android:layout_height="@dimen/pin_icon_button"
+            android:layout_marginStart="@dimen/pin_screen_pad"
+            android:background="@drawable/bg_circle_white"
+            android:contentDescription="@string/navigation_drawer_close"
+            android:padding="@dimen/_11sdp"
             android:src="@drawable/back"
-            android:layout_marginStart="@dimen/_5sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Favorites"
-            android:textColor="@color/grey"
-            android:textStyle="bold"
-            android:textSize="@dimen/_13ssp"
-            app:layout_constraintStart_toEndOf="@id/imageView7"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7">
+
+            <TextView
+                android:id="@+id/text"
+                style="@style/Pin.Text.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorites" />
+
+            <TextView
+                style="@style/Pin.Text.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Sounds you saved for later" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Icon -->
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="@dimen/_35sdp"
-        android:layout_height="@dimen/_35sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:src="@drawable/fav_icon"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout00"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <!-- Count -->
-    <TextView
-        android:id="@+id/countFav"
-        android:layout_width="wrap_content"
+    <!-- Saved counter -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/heroCard"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="0 Songs"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="@dimen/_15ssp"
-        android:layout_marginStart="@dimen/_7sdp"
-        app:layout_constraintStart_toEndOf="@id/imageView5"
-        app:layout_constraintTop_toTopOf="@id/imageView5"
-        app:layout_constraintBottom_toBottomOf="@id/imageView5"/>
+        android:layout_marginStart="@dimen/pin_screen_pad"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/pin_screen_pad"
+        android:background="@drawable/bg_gradient_hero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout00">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/fav_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/countFav"
+            style="@style/Pin.Text.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="0 Songs"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Recycler -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@id/imageView5"
-        app:layout_constraintBottom_toTopOf="@id/adView"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/heroCard" />
 
     <!-- Ad -->
     <FrameLayout
@@ -86,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,79 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="@dimen/_60sdp">
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:paddingStart="@dimen/pin_screen_pad"
+    android:paddingTop="@dimen/_4sdp"
+    android:paddingEnd="@dimen/pin_screen_pad"
+    android:paddingBottom="@dimen/_4sdp">
 
-    <TextView
-        android:id="@+id/numbers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="01"
-        android:textColor="#CC242424"
-        android:textSize="@dimen/_13ssp"
-        android:layout_marginStart="@dimen/_10sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/wallImage"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:scaleType="centerCrop"
-        app:riv_corner_radius_bottom_left="@dimen/_10sdp"
-        app:riv_corner_radius_bottom_right="@dimen/_10sdp"
-        app:riv_corner_radius_top_left="@dimen/_10sdp"
-        app:riv_corner_radius_top_right="0dp"
-        android:src="@drawable/wall1"
-        android:layout_marginStart="@dimen/_15sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/numbers"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/namesR"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:text="Rainy Sound"
-        android:textColor="#CC242424"
-        android:textSize="@dimen/_15ssp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/durationR"
-        app:layout_constraintStart_toEndOf="@+id/wallImage"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/durationR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1:00"
-        android:textColor="#CC242424"
-        android:textSize="@dimen/_10ssp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/favorities"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/favorities"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/unfill_heart"
-        android:layout_marginEnd="@dimen/_15sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rowRoot"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/purple_200"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="@dimen/_68sdp"
+        android:background="@drawable/bg_pin_card"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/numbers"
+            style="@style/Pin.Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:text="01"
+            android:textColor="@color/pin_ink_faint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="01" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/wallImage"
+            android:layout_width="@dimen/_46sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wall1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/numbers"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/pin_radius_sm" />
+
+        <TextView
+            android:id="@+id/namesR"
+            style="@style/Pin.Text.CardTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Rainy Sound"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/durationR"
+            app:layout_constraintEnd_toStartOf="@+id/favorities"
+            app:layout_constraintStart_toEndOf="@+id/wallImage"
+            app:layout_constraintTop_toTopOf="@+id/wallImage"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Rainy Sound" />
+
+        <TextView
+            android:id="@+id/durationR"
+            style="@style/Pin.Text.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="1:00"
+            app:layout_constraintBottom_toBottomOf="@+id/wallImage"
+            app:layout_constraintEnd_toEndOf="@+id/namesR"
+            app:layout_constraintStart_toStartOf="@+id/namesR"
+            app:layout_constraintTop_toBottomOf="@+id/namesR"
+            tools:text="1:00" />
+
+        <ImageView
+            android:id="@+id/favorities"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/bg_circle_primary_soft"
+            android:contentDescription="@string/favorites"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/unfill_heart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -83,6 +83,14 @@ public class SoundList extends ParentActivity {
         });
         this.binding.soundList.setLayoutManager(new LinearLayoutManager(this));
         this.binding.soundList.setAdapter(adapter);
+        /* UI only: label the screen with the category the user tapped */
+        if (soundNames != null && !soundNames.isEmpty()) {
+            String firstName = soundNames.get(0);
+            String category = firstName.replaceAll("\\s*\\d+$", "").trim();
+            if (!category.isEmpty()) {
+                this.binding.text.setText(category + " sounds");
+            }
+        }
     }
 
 

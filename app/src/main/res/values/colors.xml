@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ============================================================
+         LEGACY TOKENS (kept for backwards compatibility)
+         ============================================================ -->
     <color name="purple_200">#188E5A</color>
     <color name="purple_500">#188E5A</color>
     <color name="purple_700">#188E5A</color>
@@ -12,11 +15,53 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF000000</color>
     <color name="light">#99FFD768</color>
-    <color name="nav_selected">#5B2F08</color>
     <color name="transparent">#0000</color>
 
     <color name="yellow">#F6C53A</color>
     <color name="green">#67C256</color>
 
+    <!-- ============================================================
+         PIN DESIGN SYSTEM  (v6.1 — Pinterest-style refresh)
+         Warm neutrals + the app's green brand + a coral accent.
+         ============================================================ -->
+
+    <!-- Brand -->
+    <color name="pin_primary">#188E5A</color>
+    <color name="pin_primary_dark">#0E6640</color>
+    <color name="pin_primary_soft">#E4F3EB</color>
+    <color name="pin_primary_softer">#F1F9F4</color>
+
+    <!-- Accent -->
+    <color name="pin_accent">#FF6B4A</color>
+    <color name="pin_accent_soft">#FFE9E3</color>
+    <color name="pin_amber">#F6C53A</color>
+    <color name="pin_amber_soft">#FFF4D6</color>
+    <color name="pin_lilac">#7C6CF6</color>
+    <color name="pin_lilac_soft">#EEEBFF</color>
+    <color name="pin_sky">#2AA7C7</color>
+    <color name="pin_sky_soft">#E3F4F9</color>
+    <color name="pin_rose">#E5484D</color>
+    <color name="pin_rose_soft">#FDE9EA</color>
+
+    <!-- Surfaces -->
+    <color name="pin_bg">#FFFFFFFF</color>
+    <color name="pin_surface">#FBF9F6</color>
+    <color name="pin_surface_alt">#F3F0EB</color>
+    <color name="pin_line">#EBE6DF</color>
+    <color name="pin_ink">#141414</color>
+    <color name="pin_ink_soft">#6E6A64</color>
+    <color name="pin_ink_faint">#A39D95</color>
+    <color name="pin_overlay">#66000000</color>
+    <color name="pin_scrim">#B3000000</color>
+
+    <!-- Interaction -->
+    <color name="pin_ripple">#1F000000</color>
+    <color name="pin_ripple_light">#33FFFFFF</color>
+    <color name="nav_selected">#188E5A</color>
+    <color name="nav_unselected">#9A948C</color>
+
+    <!-- Legacy aliases used by dialogs / ads -->
+    <color name="my_light_primary">#188E5A</color>
+    <color name="my_dark_primary">#0E6640</color>
 
 </resources>

@@ -1,100 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="@dimen/_8sdp"
-    android:layout_height="@dimen/_120sdp">
+    android:id="@+id/materialCardView3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/pin_radius_lg"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/pin_line"
+    app:strokeWidth="@dimen/pin_stroke">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView3"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardBackgroundColor="#99FFD768"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeWidth="0dp">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_104sdp"
+            app:cardBackgroundColor="@color/pin_surface_alt"
+            app:cardCornerRadius="@dimen/pin_radius_sm"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="0dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                app:cardBackgroundColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:strokeWidth="0dp">
+            <ImageView
+                android:id="@+id/stickImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:padding="@dimen/_10sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/sticker1" />
+        </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:id="@+id/stickImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/sticker1" />
-            </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/sticker_pack_title"
+            style="@style/Pin.Text.CardTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+            tools:text="Pusheen" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="@dimen/_10sdp"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/materialCardView"
-                app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/sticker_pack_filesize"
+            style="@style/Pin.Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sticker_pack_title"
+            tools:text="700kb" />
 
+        <TextView
+            android:id="@+id/sticker_pack_publisher"
+            style="@style/Pin.Text.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sticker_pack_filesize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sticker_pack_filesize"
+            tools:text="" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/sticker_pack_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
-                    tools:text="Pusheen" />
-
-                <TextView
-                    android:id="@+id/sticker_pack_publisher"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:ellipsize="end"
-                    android:maxWidth="120dp"
-                    tools:text="" />
-
-
-                <TextView
-                    android:id="@+id/sticker_pack_filesize"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:text="700kb" />
-
-
-            </LinearLayout>
-
-<!--            <ImageView-->
-<!--                android:id="@+id/favStick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="@dimen/_10ssp"-->
-<!--                android:src="@drawable/favo"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -8,8 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gamechief.aifunnyringtone.R;
@@ -29,7 +28,7 @@ public class StickersPackList extends ParentActivity {
     private static final int STICKER_PREVIEW_DISPLAY_LIMIT = 1;
     private StickerPackListAdapter allStickerPacksListAdapter;
     private ActivityStickersPackListBinding binding;
-    private LinearLayoutManager packLayoutManager;
+    private GridLayoutManager packLayoutManager;
     /* access modifiers changed from: private */
     public List<StickerPack> stickerPackList = new ArrayList();
 
@@ -47,10 +46,9 @@ public class StickersPackList extends ParentActivity {
         AdsController.getInstance().loadAdaptiveBannerAd(this, this.binding.adView);
         showSeldomIntersAd(this);
         this.binding.imageView7.setOnClickListener(onClickListener -> onBackPressed());
-        this.packLayoutManager = new LinearLayoutManager(this);
-        this.packLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        /* UI only: Pinterest-style two column board grid (was a plain vertical list) */
+        this.packLayoutManager = new GridLayoutManager(this, 2);
         this.binding.packList.setLayoutManager(this.packLayoutManager);
-        this.binding.packList.addItemDecoration(new DividerItemDecoration(this, this.packLayoutManager.getOrientation()));
         new LoadStickerPacksTask(this).execute(new Void[0]);
     }
 

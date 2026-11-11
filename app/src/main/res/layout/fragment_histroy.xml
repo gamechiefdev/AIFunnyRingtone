@@ -1,44 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/histroy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:id="@+id/histroy"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/pin_bg"
     tools:context=".fragments.Histroy">
-    <ImageView
-        android:id="@+id/card"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_200sdp"
-        android:src="@drawable/his_card"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:padding="@dimen/_20sdp"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/heroCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pin_screen_pad"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/pin_screen_pad"
+        android:background="@drawable/bg_gradient_hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/playlist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Al Playlist"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_15ssp"
-        android:textStyle="bold"
-        android:layout_marginStart="@dimen/_15ssp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card" />
+        <TextView
+            android:id="@+id/heroEyebrow"
+            style="@style/Pin.Text.Eyebrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="Your library" />
+
+        <TextView
+            android:id="@+id/playlist"
+            style="@style/Pin.Text.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="AI Playlist"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toStartOf="@+id/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heroEyebrow" />
+
+        <TextView
+            style="@style/Pin.Text.Body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:text="Everything you generated and recorded, in one place."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playlist" />
+
+        <ImageView
+            android:id="@+id/card"
+            android:layout_width="@dimen/_96sdp"
+            android:layout_height="@dimen/_96sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:contentDescription="@null"
+            android:src="@drawable/his_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/_10sdp"
-        tools:listitem="@layout/sound_itemlayout"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_16sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/playlist"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/heroCard"
+        tools:listitem="@layout/history_itemlayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

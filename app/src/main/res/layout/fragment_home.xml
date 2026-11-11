@@ -1,556 +1,631 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    android:background="@color/pin_bg"
     tools:context=".fragments.Home">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/_16sdp"
         android:scrollbars="none"
-        android:layout_marginBottom="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/allView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical"
+            android:paddingStart="@dimen/pin_screen_pad"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingEnd="@dimen/pin_screen_pad">
 
+            <!-- ======================= HERO ======================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-<!--            <TextView-->
-<!--                android:id="@+id/morningTxt"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/_12sdp"-->
-<!--                android:text="Good Morning"-->
-<!--                android:layout_marginTop="@dimen/_10sdp"-->
-<!--                android:textColor="@color/purple_200"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent " />-->
+                <TextView
+                    android:id="@+id/heroGreeting"
+                    style="@style/Pin.Text.Eyebrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your daily dose of chaos" />
 
+                <TextView
+                    android:id="@+id/heroTitle"
+                    style="@style/Pin.Text.Display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="Find your\nfunny sound."
+                    android:lineSpacingMultiplier="0.95" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/hearTxt"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/_12sdp"-->
-<!--                android:text="What do u want to hear today?"-->
-<!--                android:textColor="@color/black"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/morningTxt" />-->
+                <TextView
+                    style="@style/Pin.Text.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:text="AI voices, prank calls, wallpapers and stickers — curated for maximum laughs." />
+            </LinearLayout>
+
+            <!-- ======================= AI STUDIO ======================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pin_section_gap"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_sparkle" />
+
+                <TextView
+                    android:id="@+id/ai"
+                    style="@style/Pin.Text.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_weight="1"
+                    android:text="@string/ai_studio" />
+
+                <TextView
+                    style="@style/Pin.Text.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NEW" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/ai"
-                android:layout_width="wrap_content"
+                style="@style/Pin.Text.Body"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:text="AI Generator"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text="@string/ai_studio_subtitle" />
 
             <LinearLayout
                 android:id="@+id/btnLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_90sdp"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:weightSum="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ai">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- ========== AI TEXT ========== -->
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/goAItextSound"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
-                    android:layout_weight="1">
+                    style="@style/Pin.Card.Flat"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_190sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/pin_radius_lg">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_gradient_ai_text"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_14sdp">
 
-                    <ImageView
-                        android:id="@+id/baseImg0"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:src="@drawable/two"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="263:173"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/img0"
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:background="@drawable/bg_circle_white"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/_7sdp"
+                            android:src="@drawable/ic_txt_ai" />
 
-                    <ImageView
-                        android:id="@+id/img0"
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/ic_txt_ai"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        <Space
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
 
-                        app:layout_constraintBottom_toTopOf="@+id/btn0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/type0"
+                            style="@style/Pin.Text.OnImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ai_text_generator"
+                            android:lineSpacingMultiplier="1.05" />
 
-                    <TextView
-                        android:id="@+id/type0"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:text="AI Text \nGenerator"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        app:layout_constraintBottom_toTopOf="@+id/btn0"
-                        app:layout_constraintEnd_toEndOf="@+id/baseImg0"
-                        app:layout_constraintStart_toEndOf="@+id/img0"
-                        app:layout_constraintTop_toTopOf="@+id/baseImg0" />
+                        <TextView
+                            android:id="@+id/btn0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/bg_pill_white"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:paddingStart="@dimen/_12sdp"
+                            android:paddingEnd="@dimen/_12sdp"
+                            android:text="@string/try_text_to_sound"
+                            android:textColor="@color/pin_lilac"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                    <ImageView
-                        android:id="@+id/btn0"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:src="@drawable/yellow_btn"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="250:50"
-                        app:layout_constraintEnd_toEndOf="@+id/type0"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Try Text to Sound"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/btn0"
-                        app:layout_constraintStart_toStartOf="@+id/btn0"
-                        app:layout_constraintTop_toTopOf="@+id/btn0" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- ========== AI VOICE ========== -->
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/goRecord"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:layout_weight="1">
+                    style="@style/Pin.Card.Flat"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_190sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="@dimen/pin_radius_lg">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_gradient_ai_voice"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_14sdp">
 
-                    <ImageView
-                        android:id="@+id/baseImg1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:src="@drawable/one"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="263:173"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:background="@drawable/bg_circle_white"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/_7sdp"
+                            android:src="@drawable/ic_robot" />
 
+                        <Space
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
 
-                    <ImageView
-                        android:id="@+id/img1"
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/ic_robot"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        <TextView
+                            android:id="@+id/type1"
+                            style="@style/Pin.Text.OnImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ai_sound_generator"
+                            android:lineSpacingMultiplier="1.05" />
 
-                        app:layout_constraintBottom_toTopOf="@+id/btn1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/type1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:text="AI Sound \nGenerator"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        app:layout_constraintBottom_toTopOf="@+id/btn1"
-                        app:layout_constraintEnd_toEndOf="@+id/baseImg1"
-                        app:layout_constraintStart_toEndOf="@+id/img1"
-                        app:layout_constraintTop_toTopOf="@+id/baseImg1" />
-
-                    <ImageView
-                        android:id="@+id/btn1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:src="@drawable/yellow_btn"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="250:50"
-                        app:layout_constraintEnd_toEndOf="@+id/type1"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Try Voice Record"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/btn1"
-                        app:layout_constraintStart_toStartOf="@+id/btn1"
-                        app:layout_constraintTop_toTopOf="@+id/btn1" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                        <TextView
+                            android:id="@+id/btn1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/bg_pill_white"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:paddingStart="@dimen/_12sdp"
+                            android:paddingEnd="@dimen/_12sdp"
+                            android:text="@string/record_your_voice"
+                            android:textColor="@color/pin_primary_dark"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-
+            <!-- ======================= EXPLORE (masonry) ======================= -->
             <LinearLayout
-                android:id="@+id/funnyLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnLayout">
+                android:layout_marginTop="@dimen/pin_section_gap"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:id="@+id/funnyDonkey"
-                    android:layout_width="wrap_content"
+                <TextView
+                    style="@style/Pin.Text.Section"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
+                    android:text="@string/explore" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_donkey"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:lines="1"
-                        android:layout_gravity="center"
-                        android:text="Donkey Dance"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/funnyJokes"
+                <TextView
+                    style="@style/Pin.Text.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_funny_jokes"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="@dimen/_5sdp"
-
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-
-
-                        android:text="Funny Jokes"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/myRingName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_ring" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_5sdp"
-
-                        android:textStyle="bold"
-
-                        android:text="My Ring Name"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/spinGame"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_dare_game"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:layout_marginTop="@dimen/_5sdp"
-
-                        android:text="Dare Game"/>
-
-                </LinearLayout>
-
-
-
+                    android:text="8 collections" />
             </LinearLayout>
+
             <LinearLayout
-                android:id="@+id/funnyLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/funnyLayout">
-
-                <LinearLayout
-                    android:id="@+id/funnySticker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_funny_sticker"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:lines="1"
-                        android:layout_gravity="center"
-                        android:text="Funny Stickers"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/funnyStories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_stories"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="@dimen/_5sdp"
-
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-
-
-                        android:text="Funny Stories"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/gifMemes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_gif" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_5sdp"
-
-                        android:textStyle="bold"
-
-                        android:text="Gif Memes"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/puzzleGame"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_60sdp"
-                        android:src="@drawable/ic_puzzle"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_8ssp"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:layout_marginTop="@dimen/_5sdp"
-
-                        android:text="Puzzle Game"/>
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/cate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Categories"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/funnyLayout1" />
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!-- left column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/myRingName"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_126sdp"
+                        android:layout_marginBottom="@dimen/pin_gap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_lilac_soft">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_14sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_34sdp"
+                                android:layout_height="@dimen/_34sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_ring" />
+
+                            <Space
+                                android:layout_width="1dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/quick_ring_name" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/funnySticker"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_104sdp"
+                        android:layout_marginBottom="@dimen/pin_gap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_amber_soft">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_14sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_32sdp"
+                                android:layout_height="@dimen/_32sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_funny_sticker" />
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="@string/quick_stickers" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/gifMemes"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_96sdp"
+                        android:layout_marginBottom="@dimen/pin_gap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_sky_soft">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_14sdp">
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/quick_gifs" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_28sdp"
+                                android:layout_height="@dimen/_28sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_gif" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/puzzleGame"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_88sdp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_rose_soft">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_14sdp">
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/quick_puzzle" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_28sdp"
+                                android:layout_height="@dimen/_28sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_puzzle" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- right column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/spinGame"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_104sdp"
+                        android:layout_marginBottom="@dimen/pin_gap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_primary_soft">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_14sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_32sdp"
+                                android:layout_height="@dimen/_32sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_dare_game" />
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="@string/quick_dare" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/funnyStories"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_126sdp"
+                        android:layout_marginBottom="@dimen/pin_gap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_accent_soft">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_14sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_34sdp"
+                                android:layout_height="@dimen/_34sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_stories" />
+
+                            <Space
+                                android:layout_width="1dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/quick_stories" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/funnyJokes"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_88sdp"
+                        android:layout_marginBottom="@dimen/pin_gap"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_surface_alt">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_14sdp">
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/quick_jokes" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_28sdp"
+                                android:layout_height="@dimen/_28sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_funny_jokes" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/funnyDonkey"
+                        style="@style/Pin.Card.Flat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_96sdp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/pin_primary_softer">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_14sdp">
+
+                            <TextView
+                                style="@style/Pin.Text.CardTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/quick_donkey" />
+
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_donkey" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ======================= CATEGORIES ======================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pin_section_gap"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cate"
+                    style="@style/Pin.Text.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/categories" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:clipToPadding="false"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/chipAll"
+                        style="@style/Pin.Chip"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:selected="true"
+                        android:text="@string/chip_all" />
+
+                    <TextView
+                        android:id="@+id/chipFunny"
+                        style="@style/Pin.Chip"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:text="@string/chip_funny" />
+
+                    <TextView
+                        android:id="@+id/chipAnimal"
+                        style="@style/Pin.Chip"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:text="@string/chip_animal" />
+
+                    <TextView
+                        android:id="@+id/chipLaugh"
+                        style="@style/Pin.Chip"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:text="@string/chip_laugh" />
+
+                    <TextView
+                        android:id="@+id/chipFart"
+                        style="@style/Pin.Chip"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:text="@string/chip_fart" />
+
+                    <TextView
+                        android:id="@+id/chipDialogue"
+                        style="@style/Pin.Chip"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:text="@string/chip_dialogue" />
+
+                    <TextView
+                        android:id="@+id/chipBaby"
+                        style="@style/Pin.Chip"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:text="@string/chip_baby" />
+
+                    <TextView
+                        android:id="@+id/chipAlarms"
+                        style="@style/Pin.Chip"
+                        android:text="@string/chip_alarms" />
+                </LinearLayout>
+            </HorizontalScrollView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listiem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/sound_listitem"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="3"
-                android:layout_marginStart="@dimen/_6sdp"
-                android:layout_marginEnd="@dimen/_6sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cate" />
-
-
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/wall"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/_12sdp"-->
-<!--                android:layout_marginTop="@dimen/_10sdp"-->
-<!--                android:text="Fuuny Wallpapers"-->
-<!--                android:textColor="#CC282828"-->
-<!--                android:textSize="@dimen/_15ssp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/btnLayout3" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/viewAll"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/_10sdp"-->
-<!--                android:text="View All"-->
-<!--                android:layout_marginEnd="@dimen/_15sdp"-->
-<!--                android:textColor="#CC282828"-->
-<!--                android:textSize="@dimen/_10ssp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/btnLayout3" />-->
-
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/listItem"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/_5sdp"-->
-<!--                android:layout_marginEnd="@dimen/_5sdp"-->
-<!--                android:orientation="horizontal"-->
-<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/wall"-->
-<!--                tools:listitem="@layout/wall_itemlayout" />-->
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                android:layout_marginTop="@dimen/_12sdp"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_10sdp"
+                tools:listitem="@layout/sound_listitem" />
+        </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

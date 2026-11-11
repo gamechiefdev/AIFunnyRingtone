@@ -34,6 +34,11 @@ public class Wall_Adapter extends RecyclerView.Adapter<Wall_Adapter.ViewHolder> 
 
     public void onBindViewHolder(ViewHolder holder, int position) {
         Glide.with(holder.itemView.getContext()).load(Integer.valueOf(this.imageList.get(position).getImage())).into(holder.imageView);
+        /* UI only: vary pin heights so the staggered Pinterest grid looks organic */
+        int[] heights = {R.dimen._210sdp, R.dimen._250sdp, R.dimen._180sdp, R.dimen._230sdp};
+        ViewGroup.LayoutParams params = holder.itemView.getLayoutParams();
+        params.height = holder.itemView.getResources().getDimensionPixelSize(heights[position % heights.length]);
+        holder.itemView.setLayoutParams(params);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

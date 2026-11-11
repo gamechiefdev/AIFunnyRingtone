@@ -59,4 +59,41 @@
     <string name="todo">TODO</string>
     <string name="donkey_dancing">Donkey Dancing</string>
 
+
+    <!-- ============================================================
+         PIN DESIGN SYSTEM — new UI copy (v6.1)
+         ============================================================ -->
+    <string name="favorites">Favorites</string>
+    <string name="home">Home</string>
+    <string name="prank_calls">Prank Calls</string>
+    <string name="wallpapers">Wallpapers</string>
+    <string name="ai_playlist">AI Playlist</string>
+
+    <string name="discover">Discover</string>
+    <string name="discover_subtitle">Funny sounds &amp; wallpapers</string>
+    <string name="ai_studio">AI Studio</string>
+    <string name="ai_studio_subtitle">Generate something nobody expects</string>
+    <string name="explore">Explore</string>
+    <string name="categories">Browse by mood</string>
+    <string name="ai_text_generator">AI Text\nGenerator</string>
+    <string name="ai_sound_generator">AI Sound\nGenerator</string>
+    <string name="try_text_to_sound">Try text to sound</string>
+    <string name="record_your_voice">Record your voice</string>
+    <string name="chip_all">All</string>
+    <string name="chip_funny">Funny</string>
+    <string name="chip_animal">Animal</string>
+    <string name="chip_laugh">Laugh</string>
+    <string name="chip_fart">Fart</string>
+    <string name="chip_dialogue">Dialogue</string>
+    <string name="chip_baby">Baby</string>
+    <string name="chip_alarms">Alarms</string>
+    <string name="quick_ring_name">My Ring Name</string>
+    <string name="quick_dare">Dare Game</string>
+    <string name="quick_stickers">Funny Stickers</string>
+    <string name="quick_stories">Funny Stories</string>
+    <string name="quick_gifs">GIF Memes</string>
+    <string name="quick_puzzle">Puzzle Game</string>
+    <string name="quick_donkey">Donkey Talk</string>
+    <string name="quick_jokes">Funny Jokes</string>
+    <string name="saved_count">%1$d saved</string>
 </resources>

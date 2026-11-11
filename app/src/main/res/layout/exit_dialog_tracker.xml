@@ -1,106 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview00DpMaker"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="5sp"
-    android:id="@+id/cardview00DpMaker"
-    app:cardBackgroundColor="@color/purple_500"
-    android:background="@color/purple_200"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/bg_sheet_top"
+    android:paddingBottom="@dimen/_18sdp">
 
+    <View
+        android:id="@+id/handle"
+        android:layout_width="@dimen/_36sdp"
+        android:layout_height="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_pill_surface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toBottomOf="@+id/handle">
 
         <FrameLayout
             android:id="@+id/media_View"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:adSize="MEDIUM_RECTANGLE"
             app:adUnitId="@string/admob_banner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="vertical" />
-
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/ExitYex"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        style="@style/Pin.Text.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_24sdp"
         android:gravity="center"
         android:text="@string/are_you_sure_you_want_to_close_the_app"
-        android:textColor="#FFFFFF"
-        android:textSize="12dp"
-        android:textStyle="bold"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adView" />
 
-
     <LinearLayout
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pin_button_height"
+        android:layout_marginStart="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_24sdp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ExitYex">
+        app:layout_constraintTop_toBottomOf="@+id/ExitYex">
+
+        <TextView
+            android:id="@+id/NO"
+            style="@style/Pin.Text.CardTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_soft"
+            android:gravity="center"
+            android:text="Stay"
+            android:textColor="@color/pin_primary_dark"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/YES"
-            android:layout_width="wrap_content"
+            style="@style/Pin.Text.CardTitle"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_weight="1"
-            android:background="@drawable/btn_shape2"
-            android:backgroundTint="@color/black"
+            android:background="@drawable/bg_btn_primary"
             android:gravity="center"
             android:text="@string/confirm_exit"
             android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-<!--        <TextView-->
-<!--            android:id="@+id/Rateus"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/select_tab_bg"-->
-<!--            android:gravity="center"-->
-<!--            android:text="RATE US"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/NO"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginStart="10sp"-->
-<!--            android:layout_marginEnd="10sp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/select_tab_bg"-->
-<!--            android:gravity="center"-->
-<!--            android:text="NO"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold" />-->
+            android:textSize="14sp" />
 
     </LinearLayout>
 

@@ -1,22 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.FunnyRingtone" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- The redesign is light-first: keep the exact same tokens in night mode so
+         hand-coloured layouts stay legible on devices with dark mode enabled. -->
+    <style name="Base.Theme.FunnyRingtone" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <!-- PIN DESIGN SYSTEM -->
+        <item name="colorPrimary">@color/pin_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/pin_primary_soft</item>
+        <item name="colorOnPrimaryContainer">@color/pin_primary_dark</item>
+        <item name="colorSecondary">@color/pin_accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/pin_accent_soft</item>
+        <item name="colorSurface">@color/pin_bg</item>
+        <item name="colorOnSurface">@color/pin_ink</item>
+        <item name="colorSurfaceVariant">@color/pin_surface</item>
+        <item name="colorOnSurfaceVariant">@color/pin_ink_soft</item>
+        <item name="colorOutline">@color/pin_line</item>
+        <item name="android:colorBackground">@color/pin_bg</item>
+
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColorPrimary">@color/pin_ink</item>
+        <item name="android:textColorSecondary">@color/pin_ink_soft</item>
+        <item name="android:windowBackground">@color/pin_bg</item>
+        <item name="materialCardViewStyle">@style/Pin.Card</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
     </style>
+
     <!-- res/values/styles.xml -->
     <style name="BottomSheetDialogThemeCompat" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
-<!--        <item name="android:windowAnimationStyle">@style/BottomSheetAnimationCompat</item>-->
     </style>
-
-<!--    <style name="BottomSheetAnimationCompat">-->
-<!--        <item name="android:windowEnterAnimation">@anim/bottom_sheet_slide_in</item>-->
-<!--        <item name="android:windowExitAnimation">@anim/bottom_sheet_slide_out</item>-->
-<!--    </style>-->
 
     <style name="DialogAnimation_2">
         <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>

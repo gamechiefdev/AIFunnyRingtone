@@ -1,12 +1,37 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FunnyRingtone" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FunnyRingtone" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- PIN DESIGN SYSTEM ===============================================-->
+        <!-- Brand colours (Material 3 slots, so every material widget follows) -->
+        <item name="colorPrimary">@color/pin_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/pin_primary_soft</item>
+        <item name="colorOnPrimaryContainer">@color/pin_primary_dark</item>
+        <item name="colorSecondary">@color/pin_accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/pin_accent_soft</item>
+        <item name="colorSurface">@color/pin_bg</item>
+        <item name="colorOnSurface">@color/pin_ink</item>
+        <item name="colorSurfaceVariant">@color/pin_surface</item>
+        <item name="colorOnSurfaceVariant">@color/pin_ink_soft</item>
+        <item name="colorOutline">@color/pin_line</item>
+        <item name="android:colorBackground">@color/pin_bg</item>
+
+        <!-- Typography: one geometric family everywhere -->
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColorPrimary">@color/pin_ink</item>
+        <item name="android:textColorSecondary">@color/pin_ink_soft</item>
+        <item name="android:windowBackground">@color/pin_bg</item>
+
+        <!-- Material components defaults -->
+        <item name="materialCardViewStyle">@style/Pin.Card</item>
     </style>
 
     <style name="Theme.FunnyRingtone" parent="Base.Theme.FunnyRingtone" />
+
     <style name="ThreeCornerShape">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">@dimen/_10sdp</item>

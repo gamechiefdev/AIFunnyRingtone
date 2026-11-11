@@ -5,60 +5,58 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:src="@drawable/intro_bg"
+    android:background="@color/pin_bg"
     tools:context=".SplashActivity">
 
     <ImageView
         android:id="@+id/splash_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.10"
         android:scaleType="centerCrop"
         android:src="@drawable/splash_bg1"
-        android:alpha="0.2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:foregroundGravity="center"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loadingView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.7"
-        app:layout_constraintVertical_bias="0.4"
         android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintWidth_percent="0.7"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/splash_anim"
         app:lottie_loop="true"
-        app:lottie_speed="1.2"
-        />
+        app:lottie_rawRes="@raw/splash_anim"
+        app:lottie_speed="1.2" />
 
     <me.grantland.widget.AutofitTextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loadingView"
+        android:fontFamily="@font/poppins_semibold"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.01"
         android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_18sdp"
-        android:textStyle="bold"
-        android:fontFamily="monospace"
-        />
-
-    <FrameLayout
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        android:foregroundGravity="center"
-        />
+        android:textColor="@color/pin_ink"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loadingView" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/LayoutViews"
@@ -67,8 +65,7 @@
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/goNext"
@@ -85,6 +82,7 @@
             android:id="@+id/view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -97,20 +95,18 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="center_horizontal"
-                android:indeterminateTint="@color/black" />
+                android:indeterminateTint="@color/pin_primary" />
 
             <TextView
                 android:id="@+id/textView"
+                style="@style/Pin.Text.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="This action can contain ads"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="This action can contain ads" />
         </LinearLayout>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

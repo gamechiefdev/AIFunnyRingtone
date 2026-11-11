@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onPageSelected(int position) {
                 MainActivity.this.resetIconColors();
+                MainActivity.this.moveNavIndicator(position);
                 switch (position) {
                     case 0:
                         MainActivity.this.binding.homeTxt.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.nav_selected));
@@ -139,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+        this.binding.bottom.post(() -> moveNavIndicator(binding.viewPagerNailArt.getCurrentItem()));
         this.binding.homeTxt.setOnClickListener(v -> binding.viewPagerNailArt.setCurrentItem(0));
         this.binding.prank.setOnClickListener(v -> binding.viewPagerNailArt.setCurrentItem(1));
         this.binding.dualTxt.setOnClickListener(v -> binding.viewPagerNailArt.setCurrentItem(2));
@@ -250,8 +252,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /** UI only: slides the small indicator under the active bottom-nav tab. */
+    private void moveNavIndicator(int position) {
+        final View indicator = this.binding.navIndicator;
+        final int slotWidth = this.binding.bottom.getWidth() / 4;
+        if (slotWidth <= 0) {
+            return;
+        }
+        int width = Math.round(22 * getResources().getDisplayMetrics().density);
+        ViewGroup.LayoutParams params = indicator.getLayoutParams();
+        if (params.width != width) {
+            params.width = width;
+            indicator.setLayoutParams(params);
+        }
+        float targetX = (position * slotWidth) + ((slotWidth - width) / 2f);
+        indicator.animate().translationX(targetX).setDuration(200).start();
+    }
+
     public void resetIconColors() {
-        int unselectedColor = ContextCompat.getColor(this, R.color.white);
+        int unselectedColor = ContextCompat.getColor(this, R.color.nav_unselected);
         this.binding.homeTxt.setColorFilter(unselectedColor);
         this.binding.prank.setColorFilter(unselectedColor);
         this.binding.dualTxt.setColorFilter(unselectedColor);
@@ -566,6 +585,7 @@ public class MainActivity extends AppCompatActivity {
         View dialogView = LayoutInflater.from(this).inflate(R.layout.exit_dialog_tracker, (ViewGroup) null);
         this.bottomSheetDialog.setContentView(dialogView);
         AdsController.getInstance().loadBigBanner((FrameLayout) dialogView.findViewById(R.id.media_View));
+        dialogView.findViewById(R.id.NO).setOnClickListener(v -> MainActivity.this.bottomSheetDialog.dismiss());
         ((TextView) dialogView.findViewById(R.id.YES)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MainActivity.this.bottomSheetDialog.dismiss();

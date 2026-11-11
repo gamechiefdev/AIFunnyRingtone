@@ -388,3 +388,23 @@ Naya: title + subtitle stack, transparent app bar taake gradient wash poore scre
 `add_name_list` · `ai_record_sound` · `aitext_sound` · `auto_turn` · `create_name_ringtone` · `donkey_screen` · `funny_alarm` · `funny_jokes` · `generate_now` · `gif` · `play_donkey_video` · `play_my_name_ringtone` · `play_save_ringtone` · `puzzle_list` · `puzzlegame` · `read_story` · `record_generate` · `save_name_ringtone` · `selection` · `show_gif` · `show_pack` · `spin_game` · `stroy_list` · `trim_sound_screen`
 
 Script: `tools/appbar_restructure.py` (re-runnable). Har file me **same id** (`@+id/text`, `@+id/imageView7`) rakhi gayi hai — koi Java change nahi, koi listener nahi toota.
+
+---
+
+## Phase 11 — full preview coverage (v6.9)
+
+`design-preview/render_full.py` — poore app ke **30 screens** ke previews, 5 template families se:
+
+| Template | Screens |
+|---|---|
+| grid | wallpapers, stickers, show pack, gif picker, stories, favourites, games |
+| list | sounds, playlist, jokes, prank, selection |
+| form | add name, create name, save name, alarm, auto turn, record→generate |
+| hero/player | player, gif preview, donkey video, play my name |
+| loading / board / wave | generate now, ai record, puzzle, trim sound |
+
+Outputs:
+- `shots/full/<01..30>.png` — per-screen PNG
+- `shots/all-screens-1.png` — main flow (15)
+- `shots/all-screens-2.png` — secondary screens (15)
+- `screens.html` — web gallery (scrollable, lazy loaded)

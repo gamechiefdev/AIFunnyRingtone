@@ -1,8 +1,29 @@
-<!DOCTYPE html>
-<meta charset="utf-8" />
-<title>AI Funny Ringtones — v6.1 UI</title>
-<meta http-equiv="refresh" content="0; url=./" />
-<link rel="stylesheet" href="styles.css" />
-<p style="font-family:Poppins,system-ui,sans-serif;padding:24px">
-  UI check page moved to the root — <a href="./">open it here</a>.
-</p>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Funny Ringtones — all 30 screens</title>
+<style>
+  :root{--ink:#141414;--soft:#6E6A64;--line:#EBE6DF;--bg:#FFF6F8}
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#FFFDF9,#FFF4F7 55%,#FFEAF1);color:var(--ink);
+       font:16px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;padding:22px}
+  h1{font-size:26px;margin:0 0 4px}
+  p.sub{color:var(--soft);margin:0 0 18px;font-size:14px}
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;
+         box-shadow:0 8px 20px rgba(24,20,16,.06)}
+  img{width:100%;border-radius:12px;display:block}
+  figcaption{font-size:11px;color:var(--soft);margin-top:6px;text-align:center}
+</style></head><body>
+<h1>AI Funny Ringtones — v6.9</h1>
+<p class="sub">Saare 30 screens · ek hi structure: back circle + Chewy title + caption + candy wash</p>
+<div class="grid" id="g"></div>
+<script>
+const names=["01-home","02-wallpapers","03-stickers","04-sounds","05-prank","06-player","07-call","08-premium",
+"09-favourites","10-playlist","11-jokes","12-games","13-ai-text","14-ai-record","15-record-generate",
+"16-generate-now","17-add-name","18-create-name","19-save-name","20-play-name","21-trim-sound","22-stories",
+"23-read-story","24-show-pack","25-gif","26-show-gif","27-alarm","28-auto-turn","29-puzzle","30-donkey-video"];
+const g=document.getElementById('g');
+for(const n of names){const f=document.createElement('figure');
+f.innerHTML=`<img loading="lazy" src="shots/full/${n}.png" alt="${n}"><figcaption>${n}</figcaption>`;g.appendChild(f);}
+</script></body></html>

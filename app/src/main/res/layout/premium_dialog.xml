@@ -134,6 +134,7 @@
             app:layout_constraintWidth_percent="0.9">
 
             <TextView
+                android:fontFamily="@font/chewy"
                 android:id="@+id/tv1_none"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,6 +147,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:fontFamily="@font/chewy"
                 android:id="@+id/tv_none_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -173,6 +175,7 @@
 
 
                 <TextView
+                    android:fontFamily="@font/chewy"
                     android:id="@+id/tv_none_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -242,6 +245,7 @@
 
 
             <TextView
+                android:fontFamily="@font/chewy"
                 android:id="@+id/tv_none_3_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -269,6 +273,7 @@
                 app:tint="@color/black" />
 
             <TextView
+                android:fontFamily="@font/chewy"
                 android:id="@+id/tv_none_3_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -298,6 +303,7 @@
                  />
 
             <TextView
+                android:fontFamily="@font/chewy"
                 android:id="@+id/tv_none_3_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -328,6 +334,7 @@
                  />
 
             <TextView
+                android:fontFamily="@font/chewy"
                 android:id="@+id/tv_none_3_4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -358,6 +365,7 @@
                 />
 
             <TextView
+                android:fontFamily="@font/chewy"
                 android:id="@+id/tv_none_3_5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

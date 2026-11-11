@@ -8,6 +8,7 @@
     tools:context=".fragments.Favourite">
 
     <TextView
+        android:fontFamily="@font/chewy"
         android:id="@+id/wallHeader"
         style="@style/Pin.Text.Section"
         android:layout_width="0dp"

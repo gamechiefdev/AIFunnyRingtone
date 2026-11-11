@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="6dp">
+    app:cardElevation="6dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/pin_ink">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,6 +30,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
+            android:fontFamily="@font/chewy"
             android:id="@+id/txtList"
             android:layout_width="0dp"
             android:layout_height="0dp"

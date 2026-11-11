@@ -310,3 +310,32 @@ Energy badhane ke liye hi ye pass hai — koi functional change nahi.
 | 4 | **Cartoon accents** | `ic_googly_eyes.xml` vector sticker + emoji sticker row, web `👀` pill |
 
 Motion keys are additive: `float`, `float_late`, `wobble`, `pop` — `UiMotion` tag check `contains()` karta hai, is liye "float wobble" jaise combined tags kaam karte hain.
+
+---
+
+## Phase 7 — "poori app funny" (v6.5)
+
+Goal: Home ke baad **har screen** ko same comic language milay — bina kisi layout ki id ya Java logic chhere.
+
+### 3 tarah ke global levers (ek hi jagah se poori app)
+
+| Lever | File | Asar |
+|---|---|---|
+| `Pin.Text.Title` → `@font/chewy` 21sp | `values/styles.xml` | Jahan bhi screen title style use hota hai, cartoon face automatically |
+| `Pin.Card` / `Pin.Card.Flat` → `strokeColor=@color/pin_ink`, `strokeWidth=2dp` | `values/styles.xml` | Har card par comic ink outline |
+| `pin_bg` `#FFFFFF` → `#FFF6F8` | `values/colors.xml` | Background blush (34 layouts) |
+
+### Screen-by-screen pass (`tools/funny_everywhere.py`, re-runnable)
+
+Script sirf un TextViews ko Chewy deta hai jinke paas `textSize >= 15` **aur** label chhota (≤ 24 chars) ho — body copy readable rehti hai. Comment blocks mask hote hain, ids bilkul touch nahi hoti.
+
+Touched layouts (17 + 6 = 23):
+
+`activity_favorites_screen` · `activity_funny_jokes` · `activity_play_ai_sound` · `activity_play_sounds` · `activity_read_story` · `activity_trim_sound_screen` · `activity_selection` · `custom_dialog` · `dialog_generation_limit` · `dialog_language_selection` · `dialog_set_wall` · `fragment_favourite` · `fragment_histroy` · `fragment_prank_call` · `jokes_itemlayout` · `layout_intro_slider1` · `layout_intro_slider3` · `permissions_screen_dialog` · `premium_dialog` · `stack_itemlayout` · `voice_itemlayout`
+
+### Preview coverage
+
+`design-preview/render_more.py` — 4 naye mockups (Favourites, Playlist, Jokes, Games); `render_all.py` ab **12 screens** ek sheet me. `screen_shell()` me shared colour-blast wash, is liye saari screens ek jaisi lagti hain.
+
+### Backend status
+`git diff c24b909 -- '*.java'` = 9 files, sab UI-only (motion hooks + view lookups). Gradle/manifest/Firebase/ads/billing = **0 changes**.

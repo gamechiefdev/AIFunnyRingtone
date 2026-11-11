@@ -22,10 +22,9 @@
     </style>
 
     <style name="Pin.Text.Title">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">21sp</item>
         <item name="android:textColor">@color/pin_ink</item>
-        <item name="android:fontFamily">@font/poppins_semibold</item>
-        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:fontFamily">@font/chewy</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
@@ -100,8 +99,8 @@
         <item name="cardCornerRadius">@dimen/pin_radius</item>
         <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">@color/white</item>
-        <item name="strokeColor">@color/pin_line</item>
-        <item name="strokeWidth">@dimen/pin_stroke</item>
+        <item name="strokeColor">@color/pin_ink</item>
+        <item name="strokeWidth">2dp</item>
         <item name="cardPreventCornerOverlap">true</item>
         <item name="cardUseCompatPadding">false</item>
     </style>
@@ -117,15 +116,16 @@
         <item name="cardCornerRadius">@dimen/pin_radius</item>
         <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">@color/white</item>
-        <item name="strokeWidth">0dp</item>
+        <item name="strokeColor">@color/pin_ink</item>
+        <item name="strokeWidth">2dp</item>
     </style>
 
     <style name="Pin.Card.Pin">
         <item name="cardCornerRadius">@dimen/pin_radius_lg</item>
         <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">@color/white</item>
-        <item name="strokeColor">@color/pin_line</item>
-        <item name="strokeWidth">@dimen/pin_stroke</item>
+        <item name="strokeColor">@color/pin_ink</item>
+        <item name="strokeWidth">2dp</item>
     </style>
 
     <!-- Pill / chip -->

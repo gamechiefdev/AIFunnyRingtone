@@ -154,7 +154,7 @@ def glyph_nav(d, kind, cx, cy, color):
 def appbar(d, title, sub, right="heart"):
     icon_circle(d, 40, 42, 22, WHITE, LINE)
     glyph_menu(d, 40, 42)
-    text(d, (76, 26), title, f("semibold", 20), INK)
+    text(d, (76, 26), title, fun(21), INK)
     text(d, (76, 50), sub, f("regular", 11), INK_FAINT)
     icon_circle(d, 312, 42, 22, WHITE, LINE)
     glyph_heart(d, 312, 41, 0.85, PRIMARY)
@@ -195,13 +195,16 @@ def tabbar(d, active=0):
 
 def screen_shell(title, sub, back=False):
     img = Image.new("RGBA", (P(W), P(H)), WHITE)
+    # colour-blast wash shared by every screen
+    wash = gradient((P(W), P(H)), hex2rgb("#FFFDF9"), hex2rgb("#FFF0F4"), 90).convert("RGBA")
+    img.paste(wash, (0, 0))
     d = ImageDraw.Draw(img)
     if back:
         icon_circle(d, 40, 42, 22, WHITE, LINE)
         d.line([P(36), P(42), P(45), P(42)], fill=INK, width=P(1.6))
         d.line([P(36), P(42), P(41), P(37)], fill=INK, width=P(1.6))
         d.line([P(36), P(42), P(41), P(47)], fill=INK, width=P(1.6))
-        text(d, (76, 26), title, f("semibold", 20), INK)
+        text(d, (76, 26), title, fun(21), INK)
         text(d, (76, 50), sub, f("regular", 11), INK_FAINT)
     return img, d
 
@@ -209,8 +212,6 @@ def screen_shell(title, sub, back=False):
 # ---------------------------------------------------------------- screens
 def home():
     img, d = screen_shell("", "")
-    wash = gradient((P(W), P(H)), hex2rgb("#FFFDF9"), hex2rgb("#FFF0F4"), 90).convert("RGBA")
-    img.paste(wash, (0, 0))
     appbar(d, "Discover", "Funny sounds & wallpapers")
 
     # rotated sticker badge (playful Pinterest accent)
@@ -380,7 +381,7 @@ def sounds():
     d.line([P(36), P(42), P(45), P(42)], fill=INK, width=P(1.6))
     d.line([P(36), P(42), P(41), P(37)], fill=INK, width=P(1.6))
     d.line([P(36), P(42), P(41), P(47)], fill=INK, width=P(1.6))
-    text(d, (76, 26), "Funny sounds", f("semibold", 20), INK)
+    text(d, (76, 26), "Funny sounds", fun(21), INK)
     text(d, (76, 50), "Tap to play · heart to save", f("regular", 11), INK_FAINT)
 
     rows = [("01", "Funny 1", "0:04", "wall1.webp", True),

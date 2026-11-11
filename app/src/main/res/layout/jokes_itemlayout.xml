@@ -74,6 +74,7 @@
         </RelativeLayout>
 
         <TextView
+            android:fontFamily="@font/chewy"
             android:id="@+id/tv_cat_name_row_vi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

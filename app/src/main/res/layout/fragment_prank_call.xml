@@ -8,6 +8,7 @@
     tools:context=".fragments.PrankCall">
 
     <TextView
+        android:fontFamily="@font/chewy"
         android:id="@+id/prankHeader"
         style="@style/Pin.Text.Section"
         android:layout_width="0dp"

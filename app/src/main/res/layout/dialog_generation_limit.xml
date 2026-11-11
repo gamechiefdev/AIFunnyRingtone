@@ -15,6 +15,7 @@
         android:padding="20dp">
 
         <TextView
+            android:fontFamily="@font/chewy"
             android:id="@+id/dialogTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

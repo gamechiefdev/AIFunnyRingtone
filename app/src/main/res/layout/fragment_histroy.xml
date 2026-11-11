@@ -30,6 +30,7 @@
             android:text="Your library" />
 
         <TextView
+            android:fontFamily="@font/chewy"
             android:id="@+id/playlist"
             style="@style/Pin.Text.Title"
             android:layout_width="0dp"

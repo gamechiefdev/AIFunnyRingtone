@@ -86,6 +86,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:fontFamily="@font/chewy"
             android:id="@+id/countFav"
             style="@style/Pin.Text.Title"
             android:layout_width="0dp"

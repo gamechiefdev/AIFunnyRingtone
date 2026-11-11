@@ -44,7 +44,7 @@
     <color name="pin_rose_soft">#FDE9EA</color>
 
     <!-- Surfaces -->
-    <color name="pin_bg">#FFFFFFFF</color>
+    <color name="pin_bg">#FFF6F8</color>
     <color name="pin_surface">#FBF9F6</color>
     <color name="pin_surface_alt">#F3F0EB</color>
     <color name="pin_line">#EBE6DF</color>

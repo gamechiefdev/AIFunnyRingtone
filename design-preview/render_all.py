@@ -10,7 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 from PIL import Image, ImageDraw, ImageFilter  # noqa: E402
-from render_mockups import OUT, f, INK, INK_SOFT, PRIMARY  # noqa: E402
+from render_mockups import OUT, f, fun, INK, INK_SOFT, PRIMARY  # noqa: E402
 
 BG = "#F3F1EC"
 SCALE = 0.72
@@ -25,6 +25,8 @@ def main():
         ("STICKERS", "stickers.png"), ("SOUNDS", "sounds.png"),
         ("PRANK", "prank.png"), ("PLAYER", "player.png"),
         ("INCOMING CALL", "call.png"), ("PREMIUM", "premium.png"),
+        ("FAVOURITES", "favourites.png"), ("PLAYLIST", "history.png"),
+        ("JOKES", "jokes.png"), ("GAMES", "games.png"),
     ]
     imgs = []
     for label, name in screens:
@@ -36,13 +38,14 @@ def main():
     pw, ph = imgs[0][1].size
     sheet_w = PAD * 2 + pw * 4 + GAP_X * 3
     header = 150
-    sheet_h = PAD + header + (ph + CAPTION) * 2 + GAP_Y + 48
+    rows = (len(imgs) + 3) // 4
+    sheet_h = PAD + header + (ph + CAPTION) * rows + GAP_Y * (rows - 1) + 48
 
     sheet = Image.new("RGBA", (sheet_w, sheet_h), BG)
 
     d = ImageDraw.Draw(sheet)
-    d.text((PAD, PAD), "AI Funny Ringtones — v6.4 “Comic Pin” UI", font=f("semibold", 26), fill=INK)
-    d.text((PAD, PAD + 62), "Saari redesigned screens · Poppins + app artwork · real layouts, same view ids",
+    d.text((PAD, PAD), "AI Funny Ringtones — v6.4 “Comic Pin” UI", font=fun(36), fill=INK)
+    d.text((PAD, PAD + 62), "12 screens · comic ink outlines + Chewy titles + candy wash · real layouts, same view ids",
            font=f("regular", 13), fill=INK_SOFT)
     d.rounded_rectangle([PAD, PAD + 96, PAD + 132, PAD + 102], radius=3, fill=PRIMARY)
 

@@ -104,6 +104,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:fontFamily="@font/chewy"
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"

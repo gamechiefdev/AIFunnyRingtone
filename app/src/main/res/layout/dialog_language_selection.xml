@@ -5,7 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="8dp">
+    app:cardElevation="8dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/pin_ink">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,6 +17,7 @@
         android:padding="15dp">
 
         <TextView
+            android:fontFamily="@font/chewy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select Language / Region"
@@ -33,13 +36,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView android:id="@+id/english" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="English (United States)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <TextView
+                    android:fontFamily="@font/chewy" android:id="@+id/english" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="English (United States)" android:textColor="@color/pin_ink" android:textSize="16sp" />
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/hindi" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Hindi / हिंदी (India)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <TextView
+                    android:fontFamily="@font/chewy" android:id="@+id/hindi" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Hindi / हिंदी (India)" android:textColor="@color/pin_ink" android:textSize="16sp" />
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
-                <TextView android:id="@+id/urdu" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Urdu / اردو (Pakistan)" android:textColor="@color/pin_ink" android:textSize="16sp" />
+                <TextView
+                    android:fontFamily="@font/chewy" android:id="@+id/urdu" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Urdu / اردو (Pakistan)" android:textColor="@color/pin_ink" android:textSize="16sp" />
                 <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/pin_surface_alt" />
 
                 <TextView android:id="@+id/portuguese" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:padding="12dp" android:text="Portuguese / Português (Brazil)" android:textColor="@color/pin_ink" android:textSize="16sp" />

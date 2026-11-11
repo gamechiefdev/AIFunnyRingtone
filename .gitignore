@@ -19,3 +19,6 @@ local.properties
 /nativetemplates/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/
 # generated single-file preview build (re-create with the inline build script)
 /design-preview/standalone.html
+
+# generated mockup renders (python3 design-preview/render_mockups.py)
+/design-preview/shots/

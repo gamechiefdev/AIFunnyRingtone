@@ -2,226 +2,820 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AI Funny Ringtones — v6.1 UI</title>
-<link rel="stylesheet" href="styles.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#188E5A" />
+<title>AI Funny Ringtones — App UI</title>
 <style>
-  /* ultra-simple, always-visible UI check page: no phone frames, no scaling */
-  .simple { max-width: 1080px; margin: 0 auto; padding: 24px 14px 64px; }
-  .simple h1 { font-size: 26px; letter-spacing: -0.02em; margin: 6px 0 6px; }
-  .simple .lead { font-size: 13px; color: var(--ink-soft); margin: 0 0 8px; }
-  .simple .jump { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 26px; }
-  .simple .jump a { font-size: 12px; text-decoration: none; color: var(--ink-soft); background: #fff;
-    border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; }
-  .block { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 16px; margin-bottom: 22px; }
-  .block > h2 { margin: 0 0 2px; font-size: 15px; font-weight: 600; }
-  .block > .file { margin: 0 0 14px; font-size: 10px; color: var(--ink-faint); font-family: ui-monospace, monospace; }
-  .row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-  .stage-inline { background: var(--surface); border-radius: 18px; padding: 14px; }
-  .stage-inline.on-dark { background: var(--primary); }
-  .bars { display: grid; gap: 8px; }
-  .bar { background: var(--surface); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
-  .bar i { width: 26px; height: 26px; border-radius: 9px; background: var(--primary-soft); display: grid; place-items: center; font-style: normal; font-size: 12px; }
-  .bar b { font-size: 12px; font-weight: 600; }
-  .bar span { margin-left: auto; font-size: 10px; color: var(--ink-faint); }
-  .swatchline { display: flex; gap: 8px; flex-wrap: wrap; }
-  .swatchline div { flex: 1 1 90px; }
-  .swatchline i { display: block; height: 40px; border-radius: 12px; margin-bottom: 4px; }
-  .swatchline span { font-size: 10px; color: var(--ink-faint); }
+  @font-face { font-family: Poppins; src: url("fonts/poppins_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: Poppins; src: url("fonts/poppins_medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: Poppins; src: url("fonts/poppins_semibold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+  @font-face { font-family: Poppins; src: url("fonts/poppins_bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+
+  :root {
+    --primary: #188E5A; --primary-dark: #0E6640; --primary-soft: #E4F3EB; --primary-softer: #F1F9F4;
+    --accent: #FF6B4A; --accent-soft: #FFE9E3;
+    --amber: #F6C53A; --amber-soft: #FFF4D6;
+    --lilac: #7C6CF6; --lilac-soft: #EEEBFF;
+    --sky: #2AA7C7; --sky-soft: #E3F4F9;
+    --rose: #E5484D; --rose-soft: #FDE9EA;
+    --bg: #FFFFFF; --surface: #FBF9F6; --surface-alt: #F3F0EB; --line: #EBE6DF;
+    --ink: #141414; --ink-soft: #6E6A64; --ink-faint: #A39D95;
+    --nav-off: #9A948C;
+    --r-xl: 24px; --r-lg: 20px; --r-md: 14px; --r-sm: 10px;
+    --shadow: 0 12px 30px rgba(20, 20, 20, 0.10);
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; height: 100%; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #E7E3DC;
+    font-family: Poppins, "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100dvh;
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------------- app shell ---------------- */
+  .app {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    height: 100dvh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  @media (min-width: 520px) {
+    .app {
+      height: min(880px, 100dvh);
+      border-radius: 30px;
+      box-shadow: 0 30px 70px rgba(20, 20, 20, 0.22);
+    }
+  }
+
+  /* ---------------- top bar ---------------- */
+  .topbar {
+    flex: none;
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px 12px;
+    background: var(--bg);
+    position: relative; z-index: 3;
+  }
+  .icon-btn {
+    width: 44px; height: 44px; flex: none;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform .12s ease, background .12s ease;
+  }
+  .icon-btn:active { transform: scale(.94); background: var(--surface); }
+  .titles { min-width: 0; flex: 1; }
+  .titles h1 { margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+  .titles p { margin: 2px 0 0; font-size: 11.5px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pro {
+    flex: none; border: 0; cursor: pointer;
+    background: var(--primary-soft); color: var(--primary-dark);
+    font: 600 10px/1 Poppins, sans-serif; letter-spacing: .08em;
+    padding: 8px 11px; border-radius: 999px;
+  }
+
+  /* ---------------- screens ---------------- */
+  .screens { flex: 1; min-height: 0; position: relative; }
+  .pane {
+    position: absolute; inset: 0;
+    overflow-y: auto; overflow-x: hidden;
+    padding: 0 18px 26px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: none;
+  }
+  .pane::-webkit-scrollbar { display: none; }
+  .pane.active { display: block; animation: fade .18s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  /* ---------------- type helpers ---------------- */
+  .eyebrow {
+    margin: 4px 0 8px; font-size: 10.5px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--primary);
+  }
+  .hero { margin: 0 0 8px; font-size: 30px; line-height: 1.05; letter-spacing: -.035em; font-weight: 700; }
+  .hero-sub { margin: 0 0 20px; font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 22px 0 10px; }
+  .sec-head h2 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.01em; display: flex; align-items: center; gap: 6px; }
+  .spark { color: var(--primary); font-size: 14px; }
+  .muted { font-size: 11px; color: var(--ink-faint); }
+
+  /* ---------------- AI studio cards ---------------- */
+  .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ai-card {
+    position: relative; overflow: hidden;
+    border-radius: var(--r-lg); padding: 14px;
+    min-height: 176px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    color: #fff;
+  }
+  .ai-card h3 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.2; letter-spacing: -.01em; }
+  .ai-card .ico {
+    position: absolute; top: 14px; left: 14px;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: #fff; display: grid; place-items: center;
+  }
+  .ai-card .ico img { width: 24px; height: 24px; object-fit: contain; }
+  .ai-card .pill-btn {
+    margin-top: 12px; align-self: flex-start;
+    border: 0; cursor: pointer;
+    background: #fff; color: var(--ink);
+    font: 600 11px/1 Poppins, sans-serif;
+    padding: 11px 14px; border-radius: 999px;
+  }
+  .grad-a { background: linear-gradient(150deg, #8E7CF0 0%, #FF6B4A 100%); }
+  .grad-b { background: linear-gradient(150deg, #1FB37A 0%, #0E6640 100%); }
+
+  /* ---------------- chips ---------------- */
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 4px; margin-bottom: 12px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: none; cursor: pointer;
+    border: 0; border-radius: 999px;
+    background: var(--surface-alt); color: var(--ink-soft);
+    font: 500 11.5px/1 Poppins, sans-serif;
+    padding: 10px 14px;
+    transition: background .14s ease, color .14s ease;
+  }
+  .chip.on { background: var(--primary); color: #fff; font-weight: 600; }
+
+  /* ---------------- explore masonry ---------------- */
+  .masonry { column-count: 2; column-gap: 10px; }
+  .tile {
+    display: block; break-inside: avoid; margin-bottom: 10px;
+    border-radius: var(--r-lg); padding: 14px;
+    text-decoration: none; color: var(--ink);
+    cursor: pointer;
+    transition: transform .12s ease;
+  }
+  .tile:active { transform: scale(.985); }
+  .tile .ico { width: 34px; height: 34px; border-radius: var(--r-md); display: grid; place-items: center; margin-bottom: 26px; }
+  .tile .ico img { width: 22px; height: 22px; object-fit: contain; }
+  .tile b { display: block; font-size: 13px; font-weight: 600; letter-spacing: -.01em; }
+  .tile span { display: block; font-size: 10.5px; color: var(--ink-faint); margin-top: 2px; }
+
+  .t-lilac { background: var(--lilac-soft); } .t-lilac .ico { background: var(--lilac); }
+  .t-green { background: var(--primary-soft); } .t-green .ico { background: var(--primary); }
+  .t-amber { background: var(--amber-soft); } .t-amber .ico { background: var(--amber); }
+  .t-coral { background: var(--accent-soft); } .t-coral .ico { background: var(--accent); }
+  .t-sky { background: var(--sky-soft); } .t-sky .ico { background: var(--sky); }
+  .t-rose { background: var(--rose-soft); } .t-rose .ico { background: var(--rose); }
+  .t-surface { background: var(--surface-alt); } .t-surface .ico { background: var(--ink-faint); }
+
+  /* ---------------- sound rows ---------------- */
+  .sound-list { display: grid; gap: 8px; }
+  .srow {
+    display: flex; align-items: center; gap: 10px;
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 18px; padding: 9px 10px;
+    transition: border-color .14s ease, box-shadow .14s ease;
+  }
+  .srow.playing { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-softer); }
+  .sidx { flex: none; width: 18px; font-size: 10.5px; color: var(--ink-faint); text-align: center; }
+  .sart { flex: none; width: 42px; height: 42px; border-radius: 13px; object-fit: cover; }
+  .smeta { flex: 1; min-width: 0; }
+  .smeta b { display: block; font-size: 12.5px; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .smeta span { display: block; font-size: 10.5px; color: var(--ink-faint); margin-top: 1px; }
+  .sbtn {
+    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    border: 0; cursor: pointer; display: grid; place-items: center;
+    background: var(--primary-softer); color: var(--primary);
+    transition: transform .12s ease, background .12s ease, color .12s ease;
+  }
+  .sbtn:active { transform: scale(.9); }
+  .srow.playing .splay { background: var(--primary); color: #fff; }
+  .sheart.on { background: var(--rose-soft); color: var(--rose); }
+  .sheart.on svg { fill: currentColor; }
+
+  /* ---------------- prank screen ---------------- */
+  .call-list { display: grid; gap: 10px; }
+  .call-card {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid var(--line);
+    border-radius: var(--r-lg); padding: 12px 14px;
+  }
+  .call-card > img { flex: none; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .call-meta { flex: 1; min-width: 0; }
+  .call-meta b { display: block; font-size: 13px; font-weight: 600; }
+  .call-meta span { display: block; font-size: 10.5px; color: var(--ink-faint); margin-top: 2px; }
+  .call-btn {
+    flex: none; border: 0; cursor: pointer;
+    background: var(--primary); color: #fff;
+    font: 600 11.5px/1 Poppins, sans-serif;
+    padding: 11px 14px; border-radius: 999px;
+  }
+  .call-btn:active { background: var(--primary-dark); }
+
+  .voice-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .voice-row::-webkit-scrollbar { display: none; }
+  .voice {
+    flex: none; width: 74px; text-align: center; cursor: pointer;
+    border: 0; background: transparent; padding: 0;
+    font: inherit; color: var(--ink);
+  }
+  .voice img { width: 62px; height: 62px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 6px; border: 2px solid transparent; }
+  .voice.on img { border-color: var(--primary); }
+  .voice span { font-size: 10.5px; color: var(--ink-soft); }
+  .voice.on span { color: var(--primary); font-weight: 600; }
+
+  /* ---------------- wallpapers ---------------- */
+  .pins { column-count: 2; column-gap: 10px; }
+  .pin {
+    position: relative; display: block; width: 100%;
+    break-inside: avoid; margin-bottom: 10px; padding: 0;
+    border: 0; background: none; cursor: pointer;
+    border-radius: var(--r-lg); overflow: hidden;
+    box-shadow: 0 2px 10px rgba(20, 20, 20, .08);
+    transition: transform .12s ease;
+  }
+  .pin:active { transform: scale(.985); }
+  .pin img { display: block; width: 100%; height: auto; }
+  .pin .tag {
+    position: absolute; left: 8px; bottom: 8px;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(0, 0, 0, .55);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    color: #fff; font: 500 10.5px/1 Poppins, sans-serif;
+    padding: 8px 11px; border-radius: 999px;
+  }
+  .pin .fav {
+    position: absolute; right: 8px; top: 8px;
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 0; cursor: pointer; display: grid; place-items: center;
+    background: rgba(255, 255, 255, .88); color: var(--ink-soft);
+  }
+  .pin .fav.on { background: var(--rose); color: #fff; }
+  .pin .fav.on svg { fill: currentColor; }
+
+  /* ---------------- tab bar ---------------- */
+  .tabbar {
+    flex: none; position: relative; z-index: 4;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    border-top: 1px solid var(--line);
+    background: #fff;
+    padding: 7px 6px calc(7px + env(safe-area-inset-bottom));
+  }
+  .tab {
+    border: 0; background: none; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    padding: 4px 0 0; color: var(--nav-off);
+    font: 500 10px/1 Poppins, sans-serif;
+  }
+  .tab.on { color: var(--primary); font-weight: 600; }
+  .tab .dot { width: 16px; height: 3px; border-radius: 999px; background: transparent; margin-top: 1px; }
+  .tab.on .dot { background: var(--primary); }
+
+  /* ---------------- mini player ---------------- */
+  .mini {
+    position: absolute; left: 12px; right: 12px; bottom: 78px;
+    display: none; align-items: center; gap: 10px;
+    background: var(--ink); color: #fff;
+    border-radius: 16px; padding: 9px 12px;
+    box-shadow: var(--shadow); z-index: 5;
+  }
+  .mini.show { display: flex; animation: fade .18s ease; }
+  .mini img { width: 34px; height: 34px; border-radius: 10px; object-fit: cover; }
+  .mini b { display: block; font-size: 11.5px; font-weight: 600; }
+  .mini span { display: block; font-size: 9.5px; opacity: .7; }
+  .mini .bars { margin-left: auto; display: flex; align-items: flex-end; gap: 2px; height: 16px; }
+  .mini .bars i { width: 3px; background: var(--amber); border-radius: 2px; animation: eq .9s ease-in-out infinite; }
+  .mini .bars i:nth-child(2) { animation-delay: .15s; }
+  .mini .bars i:nth-child(3) { animation-delay: .3s; }
+  .mini .bars i:nth-child(4) { animation-delay: .45s; }
+  @keyframes eq { 0%, 100% { height: 5px; } 50% { height: 15px; } }
+
+  /* ---------------- overlays ---------------- */
+  .sheet {
+    position: absolute; inset: 0; z-index: 9;
+    display: none; align-items: flex-end;
+    background: rgba(20, 20, 20, .45);
+  }
+  .sheet.open { display: flex; }
+  .sheet-body {
+    width: 100%; background: #fff;
+    border-radius: 26px 26px 0 0; padding: 12px 18px calc(18px + env(safe-area-inset-bottom));
+    animation: up .22s ease;
+  }
+  @keyframes up { from { transform: translateY(18px); opacity: .6; } to { transform: none; opacity: 1; } }
+  .grabber { width: 40px; height: 4px; border-radius: 99px; background: var(--line); margin: 0 auto 14px; }
+  .sheet img.preview { width: 100%; max-height: 46vh; object-fit: cover; border-radius: var(--r-lg); display: block; margin-bottom: 14px; }
+  .sheet h3 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+  .sheet p { margin: 0 0 14px; font-size: 11.5px; color: var(--ink-soft); }
+  .sheet-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .btn { border: 0; cursor: pointer; border-radius: 999px; padding: 14px; font: 600 12.5px/1 Poppins, sans-serif; }
+  .btn.primary { background: var(--primary); color: #fff; }
+  .btn.ghost { background: var(--surface-alt); color: var(--ink); }
+
+  /* incoming call */
+  .call-screen {
+    position: absolute; inset: 0; z-index: 10;
+    display: none; flex-direction: column; align-items: center;
+    justify-content: space-between; text-align: center; color: #fff;
+    padding: 64px 24px calc(40px + env(safe-area-inset-bottom));
+    background: radial-gradient(120% 90% at 50% 0%, #1FB37A 0%, #0E6640 55%, #093B26 100%);
+  }
+  .call-screen.open { display: flex; }
+  .call-screen .who { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; opacity: .8; }
+  .call-screen img { width: 116px; height: 116px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255, 255, 255, .5); margin: 18px 0 14px; }
+  .call-screen h2 { margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -.02em; }
+  .call-screen .sub { margin: 6px 0 0; font-size: 12px; opacity: .8; }
+  .call-actions { display: flex; gap: 42px; }
+  .call-actions button {
+    border: 0; cursor: pointer; width: 64px; height: 64px; border-radius: 50%;
+    display: grid; place-items: center; color: #fff;
+  }
+  .call-decline { background: var(--rose); }
+  .call-answer { background: #fff; color: var(--primary); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.45); } 50% { box-shadow: 0 0 0 14px rgba(255,255,255,0); } }
+
+  /* ---------------- footer links ---------------- */
+  .footlinks { display: flex; gap: 8px; flex-wrap: wrap; margin: 26px 0 4px; }
+  .footlinks a {
+    font-size: 10.5px; text-decoration: none; color: var(--ink-soft);
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 8px 11px; border-radius: 999px;
+  }
 </style>
 </head>
 <body>
-<div class="simple">
-  <p class="eyebrow">UI CHECK · v6.1</p>
-  <h1>Yeh hai naya UI — seedha browser mein.</h1>
-  <p class="lead">No phone frames, no scaling. Har section asli tokens, Poppins font aur app artwork ke saath.</p>
-  <div class="jump">
-    <a href="#appbar">App bar &amp; nav</a>
-    <a href="#home">Home</a>
-    <a href="#walls">Wallpapers</a>
-    <a href="#sounds">Sounds</a>
-    <a href="#stickers">Stickers</a>
-    <a href="#type">Colour &amp; type</a>
-    <a href="case-study.html">Case study →</a>
+<div class="app">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <button class="icon-btn" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="titles">
+      <h1 id="barTitle">Discover</h1>
+      <p id="barSub">Funny sounds &amp; wallpapers</p>
+    </div>
+    <button class="icon-btn" aria-label="Favourites">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg>
+    </button>
+    <button class="pro">PRO</button>
+  </header>
+
+  <!-- SCREENS -->
+  <div class="screens">
+
+    <!-- ============ HOME ============ -->
+    <section class="pane active" data-pane="home">
+      <p class="eyebrow">Good evening · time to prank</p>
+      <h2 class="hero">Find your<br>funny sound.</h2>
+      <p class="hero-sub">AI voices, prank calls, wallpapers and stickers — curated for maximum laughs.</p>
+
+      <div class="sec-head">
+        <h2><span class="spark">✦</span> AI Studio</h2>
+        <span class="muted">NEW</span>
+      </div>
+      <div class="ai-grid">
+        <article class="ai-card grad-a">
+          <span class="ico"><img src="assets/ic_txt_ai.png" alt="" /></span>
+          <h3>AI Text<br>Generator</h3>
+          <button class="pill-btn" data-go="playlist">Try text to sound</button>
+        </article>
+        <article class="ai-card grad-b">
+          <span class="ico"><img src="assets/ic_robot.png" alt="" /></span>
+          <h3>AI Sound<br>Generator</h3>
+          <button class="pill-btn" data-go="playlist">Record your voice</button>
+        </article>
+      </div>
+
+      <div class="sec-head">
+        <h2>Explore</h2>
+        <span class="muted">8 collections</span>
+      </div>
+      <div class="chips" id="moodChips">
+        <button class="chip on" data-mood="all">All</button>
+        <button class="chip" data-mood="funny">Funny</button>
+        <button class="chip" data-mood="animal">Animal</button>
+        <button class="chip" data-mood="laugh">Laugh</button>
+        <button class="chip" data-mood="fart">Fart</button>
+        <button class="chip" data-mood="dialogue">Dialogue</button>
+        <button class="chip" data-mood="baby">Baby</button>
+        <button class="chip" data-mood="alarms">Alarms</button>
+      </div>
+
+      <div class="masonry" id="exploreGrid">
+        <a class="tile t-lilac" data-mood="funny" data-go="playlist">
+          <span class="ico"><img src="assets/ic_ring.png" alt="" /></span>
+          <b>My Ring Name</b><span>12 sounds</span>
+        </a>
+        <a class="tile t-green" data-mood="funny" data-go="prank">
+          <span class="ico"><img src="assets/ic_dare_game.png" alt="" /></span>
+          <b>Dare Game</b><span>Play &amp; prank</span>
+        </a>
+        <a class="tile t-amber" data-mood="animal" data-go="stickers">
+          <span class="ico"><img src="assets/ic_funny_sticker.png" alt="" /></span>
+          <b>Funny Stickers</b><span>6 packs</span>
+        </a>
+        <a class="tile t-coral" data-mood="laugh" data-go="playlist">
+          <span class="ico"><img src="assets/ic_stories.png" alt="" /></span>
+          <b>Funny Stories</b><span>18 clips</span>
+        </a>
+        <a class="tile t-sky" data-mood="funny" data-go="playlist">
+          <span class="ico"><img src="assets/ic_gif.png" alt="" /></span>
+          <b>GIF Memes</b><span>24 memes</span>
+        </a>
+        <a class="tile t-surface" data-mood="laugh" data-go="playlist">
+          <span class="ico"><img src="assets/ic_funny_jokes.png" alt="" /></span>
+          <b>Funny Jokes</b><span>30 jokes</span>
+        </a>
+        <a class="tile t-rose" data-mood="alarms" data-go="playlist">
+          <span class="ico"><img src="assets/ic_alarm.png" alt="" /></span>
+          <b>Funny Alarms</b><span>14 alarms</span>
+        </a>
+        <a class="tile t-green" data-mood="fart" data-go="playlist">
+          <span class="ico"><img src="assets/ic_puzzle.png" alt="" /></span>
+          <b>Fart Pack</b><span>22 sounds</span>
+        </a>
+      </div>
+
+      <div class="sec-head">
+        <h2>Trending</h2>
+        <span class="muted">Updated daily</span>
+      </div>
+      <div class="sound-list">
+        <div class="srow">
+          <span class="sidx">01</span>
+          <img class="sart" src="assets/wall1.webp" alt="" />
+          <div class="smeta"><b>Funny 1</b><span>0:04 · Funny</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">02</span>
+          <img class="sart" src="assets/wall4.webp" alt="" />
+          <div class="smeta"><b>Dialogue 7</b><span>0:09 · Dialogue</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">03</span>
+          <img class="sart" src="assets/wall6.webp" alt="" />
+          <div class="smeta"><b>Fart 12</b><span>0:02 · Fart</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+      </div>
+
+      <div class="footlinks">
+        <a href="ui-check.html">UI check page</a>
+        <a href="case-study.html">Case study</a>
+        <a href="shots/ui-preview.png">PNG mockups</a>
+      </div>
+    </section>
+
+    <!-- ============ PRANK ============ -->
+    <section class="pane" data-pane="prank">
+      <p class="eyebrow">Prank call studio</p>
+      <h2 class="hero">Prank your<br>friends.</h2>
+      <p class="hero-sub">Pick a voice, pick a delay — the call rings with a recorded prank voice.</p>
+
+      <div class="sec-head"><h2>Voices</h2><span class="muted">Tap to select</span></div>
+      <div class="voice-row" id="voiceRow">
+        <button class="voice on"><img src="assets/wall1.webp" alt="" /><span>Boss</span></button>
+        <button class="voice"><img src="assets/wall2.webp" alt="" /><span>Ex Crush</span></button>
+        <button class="voice"><img src="assets/wall3.webp" alt="" /><span>Mom</span></button>
+        <button class="voice"><img src="assets/wall5.webp" alt="" /><span>Alien</span></button>
+        <button class="voice"><img src="assets/wall7.webp" alt="" /><span>Ghost</span></button>
+      </div>
+
+      <div class="sec-head"><h2>Start a prank</h2><span class="muted">Instant call</span></div>
+      <div class="call-list">
+        <div class="call-card">
+          <img src="assets/wall1.webp" alt="" />
+          <div class="call-meta"><b>Boss</b><span>Answers in 5 seconds</span></div>
+          <button class="call-btn" data-call="Boss" data-art="assets/wall1.webp">Call</button>
+        </div>
+        <div class="call-card">
+          <img src="assets/wall2.webp" alt="" />
+          <div class="call-meta"><b>Ex Crush</b><span>Answers in 10 seconds</span></div>
+          <button class="call-btn" data-call="Ex Crush" data-art="assets/wall2.webp">Call</button>
+        </div>
+        <div class="call-card">
+          <img src="assets/wall3.webp" alt="" />
+          <div class="call-meta"><b>Mom</b><span>Answers in 3 seconds</span></div>
+          <button class="call-btn" data-call="Mom" data-art="assets/wall3.webp">Call</button>
+        </div>
+        <div class="call-card">
+          <img src="assets/wall5.webp" alt="" />
+          <div class="call-meta"><b>Alien</b><span>Answers in 8 seconds</span></div>
+          <button class="call-btn" data-call="Alien" data-art="assets/wall5.webp">Call</button>
+        </div>
+      </div>
+
+      <div class="sec-head"><h2>Recorded pranks</h2><span class="muted">Saved</span></div>
+      <div class="sound-list">
+        <div class="srow">
+          <span class="sidx">01</span>
+          <img class="sart" src="assets/wall8.webp" alt="" />
+          <div class="smeta"><b>Birthday roast</b><span>0:12 · Recorded</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">02</span>
+          <img class="sart" src="assets/wall9.webp" alt="" />
+          <div class="smeta"><b>Ghost whisper</b><span>0:07 · Recorded</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WALLPAPERS ============ -->
+    <section class="pane" data-pane="walls">
+      <p class="eyebrow">Wallpapers</p>
+      <h2 class="hero">Fresh pins,<br>every day.</h2>
+      <p class="hero-sub">Tap any pin to preview and set it as your wallpaper.</p>
+
+      <div class="pins" id="wallGrid">
+        <button class="pin" data-shot="assets/wall1.webp"><img src="assets/wall1.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+        <button class="pin" data-shot="assets/wall2.webp"><img src="assets/wall2.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+        <button class="pin" data-shot="assets/wall3.webp"><img src="assets/wall3.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+        <button class="pin" data-shot="assets/wall4.webp"><img src="assets/wall4.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+        <button class="pin" data-shot="assets/wall5.webp"><img src="assets/wall5.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+        <button class="pin" data-shot="assets/wall6.webp"><img src="assets/wall6.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+        <button class="pin" data-shot="assets/wall7.webp"><img src="assets/wall7.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+        <button class="pin" data-shot="assets/wall8.webp"><img src="assets/wall8.webp" alt="Wallpaper" /><span class="tag">Tap to set</span><span class="fav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></span></button>
+      </div>
+    </section>
+
+    <!-- ============ PLAYLIST ============ -->
+    <section class="pane" data-pane="playlist">
+      <p class="eyebrow">AI playlist</p>
+      <h2 class="hero">Your funny<br>playlist.</h2>
+      <p class="hero-sub">Tap play to listen, tap the heart to save it to favourites.</p>
+
+      <div class="sec-head"><h2>All sounds</h2><span class="muted">128 clips</span></div>
+      <div class="sound-list">
+        <div class="srow">
+          <span class="sidx">01</span>
+          <img class="sart" src="assets/wall1.webp" alt="" />
+          <div class="smeta"><b>Funny 1</b><span>0:04 · Funny</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">02</span>
+          <img class="sart" src="assets/wall4.webp" alt="" />
+          <div class="smeta"><b>Dialogue 7</b><span>0:09 · Dialogue</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">03</span>
+          <img class="sart" src="assets/wall6.webp" alt="" />
+          <div class="smeta"><b>Fart 12</b><span>0:02 · Fart</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">04</span>
+          <img class="sart" src="assets/wall8.webp" alt="" />
+          <div class="smeta"><b>Animal 3</b><span>0:06 · Animal</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">05</span>
+          <img class="sart" src="assets/wall10.webp" alt="" />
+          <div class="smeta"><b>Laugh 9</b><span>0:05 · Laugh</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+        <div class="srow">
+          <span class="sidx">06</span>
+          <img class="sart" src="assets/wall9.webp" alt="" />
+          <div class="smeta"><b>Baby 3</b><span>0:07 · Baby</span></div>
+          <button class="sbtn splay" aria-label="Play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <button class="sbtn sheart" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-9.3C5 7.9 7 6 9.4 6c1.3 0 2.1.6 2.6 1.4C12.5 6.6 13.3 6 14.6 6 17 6 19 7.9 19 10.7 19 15.65 12 20 12 20Z"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STICKERS (reached from Explore) ============ -->
+    <section class="pane" data-pane="stickers">
+      <p class="eyebrow">WhatsApp stickers</p>
+      <h2 class="hero">Funny sticker<br>packs.</h2>
+      <p class="hero-sub">Add a pack to WhatsApp in one tap.</p>
+      <div class="masonry">
+        <button class="pin" data-shot="assets/ic_funny_sticker.png"><img src="assets/ic_funny_sticker.png" alt="" /><span class="tag">Add pack</span></button>
+        <button class="pin" data-shot="assets/his_card.png"><img src="assets/his_card.png" alt="" /><span class="tag">Add pack</span></button>
+        <button class="pin" data-shot="assets/ic_donkey.png"><img src="assets/ic_donkey.png" alt="" /><span class="tag">Add pack</span></button>
+        <button class="pin" data-shot="assets/ic_funny_jokes.png"><img src="assets/ic_funny_jokes.png" alt="" /><span class="tag">Add pack</span></button>
+      </div>
+    </section>
   </div>
 
-  <section class="block">
-    <h2>Chaaron main screens — ek nazar mein</h2>
-    <p class="file">design-preview/shots/ui-preview.png · 390×844 dp @2x</p>
-    <img src="shots/ui-preview.png" alt="Home, Wallpapers, Stickers, Sounds mockups"
-         style="width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line)" />
-  </section>
+  <!-- MINI PLAYER -->
+  <div class="mini" id="mini">
+    <img id="miniArt" src="assets/wall1.webp" alt="" />
+    <div>
+      <b id="miniTitle">Funny 1</b>
+      <span>Now playing</span>
+    </div>
+    <div class="bars"><i></i><i></i><i></i><i></i></div>
+  </div>
 
-  <!-- APP BAR + NAV -->
-  <section class="block" id="appbar">
-    <h2>App bar + bottom navigation</h2>
-    <p class="file">activity_main.xml · MainActivity.java</p>
-    <div class="stage-inline">
-      <div class="appbar">
-        <button class="icon-btn">☰</button>
-        <div class="appbar-titles">
-          <p class="appbar-title">Discover</p>
-          <p class="appbar-sub">Funny sounds &amp; wallpapers</p>
-        </div>
-        <button class="icon-btn">♥</button>
-        <button class="pro">PRO</button>
+  <!-- TAB BAR -->
+  <nav class="tabbar">
+    <button class="tab on" data-go="home">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M4 10.6 12 4l8 6.6V20a1 1 0 0 1-1 1h-4.6v-6H9.6v6H5a1 1 0 0 1-1-1z"/></svg>
+      <span>Discover</span><i class="dot"></i>
+    </button>
+    <button class="tab" data-go="prank">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M6.8 10.9a14.5 14.5 0 0 0 6.3 6.3l2-2a1 1 0 0 1 1-.24 11 11 0 0 0 3.2.5 1 1 0 0 1 1 1V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1h2.6a1 1 0 0 1 1 1 11 11 0 0 0 .5 3.2 1 1 0 0 1-.25 1z"/></svg>
+      <span>Prank</span><i class="dot"></i>
+    </button>
+    <button class="tab" data-go="walls">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="M4.5 17.5 9.8 12l3.4 3.4 2.4-2.2 3.9 4.3"/></svg>
+      <span>Walls</span><i class="dot"></i>
+    </button>
+    <button class="tab" data-go="playlist">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M9 18V6.5l10-2V16"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+      <span>Playlist</span><i class="dot"></i>
+    </button>
+  </nav>
+
+  <!-- WALLPAPER PREVIEW SHEET -->
+  <div class="sheet" id="wallSheet">
+    <div class="sheet-body">
+      <div class="grabber"></div>
+      <img class="preview" id="sheetImg" src="assets/wall1.webp" alt="Wallpaper preview" />
+      <h3>Set as wallpaper</h3>
+      <p>Home screen · lock screen · or both — same flow as the app.</p>
+      <div class="sheet-actions">
+        <button class="btn ghost" data-close>Cancel</button>
+        <button class="btn primary" data-close>Set wallpaper</button>
       </div>
     </div>
-    <div class="stage-inline" style="margin-top:12px;padding:10px">
-      <div class="tabbar" style="border-radius:16px;border:1px solid var(--line);overflow:hidden">
-        <span class="indicator" style="transform:translateX(24px)"></span>
-        <span class="tab is-active"><span class="tab-ico">⌂</span><span>Home</span></span>
-        <span class="tab"><span class="tab-ico">☏</span><span>Prank Call</span></span>
-        <span class="tab"><span class="tab-ico">▣</span><span>Wallpapers</span></span>
-        <span class="tab"><span class="tab-ico">♫</span><span>AI Playlist</span></span>
-      </div>
+  </div>
+
+  <!-- INCOMING PRANK CALL -->
+  <div class="call-screen" id="callScreen">
+    <div>
+      <p class="who">Incoming prank call</p>
+      <img id="callArt" src="assets/wall1.webp" alt="" />
+      <h2 id="callName">Boss</h2>
+      <p class="sub">Ringing… answer to play the prank voice</p>
     </div>
-  </section>
-
-  <!-- HOME -->
-  <section class="block" id="home">
-    <h2>Home — hero, AI Studio, masonry Explore</h2>
-    <p class="file">fragment_home.xml · Home.java</p>
-    <div class="stage-inline">
-      <p class="eyebrow">Good evening · time to prank</p>
-      <h2 class="hero" style="max-width:520px">Find your funny sound.</h2>
-      <p class="hero-sub" style="max-width:520px">AI voices, prank calls, wallpapers and stickers — curated for maximum laughs.</p>
-
-      <div class="section-head"><h3>AI Studio</h3><em>NEW</em></div>
-      <div class="ai-duo" style="max-width:520px">
-        <div class="ai-card lilac">
-          <span class="ai-icon"><img src="assets/ic_txt_ai.png" alt="" /></span>
-          <span class="spacer"></span>
-          <b>AI Text<br />Generator</b>
-          <span class="pill light">Try text to sound</span>
-        </div>
-        <div class="ai-card green">
-          <span class="ai-icon"><img src="assets/ic_robot.png" alt="" /></span>
-          <span class="spacer"></span>
-          <b>AI Sound<br />Generator</b>
-          <span class="pill light">Record your voice</span>
-        </div>
-      </div>
-
-      <div class="section-head"><h3>Explore</h3><em class="muted">8 collections</em></div>
-      <div class="masonry explore" style="max-width:520px">
-        <div class="col">
-          <div class="quick tall lilac-soft"><img src="assets/ic_ring.png" alt="" /><b>My Ring Name</b></div>
-          <div class="quick amber-soft"><img src="assets/ic_funny_sticker.png" alt="" /><b>Funny Stickers</b></div>
-          <div class="quick row sky-soft"><b>GIF Memes</b><img src="assets/ic_gif.png" alt="" /></div>
-          <div class="quick row rose-soft"><b>Puzzle Game</b><img src="assets/ic_puzzle.png" alt="" /></div>
-        </div>
-        <div class="col">
-          <div class="quick green-soft"><img src="assets/ic_dare_game.png" alt="" /><b>Dare Game</b></div>
-          <div class="quick tall coral-soft"><img src="assets/ic_stories.png" alt="" /><b>Funny Stories</b></div>
-          <div class="quick row"><b>Funny Jokes</b><img src="assets/ic_funny_jokes.png" alt="" /></div>
-          <div class="quick row green-softer"><b>Donkey Talk</b><img src="assets/ic_donkey.png" alt="" /></div>
-        </div>
-      </div>
+    <div class="call-actions">
+      <button class="call-decline" data-close aria-label="Decline">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-2.6 0-5 .5-7.2 1.5-.5.2-.8.7-.8 1.2v2.4c0 .6.6 1.1 1.2 1l2.6-.5c.4-.1.8-.4.9-.9l.4-1.4c1.9-.5 3.9-.5 5.8 0l.4 1.4c.1.4.4.8.9.9l2.6.5c.6.1 1.2-.4 1.2-1v-2.4c0-.5-.3-1-.8-1.2A19 19 0 0 0 12 9Z" transform="rotate(135 12 12)"/></svg>
+      </button>
+      <button class="call-answer" data-close aria-label="Answer">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-2.6 0-5 .5-7.2 1.5-.5.2-.8.7-.8 1.2v2.4c0 .6.6 1.1 1.2 1l2.6-.5c.4-.1.8-.4.9-.9l.4-1.4c1.9-.5 3.9-.5 5.8 0l.4 1.4c.1.4.4.8.9.9l2.6.5c.6.1 1.2-.4 1.2-1v-2.4c0-.5-.3-1-.8-1.2A19 19 0 0 0 12 9Z"/></svg>
+      </button>
     </div>
-  </section>
-
-  <!-- CHIPS + CATEGORY PINS -->
-  <section class="block">
-    <h2>Mood chips + category pins (working filter in the app)</h2>
-    <p class="file">fragment_home.xml · sound_listitem.xml · Home.java</p>
-    <div class="stage-inline">
-      <div class="chips">
-        <span class="chip is-selected">All</span><span class="chip">Funny</span><span class="chip">Animal</span>
-        <span class="chip">Laugh</span><span class="chip">Fart</span><span class="chip">Dialogue</span>
-        <span class="chip">Baby</span><span class="chip">Alarms</span>
-      </div>
-      <div class="masonry cats" style="max-width:640px">
-        <div class="col">
-          <div class="pin"><img class="thumb" src="assets/three.png" alt="" /><span class="label">Funny Sounds</span></div>
-          <div class="pin"><img class="thumb" src="assets/five.png" alt="" /><span class="label">Laugh Sounds</span></div>
-          <div class="pin"><img class="thumb" src="assets/seven.png" alt="" /><span class="label">Dialogue Sounds</span></div>
-        </div>
-        <div class="col">
-          <div class="pin"><img class="thumb" src="assets/four.png" alt="" /><span class="label">Animal Sounds</span></div>
-          <div class="pin"><img class="thumb" src="assets/six.png" alt="" /><span class="label">Fart Sounds</span></div>
-          <div class="pin"><img class="thumb" src="assets/eight.png" alt="" /><span class="label">Baby Sounds</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WALLPAPERS -->
-  <section class="block" id="walls">
-    <h2>Wallpapers — staggered masonry pins</h2>
-    <p class="file">fragment_favourite.xml · bg_layout.xml · Wall_Adapter.java</p>
-    <div class="stage-inline">
-      <div class="masonry walls" style="max-width:640px">
-        <div class="col">
-          <div class="pin"><img class="thumb" src="assets/wall1.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>
-          <div class="pin"><img class="thumb" src="assets/wall5.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>
-          <div class="pin"><img class="thumb" src="assets/wall8.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>
-        </div>
-        <div class="col">
-          <div class="pin"><img class="thumb" src="assets/wall3.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>
-          <div class="pin"><img class="thumb" src="assets/wall7.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>
-          <div class="pin"><img class="thumb" src="assets/wall9.webp" alt="" /><span class="shade"></span><span class="tag">Tap to set</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOUNDS -->
-  <section class="block" id="sounds">
-    <h2>Sound list rows</h2>
-    <p class="file">activity_sound_list.xml · sound_itemlayout.xml</p>
-    <div class="stage-inline" style="max-width:560px">
-      <div class="sound-rows">
-        <div class="sound-row"><span class="idx">01</span><img class="cover" src="assets/wall1.webp" alt="" /><span class="meta"><b>Funny 1</b><span>0:04 · saved</span></span><button class="heart is-liked">♥</button></div>
-        <div class="sound-row"><span class="idx">02</span><img class="cover" src="assets/wall2.webp" alt="" /><span class="meta"><b>Animal 4</b><span>0:05 · saved</span></span><button class="heart">♥</button></div>
-        <div class="sound-row"><span class="idx">03</span><img class="cover" src="assets/wall4.webp" alt="" /><span class="meta"><b>Dialogue 7</b><span>0:06 · saved</span></span><button class="heart">♥</button></div>
-        <div class="sound-row"><span class="idx">04</span><img class="cover" src="assets/wall6.webp" alt="" /><span class="meta"><b>Fart 12</b><span>0:07 · saved</span></span><button class="heart">♥</button></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STICKERS -->
-  <section class="block" id="stickers">
-    <h2>Sticker packs — 2-column board grid</h2>
-    <p class="file">activity_stickers_pack_list.xml · sticker_itemlayout.xml</p>
-    <div class="stage-inline">
-      <div class="pack-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">
-        <div class="pack" style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px">
-          <div style="background:var(--surface-alt);border-radius:13px;height:90px;display:grid;place-items:center"><img src="assets/three.png" alt="" style="width:56px" /></div>
-          <b style="display:block;font-size:12px;margin-top:8px">Funny Faces</b><span style="font-size:10px;color:var(--ink-faint)">412 KB</span>
-        </div>
-        <div class="pack" style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px">
-          <div style="background:var(--surface-alt);border-radius:13px;height:90px;display:grid;place-items:center"><img src="assets/four.png" alt="" style="width:56px" /></div>
-          <b style="display:block;font-size:12px;margin-top:8px">Animals</b><span style="font-size:10px;color:var(--ink-faint)">688 KB</span>
-        </div>
-        <div class="pack" style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px">
-          <div style="background:var(--surface-alt);border-radius:13px;height:90px;display:grid;place-items:center"><img src="assets/five.png" alt="" style="width:56px" /></div>
-          <b style="display:block;font-size:12px;margin-top:8px">Laugh Pack</b><span style="font-size:10px;color:var(--ink-faint)">523 KB</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TYPE + COLOUR -->
-  <section class="block" id="type">
-    <h2>Colour &amp; type tokens</h2>
-    <p class="file">colors.xml · styles.xml · res/font/poppins_*</p>
-    <div class="swatchline">
-      <div><i style="background:#141414"></i><span>#141414 ink</span></div>
-      <div><i style="background:#6E6A64"></i><span>#6E6A64 body</span></div>
-      <div><i style="background:#188E5A"></i><span>#188E5A primary</span></div>
-      <div><i style="background:#E4F3EB"></i><span>#E4F3EB soft</span></div>
-      <div><i style="background:#FF6B4A"></i><span>#FF6B4A accent</span></div>
-      <div><i style="background:#F6C53A"></i><span>#F6C53A amber</span></div>
-      <div><i style="background:#FBF9F6;border:1px solid #EBE6DF"></i><span>#FBF9F6 surface</span></div>
-    </div>
-    <div class="row2" style="margin-top:16px">
-      <div><p class="type-display">Display 26</p><p class="type-title">Title 20</p><p class="type-section">Section 17</p></div>
-      <div><p class="type-body">Body 13 — supporting copy in #6E6A64.</p><p class="type-eyebrow">EYEBROW 11</p></div>
-    </div>
-  </section>
-
-  <p class="changelog-foot">Full write-up: <code>docs/UI_REDESIGN_PLAN.md</code> · Android files: <code>app/src/main/res/layout</code></p>
+  </div>
 </div>
+
+<script>
+(function () {
+  var titles = {
+    home: ['Discover', 'Funny sounds & wallpapers'],
+    prank: ['Prank Call', 'Fake calls, real laughs'],
+    walls: ['Wallpapers', 'Tap a pin to preview'],
+    playlist: ['AI Playlist', 'Your saved sounds'],
+    stickers: ['Stickers', 'Add packs to WhatsApp']
+  };
+
+  var barTitle = document.getElementById('barTitle');
+  var barSub = document.getElementById('barSub');
+  var tabs = document.querySelectorAll('.tabbar .tab');
+  var panes = document.querySelectorAll('.pane');
+
+  function go(key, updateTab) {
+    panes.forEach(function (p) { p.classList.toggle('active', p.dataset.pane === key); });
+    if (titles[key]) { barTitle.textContent = titles[key][0]; barSub.textContent = titles[key][1]; }
+    if (updateTab !== false) {
+      tabs.forEach(function (t) { t.classList.toggle('on', t.dataset.go === key); });
+    }
+    var active = document.querySelector('.pane.active');
+    if (active) active.scrollTop = 0;
+  }
+
+  document.addEventListener('click', function (e) {
+    var target = e.target.closest('[data-go]');
+    if (!target) return;
+    var key = target.dataset.go;
+    // stickers is not a tab, keep the Walls tab highlighted? no — clear all
+    if (key === 'stickers') {
+      panes.forEach(function (p) { p.classList.toggle('active', p.dataset.pane === 'stickers'); });
+      barTitle.textContent = titles.stickers[0];
+      barSub.textContent = titles.stickers[1];
+      tabs.forEach(function (t) { t.classList.remove('on'); });
+      document.querySelector('.pane.active').scrollTop = 0;
+    } else {
+      go(key);
+    }
+  });
+
+  // hearts
+  document.addEventListener('click', function (e) {
+    var heart = e.target.closest('.sheart, .fav');
+    if (!heart) return;
+    if (heart.closest('.pin')) { e.stopPropagation(); }
+    heart.classList.toggle('on');
+  }, true);
+
+  // play / pause + mini player
+  var mini = document.getElementById('mini');
+  var miniTitle = document.getElementById('miniTitle');
+  var miniArt = document.getElementById('miniArt');
+  var rows = document.querySelectorAll('.srow');
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.splay');
+    if (!btn) return;
+    var row = btn.closest('.srow');
+    var wasPlaying = row.classList.contains('playing');
+    rows.forEach(function (r) { r.classList.remove('playing'); });
+    if (wasPlaying) {
+      mini.classList.remove('show');
+      return;
+    }
+    row.classList.add('playing');
+    miniTitle.textContent = row.querySelector('.smeta b').textContent;
+    var art = row.querySelector('.sart');
+    if (art) miniArt.src = art.getAttribute('src');
+    mini.classList.add('show');
+  });
+
+  // mood chips filter
+  var chips = document.querySelectorAll('#moodChips .chip');
+  var tiles = document.querySelectorAll('#exploreGrid .tile');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) { c.classList.remove('on'); });
+      chip.classList.add('on');
+      var mood = chip.dataset.mood;
+      tiles.forEach(function (tile) {
+        var show = mood === 'all' || tile.dataset.mood === mood;
+        tile.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // voice selection
+  document.querySelectorAll('.voice').forEach(function (v) {
+    v.addEventListener('click', function () {
+      document.querySelectorAll('.voice').forEach(function (x) { x.classList.remove('on'); });
+      v.classList.add('on');
+    });
+  });
+
+  // prank call overlay
+  var callScreen = document.getElementById('callScreen');
+  var callName = document.getElementById('callName');
+  var callArt = document.getElementById('callArt');
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.call-btn');
+    if (!btn) return;
+    callName.textContent = btn.dataset.call || 'Friend';
+    callArt.src = btn.dataset.art || 'assets/wall1.webp';
+    callScreen.classList.add('open');
+  });
+
+  // wallpaper preview sheet
+  var wallSheet = document.getElementById('wallSheet');
+  var sheetImg = document.getElementById('sheetImg');
+
+  document.querySelectorAll('.pin').forEach(function (pin) {
+    pin.addEventListener('click', function (e) {
+      if (e.target.closest('.fav')) return;
+      sheetImg.src = pin.dataset.shot;
+      wallSheet.classList.add('open');
+    });
+  });
+
+  // close overlays
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-close]')) {
+      wallSheet.classList.remove('open');
+      callScreen.classList.remove('open');
+      return;
+    }
+    if (e.target === wallSheet) wallSheet.classList.remove('open');
+    if (e.target === callScreen) callScreen.classList.remove('open');
+  });
+})();
+</script>
 </body>
 </html>

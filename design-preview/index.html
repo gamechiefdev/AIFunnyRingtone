@@ -32,8 +32,6 @@
     background: #E7E3DC;
     font-family: Poppins, "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--ink);
-    display: flex; align-items: center; justify-content: center;
-    min-height: 100dvh;
     overscroll-behavior: none;
     -webkit-font-smoothing: antialiased;
   }
@@ -43,17 +41,27 @@
     position: relative;
     width: 100%;
     max-width: 430px;
-    height: 100dvh;
+    margin: 0 auto;
+    height: 100vh;
+    min-height: 480px;
     background: var(--bg);
     display: flex;
     flex-direction: column;
     overflow: hidden;
   }
+  @supports (height: 100dvh) {
+    .app { height: 100dvh; }
+  }
   @media (min-width: 520px) {
     .app {
-      height: min(880px, 100dvh);
+      height: 880px;
+      max-height: 100vh;
+      margin: 20px auto;
       border-radius: 30px;
       box-shadow: 0 30px 70px rgba(20, 20, 20, 0.22);
+    }
+    @supports (height: 100dvh) {
+      .app { height: min(880px, 100dvh); max-height: none; }
     }
   }
 
@@ -87,16 +95,20 @@
   }
 
   /* ---------------- screens ---------------- */
-  .screens { flex: 1; min-height: 0; position: relative; }
-  .pane {
-    position: absolute; inset: 0;
-    overflow-y: auto; overflow-x: hidden;
-    padding: 0 18px 26px;
+  .screens {
+    flex: 1 1 auto;
+    max-height: 100vh;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    display: none;
   }
-  .pane::-webkit-scrollbar { display: none; }
+  .screens::-webkit-scrollbar { display: none; }
+  .pane {
+    display: none;
+    padding: 0 18px 26px;
+  }
   .pane.active { display: block; animation: fade .18s ease; }
   @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
@@ -266,7 +278,8 @@
     align-items: center;
     border-top: 1px solid var(--line);
     background: #fff;
-    padding: 7px 6px calc(7px + env(safe-area-inset-bottom));
+    padding: 7px 6px 7px;
+    padding-bottom: calc(7px + env(safe-area-inset-bottom));
   }
   .tab {
     border: 0; background: none; cursor: pointer;
@@ -299,14 +312,15 @@
 
   /* ---------------- overlays ---------------- */
   .sheet {
-    position: absolute; inset: 0; z-index: 9;
+    position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 9;
     display: none; align-items: flex-end;
     background: rgba(20, 20, 20, .45);
   }
   .sheet.open { display: flex; }
   .sheet-body {
     width: 100%; background: #fff;
-    border-radius: 26px 26px 0 0; padding: 12px 18px calc(18px + env(safe-area-inset-bottom));
+    border-radius: 26px 26px 0 0; padding: 12px 18px 18px;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
     animation: up .22s ease;
   }
   @keyframes up { from { transform: translateY(18px); opacity: .6; } to { transform: none; opacity: 1; } }
@@ -321,10 +335,11 @@
 
   /* incoming call */
   .call-screen {
-    position: absolute; inset: 0; z-index: 10;
+    position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 10;
     display: none; flex-direction: column; align-items: center;
     justify-content: space-between; text-align: center; color: #fff;
-    padding: 64px 24px calc(40px + env(safe-area-inset-bottom));
+    padding: 64px 24px 40px;
+    padding-bottom: calc(40px + env(safe-area-inset-bottom));
     background: radial-gradient(120% 90% at 50% 0%, #1FB37A 0%, #0E6640 55%, #093B26 100%);
   }
   .call-screen.open { display: flex; }
@@ -475,7 +490,7 @@
       <div class="footlinks">
         <a href="ui-check.html">UI check page</a>
         <a href="case-study.html">Case study</a>
-        <a href="shots/ui-preview.png">PNG mockups</a>
+        <a href="shots/webview.png">Webview image</a>
       </div>
     </section>
 
@@ -706,6 +721,8 @@
     if (updateTab !== false) {
       tabs.forEach(function (t) { t.classList.toggle('on', t.dataset.go === key); });
     }
+    var scroller = document.querySelector('.screens');
+    if (scroller) scroller.scrollTop = 0;
     var active = document.querySelector('.pane.active');
     if (active) active.scrollTop = 0;
   }
@@ -720,7 +737,7 @@
       barTitle.textContent = titles.stickers[0];
       barSub.textContent = titles.stickers[1];
       tabs.forEach(function (t) { t.classList.remove('on'); });
-      document.querySelector('.pane.active').scrollTop = 0;
+      document.querySelector('.screens').scrollTop = 0;
     } else {
       go(key);
     }

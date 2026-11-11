@@ -274,3 +274,12 @@ Motion sirf presentation hai: koi listener, data ya business logic nahi chhua.
 
 - `design-preview/index.html`: layered `box-shadow` tokens (`--lift-1..3`), gloss overlay on gradient cards, `floaty` / `floaty-late` keyframes on AI cards, tiles, pins, active tab icon; `rise` per screen, `pop` for sheets; `prefers-reduced-motion` respected.
 - `design-preview/render_3d.py`: mockups ko contact shadow + gloss ke saath dobara render karta hai.
+
+---
+
+## Phase 4 — Pinterest / playful pass (v6.2.1)
+
+- **Floating pill navigation** — Android: `bg_nav_pill.xml` + margins/elevation on `activity_main.xml#bottom` (indicator maths unchanged, ids intact). Web/mockups: same floating pill with active tab as a soft green capsule.
+- **Sticker energy** — rotated `PRANK MODE` badge (`bg_sticker_badge.xml`, `android:rotation="6"`, `tag="float_late"`), `NEW` as a raised 3D pill, emoji section titles (`AI Studio ✨`, `Explore 🧩`) via strings.
+- **Save badges on boards** — web tiles get a white heart "save" button (`::after`), mockups draw the same pin-save button; `8 boards` counter pill.
+- **Warmth** — tile radius 20 → 22dp, `bg_chip_3d` raised chips, gloss retained from Phase 3.

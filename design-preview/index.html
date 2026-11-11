@@ -108,7 +108,15 @@
     background-image: linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
     border: 1px solid rgba(20,20,20,.055);
   }
-  .tile { border: 1px solid rgba(20,20,20,.05); }
+  .tile { border: 1px solid rgba(20,20,20,.05); position: relative; }
+  .tile::after {
+    content: "\2665";
+    position: absolute; top: 10px; right: 10px;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: #fff; color: #E5484D; font-size: 11px; line-height: 1;
+    box-shadow: 0 6px 14px -8px rgba(20,20,20,.7);
+  }
   .srow:hover, .tile:hover, .call-card:hover, .pin:hover { transform: translateY(-2px); box-shadow: var(--lift-2); }
   .srow:active, .tile:active, .call-card:active { transform: translateY(0) scale(.985); box-shadow: var(--lift-1); }
   .pin { box-shadow: var(--lift-2); }
@@ -193,6 +201,14 @@
   @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
   /* ---------------- type helpers ---------------- */
+  .sticker {
+    position: absolute; top: 12px; right: 16px;
+    transform: rotate(6deg);
+    background: var(--accent-soft); color: #E2452A;
+    font: 600 9px/1 Poppins, sans-serif; letter-spacing: .06em;
+    padding: 7px 11px; border-radius: 999px;
+    box-shadow: 0 6px 14px -8px rgba(226, 69, 42, .8);
+  }
   .eyebrow {
     margin: 4px 0 8px; font-size: 10.5px; font-weight: 600;
     letter-spacing: .12em; text-transform: uppercase; color: var(--primary);
@@ -358,18 +374,29 @@
     flex: none; position: relative; z-index: 4;
     display: grid; grid-template-columns: repeat(4, 1fr);
     align-items: center;
-    border-top: 1px solid var(--line);
+    margin: 6px 12px 8px;
+    margin-bottom: calc(8px + env(safe-area-inset-bottom));
+    border: 1px solid var(--line);
     background: #fff;
-    padding: 7px 6px 7px;
-    padding-bottom: calc(7px + env(safe-area-inset-bottom));
+    border-radius: 999px;
+    padding: 8px 6px;
+    box-shadow: 0 14px 30px -16px rgba(20, 20, 20, .38), 0 1px 0 rgba(255,255,255,.9) inset;
   }
   .tab {
     border: 0; background: none; cursor: pointer;
     display: flex; flex-direction: column; align-items: center; gap: 4px;
-    padding: 4px 0 0; color: var(--nav-off);
+    padding: 6px 0 2px; color: var(--nav-off);
     font: 500 10px/1 Poppins, sans-serif;
+    border-radius: 999px;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
   }
-  .tab.on { color: var(--primary); font-weight: 600; }
+  .tab.on {
+    color: var(--primary); font-weight: 600;
+    flex-direction: row; gap: 6px;
+    background: var(--primary-softer);
+    padding: 9px 12px;
+  }
+  .tab.on .dot { display: none; }
   .tab .dot { width: 16px; height: 3px; border-radius: 999px; background: transparent; margin-top: 1px; }
   .tab.on .dot { background: var(--primary); }
 
@@ -480,6 +507,7 @@
 
     <!-- ============ HOME ============ -->
     <section class="pane active" data-pane="home">
+      <span class="sticker">PRANK MODE</span>
       <p class="eyebrow">Good evening · time to prank</p>
       <h2 class="hero">Find your<br>funny sound.</h2>
       <p class="hero-sub">AI voices, prank calls, wallpapers and stickers — curated for maximum laughs.</p>
@@ -503,7 +531,7 @@
 
       <div class="sec-head">
         <h2>Explore</h2>
-        <span class="muted">8 collections</span>
+        <span class="muted">8 boards</span>
       </div>
       <div class="chips" id="moodChips">
         <button class="chip on" data-mood="all">All</button>

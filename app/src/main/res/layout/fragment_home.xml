@@ -33,12 +33,38 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/heroGreeting"
-                    style="@style/Pin.Text.Eyebrow"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Your daily dose of chaos" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/heroGreeting"
+                        style="@style/Pin.Text.Eyebrow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Your daily dose of chaos" />
+
+                    <!-- playful rotated sticker -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_sticker_badge"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:includeFontPadding="false"
+                        android:paddingStart="11dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="11dp"
+                        android:paddingBottom="6dp"
+                        android:rotation="6"
+                        android:text="@string/prank_mode"
+                        android:textColor="#E2452A"
+                        android:textSize="8.5sp"
+                        android:tag="float_late"
+                        android:elevation="4dp" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/heroTitle"
@@ -82,10 +108,18 @@
                     android:text="@string/ai_studio" />
 
                 <TextView
-                    style="@style/Pin.Text.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NEW" />
+                    android:background="@drawable/bg_chip_3d"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/sticker_new"
+                    android:textColor="@color/pin_primary_dark"
+                    android:textSize="8.5sp" />
             </LinearLayout>
 
             <TextView
@@ -250,7 +284,7 @@
                     style="@style/Pin.Text.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8 collections" />
+                    android:text="@string/boards_count" />
             </LinearLayout>
 
             <LinearLayout

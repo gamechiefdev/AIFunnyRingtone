@@ -71,9 +71,9 @@
 
     <string name="discover">Discover</string>
     <string name="discover_subtitle">Funny sounds &amp; wallpapers</string>
-    <string name="ai_studio">AI Studio</string>
+    <string name="ai_studio">AI Studio ✨</string>
     <string name="ai_studio_subtitle">Generate something nobody expects</string>
-    <string name="explore">Explore</string>
+    <string name="explore">Explore 🧩</string>
     <string name="categories">Browse by mood</string>
     <string name="ai_text_generator">AI Text\nGenerator</string>
     <string name="ai_sound_generator">AI Sound\nGenerator</string>
@@ -96,4 +96,9 @@
     <string name="quick_donkey">Donkey Talk</string>
     <string name="quick_jokes">Funny Jokes</string>
     <string name="saved_count">%1$d saved</string>
+    <string name="prank_mode">PRANK MODE</string>
+    <string name="boards_count">8 boards</string>
+    <string name="save_pin">Save</string>
+    <string name="sticker_new">NEW</string>
+    <string name="fun_badge_hot">🔥 HOT</string>
 </resources>

@@ -7,7 +7,7 @@ Draws the shipped v6.1 "Pin" design system at 2x using the same tokens,
 Poppins TTFs and bundled artwork that live in app/src/main/res.
 """
 import os
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "shots")
@@ -26,6 +26,7 @@ PRIMARY = "#188E5A"
 PRIMARY_DARK = "#0E6640"
 PRIMARY_SOFT = "#E4F3EB"
 PRIMARY_SOFTER = "#F1F9F4"
+ACCENT = "#FF6B4A"
 ACCENT_SOFT = "#FFE9E3"
 AMBER_SOFT = "#FFF4D6"
 LILAC = "#7C6CF6"
@@ -156,20 +157,35 @@ def appbar(d, title, sub, right="heart"):
 
 
 def tabbar(d, active=0):
-    y0 = H - 66
-    rrect(d, (0, y0, W, H), 26, fill=WHITE, outline=LINE, width=1)
-    d.rectangle([0, P(y0), P(W), P(H)], fill=WHITE)
-    d.line([P(26), P(y0 + 1), P(W - 26), P(y0 + 1)], fill=LINE, width=P(1))
+    """Floating Pinterest-style pill nav."""
+    im = d._image
+    y0, y1 = H - 74, H - 14
+    x0, x1 = 14, W - 14
+
+    # soft shadow under the bar
+    sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle([P(x0 + 2), P(y0 + 8), P(x1 - 2), P(y1 + 8)],
+                                         radius=P(999), fill=(20, 18, 14, 52))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(P(6))))
+
+    d.rounded_rectangle([P(x0), P(y0), P(x1), P(y1)], radius=P(999),
+                        fill=WHITE, outline="#EFE9E1", width=P(1))
+    d.rounded_rectangle([P(x0 + 1), P(y0 + 1), P(x1 - 1), P(y0 + 22)], radius=P(999), fill="#FFFFFF")
+
     labels = ["Home", "Prank", "Walls", "Playlist"]
     kinds = ["home", "phone", "wall", "music"]
-    slot = W / 4
+    slot = (x1 - x0) / 4
+    cy = (y0 + y1) / 2
     for i in range(4):
-        cx = slot * i + slot / 2
-        color = PRIMARY if i == active else INK_FAINT
-        glyph_nav(d, kinds[i], cx, y0 + 26, color)
-        text(d, (cx, y0 + 46), labels[i], f("medium" if i != active else "semibold", 10), color, anchor="mm")
-    # sliding indicator
-    rrect(d, (slot * active + slot / 2 - 11, H - 8, slot * active + slot / 2 + 11, H - 4), 999, PRIMARY)
+        cx = x0 + slot * i + slot / 2
+        color = PRIMARY if i == active else "#9A948C"
+        if i == active:
+            d.rounded_rectangle([P(cx - 40), P(y0 + 8), P(cx + 40), P(y1 - 8)], radius=P(999), fill=PRIMARY_SOFTER)
+        glyph_nav(d, kinds[i], cx - (16 if i == active else 0), cy, color)
+        if i == active:
+            text(d, (cx + 6, cy), labels[i], f("semibold", 10.5), PRIMARY, anchor="lm")
+        else:
+            text(d, (cx, cy + 15), labels[i], f("medium", 9), color, anchor="ma")
 
 
 def screen_shell(title, sub, back=False):
@@ -190,6 +206,15 @@ def home():
     img, d = screen_shell("", "")
     appbar(d, "Discover", "Funny sounds & wallpapers")
 
+    # rotated sticker badge (playful Pinterest accent)
+    badge = Image.new("RGBA", (P(104), P(28)), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(badge)
+    bd.rounded_rectangle([0, 0, badge.width - 1, badge.height - 1], radius=P(999), fill=ACCENT_SOFT)
+    bf = f("semibold", 8.5)
+    bd.text((badge.width / 2, badge.height / 2), "PRANK MODE", font=bf, fill="#E2452A", anchor="mm")
+    badge = badge.rotate(5, expand=True, resample=Image.BICUBIC)
+    img.alpha_composite(badge, (P(246), P(96)))
+
     text(d, (18, 84), "GOOD EVENING · TIME TO PRANK", f("semibold", 9.5), PRIMARY)
     text(d, (18, 100), "Find your", f("semibold", 26), INK)
     text(d, (18, 130), "funny sound.", f("semibold", 26), INK)
@@ -200,7 +225,7 @@ def home():
     star = [(22, 214), (24.5, 220), (30, 222), (24.5, 224), (22, 230), (19.5, 224), (14, 222), (19.5, 220)]
     d.polygon([(P(x), P(y)) for x, y in star], fill=PRIMARY)
     text(d, (36, 212), "AI Studio", f("semibold", 17), INK)
-    text(d, (330, 216), "NEW", f("semibold", 10), INK_FAINT)
+    pill(d, (322, 210, 374, 232), 999, PRIMARY_SOFT, "NEW", f("semibold", 8.5), PRIMARY_DARK)
 
     cards = [
         (18, LILAC_SOFT, "#7C6CF6", "#FF8A6B", "ic_txt_ai.png", "AI Text", "Generator", "Try text to sound", LILAC),
@@ -221,11 +246,13 @@ def home():
         pill(d, (x + 14, 390, x + 14 + 120, 420), 999, WHITE, cta, f("semibold", 9.5), cta_color)
 
     # explore
-    text(d, (18, 448), "Explore", f("semibold", 17), INK)
-    text(d, (306, 452), "8 collections", f("regular", 10.5), INK_FAINT)
+    star2 = [(22, 452), (24, 457), (29, 459), (24, 461), (22, 466), (20, 461), (15, 459), (20, 457)]
+    d.polygon([(P(x), P(y)) for x, y in star2], fill=ACCENT)
+    text(d, (36, 450), "Explore", f("semibold", 17), INK)
+    pill(d, (300, 448, 372, 468), 999, SURFACE_ALT, "8 boards", f("semibold", 8.5), INK_SOFT)
 
     def quick(x, y, w, h, bg, icon=None, label=None, row=False):
-        rrect(d, (x, y, x + w, y + h), 20, fill=bg)
+        rrect(d, (x, y, x + w, y + h), 22, fill=bg)
         if row:
             text(d, (x + 14, y + h / 2), label, f("semibold", 12.5), INK, anchor="lm")
             ic = Image.open(f"{BASE}/assets/{icon}").convert("RGBA")
@@ -240,11 +267,18 @@ def home():
             else:
                 text(d, (x + 14, y + h - 30), label, f("semibold", 12.5), INK)
 
+    def save_pin(x, y, w):
+        cx, cy = x + w - 22, y + 22
+        d.ellipse([P(cx - 13), P(cy - 13), P(cx + 13), P(cy + 13)], fill=WHITE)
+        glyph_heart(d, cx, cy - 1, 0.62, "#E5484D")
+
     quick(18, 474, 172, 126, LILAC_SOFT, "ic_ring.png", "My Ring Name")
+    save_pin(18, 474, 172)
     quick(18, 610, 172, 104, AMBER_SOFT, "ic_funny_sticker.png", "Funny Stickers")
 
     quick(200, 474, 172, 104, PRIMARY_SOFT, "ic_dare_game.png", "Dare Game")
     quick(200, 588, 172, 126, ACCENT_SOFT, "ic_stories.png", "Funny Stories")
+    save_pin(200, 588, 172)
 
     # mood chips peeking above the tab bar (as on a scrolled device)
     cx = 18
@@ -359,7 +393,7 @@ def build_sheet(screens):
 
     title_font = f("semibold", 24)
     sub_font = f("regular", 12.5)
-    d.text((pad, pad), "AI Funny Ringtones — v6.1 “Pin” UI", font=title_font, fill=INK)
+    d.text((pad, pad), "AI Funny Ringtones — v6.2 “Pin + 3D” UI", font=title_font, fill=INK)
     d.text((pad, pad + 58), "Real layouts · Poppins · app artwork · same view ids & logic", font=sub_font, fill=INK_SOFT)
 
     y = pad + 118

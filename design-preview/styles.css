@@ -640,3 +640,47 @@ body {
 .m-sheet-title { margin: 14px 0; font-size: 13px; font-weight: 600; text-align: center; }
 .m-sheet-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .m-sheet-btns .pill { display: grid; place-items: center; height: 40px; font-size: 12px; margin: 0; }
+
+/* ======================================================================
+   RESPONSIVE / WEBVIEW-SAFE PASS
+   The first version used fixed 390px phone widths + CSS scale; inside a
+   narrow preview iframe that pushed the UI off-screen. Everything below
+   makes the mockups fluid so they are always visible.
+   ====================================================================== */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+@media (max-width: 1120px) {
+  .stage { grid-template-columns: 1fr; gap: 28px; }
+  .panel { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .page { padding: 32px 16px 56px; }
+  .devices { grid-template-columns: 1fr; }
+  .device, .device.mini, .device.before {
+    width: 100%; max-width: 380px; height: auto; min-height: 0;
+    border-radius: 34px; border-width: 8px;
+  }
+  .device.after { height: 760px; }
+  .frame { width: 100%; max-width: 330px; height: auto; overflow: visible; }
+  .frame .device, .frame .device.mini {
+    width: 100%; height: auto; transform: none; border-radius: 30px; border-width: 7px;
+  }
+  /* inner screens flow instead of scrolling inside a fixed box */
+  .device.mini .scroll, .before .old-scroll { overflow: visible; flex: 0 0 auto; }
+  .device.mini .m-splash, .device.mini .m-record { min-height: 440px; flex: 1 1 auto; }
+  .device.mini.overlay { min-height: 560px; }
+  .m-wall-preview { min-height: 520px; }
+  .m-premium { top: 60px; }
+  .shot figcaption { order: 2; }
+  .gallery { grid-template-columns: 1fr; gap: 26px; }
+}
+
+@media (max-width: 520px) {
+  .intro h1 { font-size: 34px; }
+  .panel-block { padding: 16px; }
+  .device.after { height: 700px; border-radius: 26px; }
+  .device.after .hero { font-size: 24px; }
+  .quicknav { gap: 4px; }
+  .quicknav a { padding: 7px 11px; font-size: 11px; }
+}

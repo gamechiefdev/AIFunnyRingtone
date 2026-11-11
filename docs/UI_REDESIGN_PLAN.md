@@ -352,3 +352,12 @@ User feedback: comic ink outlines heavy lag rahe the. Is liye:
 - Preview: ink borders hataye, face discs se black ring hataya, cards par sirf hairline.
 
 Baqi funny elements intact: Chewy titles, blush wash, tilt, wobble, confetti, emoji/googly stickers, 3D shadows.
+
+---
+
+## Phase 9 — parity pass (v6.7)
+
+- Saari 33 screen roots par `bg_screen_gradient` (cream→pink wash) — pehle sirf Home par tha.
+- `Pin.Text.Section` 19sp (preview ke section heads jesa).
+- Home tiles / sticker art pre-view wali heights par wapas (126sdp / 104sdp) taake proportions match karein.
+- `docs/PREVIEW_PARITY.md` — screen ↔ layout map + 4 unavoidable differences + rebuild steps.

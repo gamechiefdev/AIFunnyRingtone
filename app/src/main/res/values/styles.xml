@@ -29,7 +29,7 @@
     </style>
 
     <style name="Pin.Text.Section">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">19sp</item>
         <item name="android:textColor">@color/pin_ink</item>
         <item name="android:fontFamily">@font/chewy</item>
         <item name="android:includeFontPadding">false</item>
